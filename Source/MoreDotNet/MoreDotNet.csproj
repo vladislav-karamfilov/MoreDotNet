@@ -40,15 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extentions\ByteArrayExtentions.cs" />
     <Compile Include="Extentions\CollectionExtentions.cs" />
     <Compile Include="Extentions\ConvertibleExtentions.cs" />
+    <Compile Include="Extentions\DataExtentions.cs" />
     <Compile Include="Extentions\DateTimeExtentions.cs" />
+    <Compile Include="Extentions\DictionaryExtentions.cs" />
     <Compile Include="Extentions\EnumerableExtentions.cs" />
     <Compile Include="Extentions\GenericExtentions.cs" />
+    <Compile Include="Extentions\ListExtentions.cs" />
+    <Compile Include="Extentions\LockExtentions.cs" />
+    <Compile Include="Extentions\ObjectExtentions.cs" />
     <Compile Include="Extentions\RandomExtentions.cs" />
     <Compile Include="Extentions\RomanNumeralExtensions.cs" />
     <Compile Include="Extentions\StringExtentions.cs" />
     <Compile Include="Extentions\XmlExtentions.cs" />
+    <Compile Include="Models\CharType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

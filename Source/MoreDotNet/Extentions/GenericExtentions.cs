@@ -13,7 +13,7 @@
         {
             if (obj == null)
             {
-                throw new ArgumentNullException("parameterName", parameterName + " not allowed to be null");
+                throw new ArgumentNullException(parameterName, parameterName + " not allowed to be null");
             }
         }
     }
