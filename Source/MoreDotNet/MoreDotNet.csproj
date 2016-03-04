@@ -31,7 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,21 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extentions\BitmapExtentions.cs" />
     <Compile Include="Extentions\ByteArrayExtentions.cs" />
     <Compile Include="Extentions\CollectionExtentions.cs" />
+    <Compile Include="Extentions\ColorExtentions.cs" />
     <Compile Include="Extentions\ConvertibleExtentions.cs" />
     <Compile Include="Extentions\DataExtentions.cs" />
     <Compile Include="Extentions\DateTimeExtentions.cs" />
     <Compile Include="Extentions\DictionaryExtentions.cs" />
     <Compile Include="Extentions\EnumerableExtentions.cs" />
+    <Compile Include="Extentions\EnumExtentions.cs" />
     <Compile Include="Extentions\GenericExtentions.cs" />
+    <Compile Include="Extentions\IntegerExtentions.cs" />
     <Compile Include="Extentions\ListExtentions.cs" />
     <Compile Include="Extentions\LockExtentions.cs" />
     <Compile Include="Extentions\ObjectExtentions.cs" />
     <Compile Include="Extentions\RandomExtentions.cs" />
     <Compile Include="Extentions\RomanNumeralExtensions.cs" />
+    <Compile Include="Extentions\StreamExtentions.cs" />
     <Compile Include="Extentions\StringExtentions.cs" />
+    <Compile Include="Extentions\TypeExtentions.cs" />
     <Compile Include="Extentions\XmlExtentions.cs" />
+    <Compile Include="Helpers\DirectoryHelpers.cs" />
+    <Compile Include="Helpers\FileHelpers.cs" />
     <Compile Include="Models\CharType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

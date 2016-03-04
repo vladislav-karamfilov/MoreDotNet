@@ -50,6 +50,44 @@
             return sb.ToString(0, Math.Max(0, sb.Length - separator.Length));
         }
 
+        public static T ObjectWithMin<T, TResult>(this IEnumerable<T> sequence, Func<T, TResult> predicate)
+            where T : class
+            where TResult : IComparable
+        {
+            if (!sequence.Any())
+            {
+                return null;
+            }
+
+            // get the first object with its predicate value
+            var seed = sequence.Select(x => new { Object = x, Value = predicate(x) }).FirstOrDefault();
+
+            // compare against all others, replacing the accumulator with the lesser value
+            // tie goes to first object found
+            return sequence
+                .Select(x => new { Object = x, Value = predicate(x) }) 
+                .Aggregate(seed, (acc, x) => acc.Value.CompareTo(x.Value) <= 0 ? acc : x).Object;
+        }
+
+        public static T ObjectWithMax<T, TResult>(this IEnumerable<T> sequence, Func<T, TResult> predicate)
+            where T : class
+            where TResult : IComparable
+        {
+            if (!sequence.Any())
+            {
+                return null;
+            }
+
+            // get the first object with its predicate value
+            var seed = sequence.Select(x => new { Object = x, Value = predicate(x) }).FirstOrDefault();
+
+            // compare against all others, replacing the accumulator with the greater value
+            // tie goes to last object found
+            return sequence
+                    .Select(x => new { Object = x, Value = predicate(x) })
+                    .Aggregate(seed, (acc, x) => acc.Value.CompareTo(x.Value) > 0 ? acc : x).Object;
+        }
+
         private static IEnumerable<T> ShuffleIterator<T>(this IEnumerable<T> source, Random rng)
         {
             var buffer = source.ToList();

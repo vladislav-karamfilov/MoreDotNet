@@ -1,6 +1,7 @@
 ﻿namespace MoreDotNet.Extentions
 {
     using System;
+    using System.ComponentModel;
     using System.Globalization;
     using System.Text.RegularExpressions;
     using System.Threading;
@@ -147,6 +148,26 @@
             }
 
             return value;
+        }
+
+        // TODO: Test!
+        public static bool IsValue<T>(this string input)
+        {
+            T temp;
+
+            var type = typeof(T);
+            var converter = TypeDescriptor.GetConverter(type);
+
+            try
+            {
+                converter.ConvertFromInvariantString(input);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
