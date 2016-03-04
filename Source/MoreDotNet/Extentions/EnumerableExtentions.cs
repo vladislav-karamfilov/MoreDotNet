@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public static class EnumerableExtentions
     {
@@ -11,6 +12,11 @@
             {
                 mapFunction(item);
             }
+        }
+
+        public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> pSeq)
+        {
+            return pSeq ?? Enumerable.Empty<T>();
         }
     }
 }
