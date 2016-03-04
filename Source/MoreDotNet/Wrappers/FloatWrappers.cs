@@ -4,22 +4,22 @@
     {
         public static bool IsNaN(this float input)
         {
-            return double.IsNaN(input);
+            return float.IsNaN(input);
         }
 
-        public static bool IsInfinity(this double input)
+        public static bool IsInfinity(this float input)
         {
-            return double.IsInfinity(input);
+            return float.IsInfinity(input);
         }
 
-        public static bool IsNegativeInfinity(this double input)
+        public static bool IsNegativeInfinity(this float input)
         {
-            return double.IsNegativeInfinity(input);
+            return float.IsNegativeInfinity(input);
         }
 
-        public static bool IsPositiveInfinity(this double input)
+        public static bool IsPositiveInfinity(this float input)
         {
-            return double.IsPositiveInfinity(input);
+            return float.IsPositiveInfinity(input);
         }
     }
 }

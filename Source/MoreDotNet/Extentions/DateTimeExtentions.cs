@@ -132,5 +132,42 @@
         {
             return date.IsPast(DateTime.Now);
         }
+
+        public static bool Between(this DateTime input, DateTime rangeBeg, DateTime rangeEnd)
+        {
+            return input.Ticks >= rangeBeg.Ticks && input.Ticks <= rangeEnd.Ticks;
+        }
+
+        public static int CalculateHumanAge(this DateTime dateTime)
+        {
+            var age = DateTime.Now.Year - dateTime.Year;
+            if (DateTime.Now < dateTime.AddYears(age))
+            {
+                age--;
+            }
+
+            return age;
+        }
+
+        public static bool WorkingDay(this DateTime date)
+        {
+            return date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday;
+        }
+
+        public static bool IsWeekend(this DateTime date)
+        {
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+
+        public static DateTime NextWorkday(this DateTime date)
+        {
+            var nextDay = date;
+            while (!nextDay.WorkingDay())
+            {
+                nextDay = nextDay.AddDays(1);
+            }
+
+            return nextDay;
+        }
     }
 }

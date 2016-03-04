@@ -171,6 +171,26 @@
             return -1;
         }
 
+        public static string RemoveLastCharacter(this string input)
+        {
+            return input.Substring(0, input.Length - 1);
+        }
+
+        public static string RemoveLast(this string input, int number)
+        {
+            return input.Substring(0, input.Length - number);
+        }
+
+        public static string RemoveFirstCharacter(this string input)
+        {
+            return input.Substring(1);
+        }
+
+        public static string RemoveFirst(this string input, int number)
+        {
+            return input.Substring(number);
+        }
+
         // TODO: Test!
         public static bool IsValue<T>(this string input)
         {
