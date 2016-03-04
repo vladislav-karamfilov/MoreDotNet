@@ -1,6 +1,7 @@
 ﻿namespace MoreDotNet.Extentions
 {
     using System;
+    using System.Linq.Expressions;
 
     public static class GenericExtentions
     {
@@ -15,6 +16,13 @@
             {
                 throw new ArgumentNullException(parameterName, parameterName + " not allowed to be null");
             }
+        }
+
+        public static string GetMemberName<T, TResult>(
+            this T anyObject,
+            Expression<Func<T, TResult>> expression)
+        {
+            return ((MemberExpression)expression.Body).Member.Name;
         }
     }
 }

@@ -150,6 +150,32 @@
             return value;
         }
 
+        public static bool IsNullOrEmpty(this string s)
+        {
+            return string.IsNullOrEmpty(s);
+        }
+
+        public static int NthIndexOf(this string str, string match, int occurrence)
+        {
+            int i = 1;
+            int index = 0;
+
+            while (i <= occurrence &&
+                (index = str.IndexOf(match, index + 1, StringComparison.Ordinal)) != -1)
+            {
+
+                if (i == occurrence)
+                {
+                    // Occurrence match found!
+                    return index;
+                }
+                i++;
+            }
+
+            // Match not found
+            return -1;
+        }
+
         // TODO: Test!
         public static bool IsValue<T>(this string input)
         {
