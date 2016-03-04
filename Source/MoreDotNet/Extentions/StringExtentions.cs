@@ -76,13 +76,11 @@
             return result;
         }
 
-
         // TODO: Review
         public static string ToReadableTime(this DateTime value)
         {
             TimeSpan span = DateTime.Now.Subtract(value);
             const string Plural = "s";
-
 
             if (span.Days > 7)
             {
@@ -104,6 +102,7 @@
                                                span.Seconds,
                                                span.Seconds != 1 ? Plural : string.Empty);
                             }
+
                             return string.Format(
                                 "{0} minute{1} ago",
                                 span.Minutes,
@@ -111,6 +110,7 @@
                         default:
                             return string.Format("{0} hour{1} ago", span.Hours, span.Hours != 1 ? Plural : string.Empty);
                     }
+
                 default:
                     return string.Format("{0} day{1} ago", span.Days, span.Days != 1 ? Plural : string.Empty);
             }
