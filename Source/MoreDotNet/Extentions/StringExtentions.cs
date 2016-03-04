@@ -150,11 +150,6 @@
             return value;
         }
 
-        public static bool IsNullOrEmpty(this string s)
-        {
-            return string.IsNullOrEmpty(s);
-        }
-
         public static int NthIndexOf(this string str, string match, int occurrence)
         {
             int i = 1;
