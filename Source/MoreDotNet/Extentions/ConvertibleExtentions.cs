@@ -35,7 +35,7 @@
             }
         }
 
-        public static T ToOrOther<T> (this IConvertible obj, T other)
+        public static T ToOrOther<T>(this IConvertible obj, T other)
         {
             try
             {

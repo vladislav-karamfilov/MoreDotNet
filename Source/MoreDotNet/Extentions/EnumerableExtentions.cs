@@ -14,9 +14,9 @@
             }
         }
 
-        public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> pSeq)
+        public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> items)
         {
-            return pSeq ?? Enumerable.Empty<T>();
+            return items ?? Enumerable.Empty<T>();
         }
     }
 }

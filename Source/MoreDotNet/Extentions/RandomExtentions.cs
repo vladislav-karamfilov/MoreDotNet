@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoreDotNet.Extentions
+﻿namespace MoreDotNet.Extentions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public static class RandomExtentions
     {
         public static bool NextBool(this Random randomGenerator)
@@ -28,6 +26,5 @@ namespace MoreDotNet.Extentions
             int index = randomGenerator.Next(0, items.Count());
             return items.ElementAt(index);
         }
-
     }
 }
