@@ -65,6 +65,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Extentions\CollectionExtentions\AddRangeTests.cs" />
+    <Compile Include="Extentions\CollectionExtentions\IsNullOrEmptyTests.cs" />
     <Compile Include="Extentions\StringExtentions\CapitalizeTests.cs" />
     <Compile Include="Extentions\StringExtentions\IsLikeTests.cs" />
     <Compile Include="Extentions\StringExtentions\NthIndexOfTests.cs" />
