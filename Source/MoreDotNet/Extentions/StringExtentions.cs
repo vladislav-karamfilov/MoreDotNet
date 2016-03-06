@@ -6,11 +6,18 @@
     using System.Text.RegularExpressions;
     using System.Threading;
 
+    using MoreDotNet.Wrappers;
+
     public static class StringExtentions
     {
-        public static string ToTitleCase(this string inputText)
+        /// <summary>
+        /// Provides a title case of the supplied string.
+        /// </summary>
+        /// <param name="input">The string instance where the extension method is called.</param>
+        /// <returns>The string in title case.</returns>
+        public static string ToTitleCase(this string input)
         {
-            if (inputText == null)
+            if (input == null)
             {
                 return null;
             }
@@ -19,36 +26,53 @@
             var textInfo = cultureInfo.TextInfo;
 
             // TextInfo.ToTitleCase only operates on the string if is all lower case, otherwise it returns the string unchanged.
-            return textInfo.ToTitleCase(inputText.ToLower());
-        }
-
-        public static string ToWords(this string camelCaseWord)
-        {
-            // if the word is all upper, just return it
-            if (!Regex.IsMatch(camelCaseWord, "[a-z]"))
-            {
-                return camelCaseWord;
-            }
-
-            return string.Join(" ", Regex.Split(camelCaseWord, @"(?<!^)(?=[A-Z])"));
-        }
-
-        public static string Capitalize(this string word)
-        {
-            return word[0].ToString().ToUpper() + word.Substring(1);
+            return textInfo.ToTitleCase(input);
         }
 
         /// <summary>
-        /// Indicates whether the current string matches the supplied wildcard pattern.  Behaves the same
-        /// as VB's "Like" Operator.
+        /// Transforms a pascal case or camel case string to separate words.
         /// </summary>
-        /// <param name="s">The string instance where the extension method is called</param>
-        /// <param name="wildcardPattern">The wildcard pattern to match.  Syntax matches VB's Like operator.</param>
+        /// <param name="input">The string instance where the extension method is called.</param>
+        /// <returns>The separated words.</returns>
+        public static string CaseToWords(this string input)
+        {
+            input.ThrowIfArgumentIsNull("input");
+
+            // if the input is all upper, just return it
+            if (!Regex.IsMatch(input, "[a-z]"))
+            {
+                return input;
+            }
+
+            return string.Join(" ", Regex.Split(input, @"(?<!^)(?=[A-Z])"));
+        }
+
+        /// <summary>
+        /// Makes the first character of a string upper case.
+        /// </summary>
+        /// <param name="input">The string instance where the extension method is called.</param>
+        /// <returns>The capitalized word.</returns>
+        public static string Capitalize(this string input)
+        {
+            if (input.IsNullOrWhiteSpace())
+            {
+                return input;
+            }
+
+            return input[0].ToString().ToUpper() + input.Substring(1);
+        }
+
+        /// <summary>
+        /// Indicates whether the current string matches the supplied wild-card pattern.  Behaves the same
+        /// as VB'input "Like" Operator.
+        /// </summary>
+        /// <param name="input">The string instance where the extension method is called</param>
+        /// <param name="wildcardPattern">The wild-card pattern to match.  Syntax matches VB'input Like operator.</param>
         /// <returns>true if the string matches the supplied pattern, false otherwise.</returns>
         /// <remarks>See http://msdn.microsoft.com/en-us/library/swf8kaxw(v=VS.100).aspx</remarks>
-        public static bool IsLike(this string s, string wildcardPattern)
+        public static bool IsLike(this string input, string wildcardPattern)
         {
-            if (s == null || string.IsNullOrEmpty(wildcardPattern))
+            if (input == null || string.IsNullOrEmpty(wildcardPattern))
             {
                 return false;
             }
@@ -67,7 +91,7 @@
             bool result;
             try
             {
-                result = Regex.IsMatch(s, regexPattern);
+                result = Regex.IsMatch(input, regexPattern);
             }
             catch (ArgumentException ex)
             {
@@ -75,46 +99,6 @@
             }
 
             return result;
-        }
-
-        // TODO: Review
-        public static string ToReadableTime(this DateTime value)
-        {
-            TimeSpan span = DateTime.Now.Subtract(value);
-            const string Plural = "s";
-
-            if (span.Days > 7)
-            {
-                return value.ToShortDateString();
-            }
-
-            switch (span.Days)
-            {
-                case 0:
-                    switch (span.Hours)
-                    {
-                        case 0:
-                            if (span.Minutes == 0)
-                            {
-                                return span.Seconds <= 0
-                                           ? "now"
-                                           : string.Format(
-                                               "{0} second{1} ago",
-                                               span.Seconds,
-                                               span.Seconds != 1 ? Plural : string.Empty);
-                            }
-
-                            return string.Format(
-                                "{0} minute{1} ago",
-                                span.Minutes,
-                                span.Minutes != 1 ? Plural : string.Empty);
-                        default:
-                            return string.Format("{0} hour{1} ago", span.Hours, span.Hours != 1 ? Plural : string.Empty);
-                    }
-
-                default:
-                    return string.Format("{0} day{1} ago", span.Days, span.Days != 1 ? Plural : string.Empty);
-            }
         }
 
         public static string ToShortGuidString(this Guid value)
