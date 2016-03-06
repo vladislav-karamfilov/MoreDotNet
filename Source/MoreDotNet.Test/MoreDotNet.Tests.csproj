@@ -68,7 +68,10 @@
     <Compile Include="Extentions\StringExtentions\CapitalizeTests.cs" />
     <Compile Include="Extentions\StringExtentions\IsLikeTests.cs" />
     <Compile Include="Extentions\StringExtentions\NthIndexOfTests.cs" />
+    <Compile Include="Extentions\StringExtentions\RemoveFirstCharacterTests.cs" />
+    <Compile Include="Extentions\StringExtentions\RemoveFirstTests.cs" />
     <Compile Include="Extentions\StringExtentions\RemoveLastCharacterTests.cs" />
+    <Compile Include="Extentions\StringExtentions\RemoveLastTests.cs" />
     <Compile Include="Extentions\StringExtentions\ToMaximumLengthStringTests.cs" />
     <Compile Include="Extentions\StringExtentions\ToTitleCaseTests.cs" />
     <Compile Include="Extentions\StringExtentions\CaseToWordsTests.cs" />
