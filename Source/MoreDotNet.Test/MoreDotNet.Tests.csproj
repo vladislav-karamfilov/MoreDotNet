@@ -65,18 +65,18 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Extentions\CollectionExtentions\AddRangeTests.cs" />
-    <Compile Include="Extentions\CollectionExtentions\IsNullOrEmptyTests.cs" />
-    <Compile Include="Extentions\StringExtentions\CapitalizeTests.cs" />
-    <Compile Include="Extentions\StringExtentions\IsLikeTests.cs" />
-    <Compile Include="Extentions\StringExtentions\NthIndexOfTests.cs" />
-    <Compile Include="Extentions\StringExtentions\RemoveFirstCharacterTests.cs" />
-    <Compile Include="Extentions\StringExtentions\RemoveFirstTests.cs" />
-    <Compile Include="Extentions\StringExtentions\RemoveLastCharacterTests.cs" />
-    <Compile Include="Extentions\StringExtentions\RemoveLastTests.cs" />
-    <Compile Include="Extentions\StringExtentions\ToMaximumLengthStringTests.cs" />
-    <Compile Include="Extentions\StringExtentions\ToTitleCaseTests.cs" />
-    <Compile Include="Extentions\StringExtentions\CaseToWordsTests.cs" />
+    <Compile Include="Extentions\Common\CollectionExtentions\AddRangeTests.cs" />
+    <Compile Include="Extentions\Common\CollectionExtentions\IsNullOrEmptyTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\CapitalizeTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\IsLikeTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\NthIndexOfTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\RemoveFirstCharacterTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\RemoveFirstTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\RemoveLastCharacterTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\RemoveLastTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\ToMaximumLengthStringTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\ToTitleCaseTests.cs" />
+    <Compile Include="Extentions\Common\StringExtentions\CaseToWordsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
