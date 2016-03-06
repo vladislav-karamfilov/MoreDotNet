@@ -39,11 +39,7 @@
 
         public static int ParseRomanNumeral(this string value)
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException("value");
-            }
-
+            value.ThrowIfArgumentIsNull("value");
             value = value.ToUpperInvariant().Trim();
 
             var length = value.Length;

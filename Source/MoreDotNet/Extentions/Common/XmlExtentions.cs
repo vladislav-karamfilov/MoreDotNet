@@ -1,40 +1,33 @@
 ﻿namespace MoreDotNet.Extentions.Common
 {
-    using System;
     using System.IO;
     using System.Xml.Serialization;
 
     public static class XmlExtentions
     {
-        /// <summary>Serializes an object of type T in to an xml string</summary>
+        /// <summary>Serializes an object of type T in to an XML string</summary>
         /// <typeparam name="T">Any class type</typeparam>
-        /// <param name="obj">Object to serialize</param>
-        /// <returns>A string that represents Xml, empty otherwise</returns>
-        public static string XmlSerialize<T>(this T obj) where T : class, new()
+        /// <param name="inputObject">Object to serialize</param>
+        /// <returns>A string that represents XML, empty otherwise</returns>
+        public static string XmlSerialize<T>(this T inputObject) where T : class, new()
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj");
-            }
+            inputObject.ThrowIfArgumentIsNull("inputObject");
 
             var serializer = new XmlSerializer(typeof(T));
             using (var writer = new StringWriter())
             {
-                serializer.Serialize(writer, obj);
+                serializer.Serialize(writer, inputObject);
                 return writer.ToString();
             }
         }
 
-        /// <summary>Deserializes an xml string in to an object of Type T</summary>
+        /// <summary>Deserializes an XML string in to an object of Type T</summary>
         /// <typeparam name="T">Any class type</typeparam>
-        /// <param name="xml">Xml as string to deserialize from</param>
+        /// <param name="xml">XML as string to deserialize from</param>
         /// <returns>A new object of type T is successful, null if failed</returns>
         public static T XmlDeserialize<T>(this string xml) where T : class, new()
         {
-            if (xml == null)
-            {
-                throw new ArgumentNullException("xml");
-            }
+            xml.ThrowIfArgumentIsNull("xml");
 
             var serializer = new XmlSerializer(typeof(T));
             using (var reader = new StringReader(xml))

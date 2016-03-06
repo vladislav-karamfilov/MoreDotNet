@@ -11,7 +11,7 @@
             
             using (Graphics graphic = Graphics.FromImage(newBitmap))
             {
-                // the grayscale ColorMatrix
+                // the gray-scale ColorMatrix
                 ColorMatrix colorMatrix =
                     new ColorMatrix(
                         new[]
