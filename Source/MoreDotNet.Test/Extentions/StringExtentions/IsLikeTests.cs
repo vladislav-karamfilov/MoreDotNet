@@ -1,4 +1,4 @@
-﻿namespace MoreDotNet.Test.Extentions.StringExtentions
+﻿namespace MoreDotNet.Tests.Extentions.StringExtentions
 {
     using System;
 

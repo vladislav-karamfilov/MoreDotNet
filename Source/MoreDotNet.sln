@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet", "MoreDotNet\MoreDotNet.csproj", "{35BB3946-1A1B-4426-93BD-62D3ADC44ABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.Test", "MoreDotNet.Test\MoreDotNet.Test.csproj", "{26E622DD-17FA-4B3A-A076-78DD5A2113D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.Tests", "MoreDotNet.Test\MoreDotNet.Tests.csproj", "{26E622DD-17FA-4B3A-A076-78DD5A2113D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.Runner", "MoreDotNet.Runner\MoreDotNet.Runner.csproj", "{667E3BB2-30C6-4CF0-AABC-702137D98B46}"
 EndProject

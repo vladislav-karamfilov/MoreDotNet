@@ -7,8 +7,8 @@
     <ProjectGuid>{26E622DD-17FA-4B3A-A076-78DD5A2113D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MoreDotNet.Test</RootNamespace>
-    <AssemblyName>MoreDotNet.Test</AssemblyName>
+    <RootNamespace>MoreDotNet.Tests</RootNamespace>
+    <AssemblyName>MoreDotNet.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -68,6 +68,7 @@
     <Compile Include="Extentions\StringExtentions\CapitalizeTests.cs" />
     <Compile Include="Extentions\StringExtentions\IsLikeTests.cs" />
     <Compile Include="Extentions\StringExtentions\NthIndexOfTests.cs" />
+    <Compile Include="Extentions\StringExtentions\RemoveLastCharacterTests.cs" />
     <Compile Include="Extentions\StringExtentions\ToMaximumLengthStringTests.cs" />
     <Compile Include="Extentions\StringExtentions\ToTitleCaseTests.cs" />
     <Compile Include="Extentions\StringExtentions\CaseToWordsTests.cs" />
