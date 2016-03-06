@@ -141,6 +141,8 @@
         /// <returns>The index of the n-th occurrence of the <paramref name="match"/> string.</returns>
         public static int NthIndexOf(this string input, string match, int occurrence)
         {
+            const int NotFoundValue = -1;
+
             input.ThrowIfArgumentIsNull("input");
             match.ThrowIfArgumentIsNull("match");
 
@@ -149,11 +151,11 @@
                 throw new ArgumentException("occurrence equal to 1 or larger.", "occurrence");
             }
 
-            int i = 1;
-            int index = 0;
+            var i = 1;
+            var index = 0;
 
             while (i <= occurrence &&
-                (index = input.IndexOf(match, index + 1, StringComparison.Ordinal)) != -1)
+                (index = input.IndexOf(match, index + 1, StringComparison.Ordinal)) != NotFoundValue)
             {
                 if (i == occurrence)
                 {
@@ -165,7 +167,7 @@
             }
 
             // Match not found
-            return -1;
+            return NotFoundValue;
         }
 
         /// <summary>
@@ -175,6 +177,7 @@
         /// <returns>The string without its last character.</returns>
         public static string RemoveLastCharacter(this string input)
         {
+            input.ThrowIfArgumentIsNull("input");
             return input.Substring(0, input.Length - 1);
         }
 
@@ -186,6 +189,7 @@
         /// <returns>The string without its last <paramref name="number"/> characters</returns>
         public static string RemoveLast(this string input, int number)
         {
+            input.ThrowIfArgumentIsNull("input");
             return input.Substring(0, input.Length - number);
         }
 
@@ -196,6 +200,7 @@
         /// <returns>The string without its first character.</returns>
         public static string RemoveFirstCharacter(this string input)
         {
+            input.ThrowIfArgumentIsNull("input");
             return input.Substring(1);
         }
 
@@ -207,6 +212,7 @@
         /// <returns>The string without its first <paramref name="number"/> characters</returns>
         public static string RemoveFirst(this string input, int number)
         {
+            input.ThrowIfArgumentIsNull("input");
             return input.Substring(number);
         }
 

@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Extentions\StringExtentions\CapitalizeTests.cs" />
     <Compile Include="Extentions\StringExtentions\IsLikeTests.cs" />
+    <Compile Include="Extentions\StringExtentions\NthIndexOfTests.cs" />
     <Compile Include="Extentions\StringExtentions\ToMaximumLengthStringTests.cs" />
     <Compile Include="Extentions\StringExtentions\ToTitleCaseTests.cs" />
     <Compile Include="Extentions\StringExtentions\CaseToWordsTests.cs" />
