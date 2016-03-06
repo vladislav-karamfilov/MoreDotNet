@@ -21,7 +21,7 @@
         public void CaseToWords_ParseNullString_ShouldReturnNullString()
         {
             string input = null;
-            Assert.Throws(typeof(ArgumentNullException), () => input.CaseToWords());
+            Assert.Throws<ArgumentNullException>(() => input.CaseToWords());
         }
 
         [Fact]

@@ -43,24 +43,6 @@
         }
 
         [Fact]
-        public void Capitalize_ParseStringBeginWithCyrillicSmallLetter_ShouldReturnCapitalizedFirstLetter()
-        {
-            string expected = "Академия";
-            string input = "академия";
-            string actual = input.Capitalize();
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void Capitalize_ParseStringBeginWithCyrillicSmallLetter_ShouldReturnSameString()
-        {
-            string expected = "Академия";
-            string input = "Академия";
-            string actual = input.Capitalize();
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
         public void Capitalize_ParseStringBeginWithSpecialSymbol_ShouldReturnSameString()
         {
             string expected = "@TestString";

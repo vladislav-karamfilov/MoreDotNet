@@ -71,6 +71,7 @@
         /// <param name="input">The string instance on which the extension method is called.</param>
         /// <param name="wildcardPattern">The wild-card pattern to match.  Syntax matches VB'input Like operator.</param>
         /// <returns>true if the string matches the supplied pattern, false otherwise.</returns>
+        /// <exception cref="ArgumentException">Thrown when wild-card pattern is invalid.</exception>
         /// <remarks>See http://msdn.microsoft.com/en-us/library/swf8kaxw(v=VS.100).aspx</remarks>
         public static bool IsLike(this string input, string wildcardPattern)
         {
@@ -109,13 +110,12 @@
         /// <param name="input">The string instance on which the extension method is called.</param>
         /// <param name="maximumLength">The maximum length of text to be preserved.</param>
         /// <param name="postFixText">The replacement string for the excessive text.</param>
+        /// <exception cref="ArgumentNullException">Thrown when input or postfix text is null.</exception>
         /// <returns>The trimmed string.</returns>
         public static string ToMaximumLengthString(this string input, int maximumLength, string postFixText = "...")
         {
-            if (string.IsNullOrWhiteSpace(postFixText))
-            {
-                throw new ArgumentNullException("postFixText");
-            }
+            input.ThrowIfArgumentIsNull("input");
+            postFixText.ThrowIfArgumentIsNull("postFixText");
 
             if (input.Length > maximumLength)
             {
@@ -136,9 +136,19 @@
         /// <param name="input">The string instance on which the extension method is called.</param>
         /// <param name="match">The string we are searching for.</param>
         /// <param name="occurrence">Occurrence number.</param>
+        /// <exception cref="ArgumentNullException">Thrown when input or match text is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the occurrence is lower than 1.</exception>
         /// <returns>The index of the n-th occurrence of the <paramref name="match"/> string.</returns>
         public static int NthIndexOf(this string input, string match, int occurrence)
         {
+            input.ThrowIfArgumentIsNull("input");
+            match.ThrowIfArgumentIsNull("match");
+
+            if (occurrence < 1)
+            {
+                throw new ArgumentException("occurrence equal to 1 or larger.", "occurrence");
+            }
+
             int i = 1;
             int index = 0;
 
