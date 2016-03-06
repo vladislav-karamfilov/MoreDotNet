@@ -13,7 +13,7 @@
         /// <summary>
         /// Provides a title case of the supplied string.
         /// </summary>
-        /// <param name="input">The string instance where the extension method is called.</param>
+        /// <param name="input">The string instance on which the extension method is called.</param>
         /// <returns>The string in title case.</returns>
         public static string ToTitleCase(this string input)
         {
@@ -32,7 +32,7 @@
         /// <summary>
         /// Transforms a pascal case or camel case string to separate words.
         /// </summary>
-        /// <param name="input">The string instance where the extension method is called.</param>
+        /// <param name="input">The string instance on which the extension method is called.</param>
         /// <returns>The separated words.</returns>
         public static string CaseToWords(this string input)
         {
@@ -50,7 +50,7 @@
         /// <summary>
         /// Makes the first character of a string upper case.
         /// </summary>
-        /// <param name="input">The string instance where the extension method is called.</param>
+        /// <param name="input">The string instance on which the extension method is called.</param>
         /// <returns>The capitalized word.</returns>
         public static string Capitalize(this string input)
         {
@@ -59,14 +59,16 @@
                 return input;
             }
 
-            return input[0].ToString().ToUpper() + input.Substring(1);
+            return input[0]
+                .ToString(CultureInfo.InvariantCulture)
+                .ToUpper(CultureInfo.InvariantCulture) + input.Substring(1);
         }
 
         /// <summary>
         /// Indicates whether the current string matches the supplied wild-card pattern.  Behaves the same
         /// as VB'input "Like" Operator.
         /// </summary>
-        /// <param name="input">The string instance where the extension method is called</param>
+        /// <param name="input">The string instance on which the extension method is called.</param>
         /// <param name="wildcardPattern">The wild-card pattern to match.  Syntax matches VB'input Like operator.</param>
         /// <returns>true if the string matches the supplied pattern, false otherwise.</returns>
         /// <remarks>See http://msdn.microsoft.com/en-us/library/swf8kaxw(v=VS.100).aspx</remarks>
@@ -101,53 +103,54 @@
             return result;
         }
 
-        public static string ToShortGuidString(this Guid value)
-        {
-            return Convert.ToBase64String(value.ToByteArray())
-                .Replace("/", "_")
-                .Replace("+", "-")
-                .Substring(0, 22);
-        }
-
-        public static Guid FromShortGuidString(this string value)
-        {
-            return new Guid(Convert.FromBase64String(value.Replace("_", "/")
-                                                         .Replace("-", "+") + "=="));
-        }
-
-        public static string ToStringMaximumLength(this string value, int maximumLength, string postFixText = "...")
+        /// <summary>
+        /// Trims excessive text over some maximum length and replaces it with a specified string.
+        /// </summary>
+        /// <param name="input">The string instance on which the extension method is called.</param>
+        /// <param name="maximumLength">The maximum length of text to be preserved.</param>
+        /// <param name="postFixText">The replacement string for the excessive text.</param>
+        /// <returns>The trimmed string.</returns>
+        public static string ToMaximumLengthString(this string input, int maximumLength, string postFixText = "...")
         {
             if (string.IsNullOrWhiteSpace(postFixText))
             {
                 throw new ArgumentNullException("postFixText");
             }
 
-            if (value.Length > maximumLength)
+            if (input.Length > maximumLength)
             {
                 return string.Format(
                     CultureInfo.InvariantCulture,
                     "{0}{1}",
-                    value.Substring(0, maximumLength - postFixText.Length),
+                    input.Substring(0, maximumLength - postFixText.Length),
                     postFixText);
             }
 
-            return value;
+            return input;
         }
 
-        public static int NthIndexOf(this string str, string match, int occurrence)
+
+        /// <summary>
+        /// Gets the index of the n-th occurrence of a specified string.
+        /// </summary>
+        /// <param name="input">The string instance on which the extension method is called.</param>
+        /// <param name="match">The string we are searching for.</param>
+        /// <param name="occurrence">Occurrence number.</param>
+        /// <returns>The index of the n-th occurrence of the <paramref name="match"/> string.</returns>
+        public static int NthIndexOf(this string input, string match, int occurrence)
         {
             int i = 1;
             int index = 0;
 
             while (i <= occurrence &&
-                (index = str.IndexOf(match, index + 1, StringComparison.Ordinal)) != -1)
+                (index = input.IndexOf(match, index + 1, StringComparison.Ordinal)) != -1)
             {
-
                 if (i == occurrence)
                 {
-                    // Occurrence match found!
+                    // Match found!
                     return index;
                 }
+
                 i++;
             }
 
@@ -155,44 +158,66 @@
             return -1;
         }
 
+        /// <summary>
+        /// Removes the last character of the string.
+        /// </summary>
+        /// <param name="input">The string instance on which the extension method is called.</param>
+        /// <returns>The string without its last character.</returns>
         public static string RemoveLastCharacter(this string input)
         {
             return input.Substring(0, input.Length - 1);
         }
 
+        /// <summary>
+        /// Removes the last n characters of a string.
+        /// </summary>
+        /// <param name="input">The string instance on which the extension method is called.</param>
+        /// <param name="number">The number of characters to be removed.</param>
+        /// <returns>The string without its last <paramref name="number"/> characters</returns>
         public static string RemoveLast(this string input, int number)
         {
             return input.Substring(0, input.Length - number);
         }
 
+        /// <summary>
+        /// Removes the first character of the string.
+        /// </summary>
+        /// <param name="input">The string instance on which the extension method is called.</param>
+        /// <returns>The string without its first character.</returns>
         public static string RemoveFirstCharacter(this string input)
         {
             return input.Substring(1);
         }
 
+        /// <summary>
+        /// Removes the first n characters of a string.
+        /// </summary>
+        /// <param name="input">The string instance on which the extension method is called.</param>
+        /// <param name="number">The number of characters to be removed.</param>
+        /// <returns>The string without its first <paramref name="number"/> characters</returns>
         public static string RemoveFirst(this string input, int number)
         {
             return input.Substring(number);
         }
 
-        // TODO: Test!
-        public static bool IsValue<T>(this string input)
-        {
-            T temp;
+        ////// TODO: Test!
+        ////public static bool IsValue<T>(this string input)
+        ////{
+        ////    T temp;
 
-            var type = typeof(T);
-            var converter = TypeDescriptor.GetConverter(type);
+        ////    var type = typeof(T);
+        ////    var converter = TypeDescriptor.GetConverter(type);
 
-            try
-            {
-                converter.ConvertFromInvariantString(input);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+        ////    try
+        ////    {
+        ////        converter.ConvertFromInvariantString(input);
+        ////    }
+        ////    catch (Exception)
+        ////    {
+        ////        return false;
+        ////    }
 
-            return true;
-        }
+        ////    return true;
+        ////}
     }
 }
