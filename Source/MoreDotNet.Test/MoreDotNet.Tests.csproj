@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +70,8 @@
     <Compile Include="Extentions\Common\BooleanExtentions\WhenTrueTests.cs" />
     <Compile Include="Extentions\Common\CollectionExtentions\AddRangeTests.cs" />
     <Compile Include="Extentions\Common\CollectionExtentions\IsNullOrEmptyTests.cs" />
+    <Compile Include="Extentions\Common\ColorExtentions\ToHexStringTests.cs" />
+    <Compile Include="Extentions\Common\ColorExtentions\ToRgbStringTests.cs" />
     <Compile Include="Extentions\Common\StringExtentions\CapitalizeTests.cs" />
     <Compile Include="Extentions\Common\StringExtentions\IsLikeTests.cs" />
     <Compile Include="Extentions\Common\StringExtentions\NthIndexOfTests.cs" />

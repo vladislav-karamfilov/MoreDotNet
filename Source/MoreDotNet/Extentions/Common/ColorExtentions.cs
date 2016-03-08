@@ -45,7 +45,7 @@
         {
             // Math taken from one of the replies to
             // http://stackoverflow.com/questions/2241447/make-foregroundcolor-black-or-white-depending-on-background
-            if (Math.Sqrt((input.R * input.R * .241) + (input.G * input.G * .691) + (input.B * input.B * .068)) > 128)
+            if (Math.Sqrt((input.R * input.R * .299) + (input.G * input.G * .587) + (input.B * input.B * .114)) > 128)
             {
                 return Color.Black;
             }
