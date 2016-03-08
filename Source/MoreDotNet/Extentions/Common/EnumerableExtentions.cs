@@ -65,7 +65,7 @@
             // compare against all others, replacing the accumulator with the lesser value
             // tie goes to first object found
             return sequence
-                .Select(x => new { Object = x, Value = predicate(x) }) 
+                .Select(x => new { Object = x, Value = predicate(x) })
                 .Aggregate(seed, (acc, x) => acc.Value.CompareTo(x.Value) <= 0 ? acc : x).Object;
         }
 

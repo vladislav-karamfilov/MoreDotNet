@@ -5,7 +5,9 @@
 
     public static class XmlExtentions
     {
-        /// <summary>Serializes an object of type T in to an XML string</summary>
+        /// <summary>
+        /// Serializes an object of type T in to an XML string
+        /// </summary>
         /// <typeparam name="T">Any class type</typeparam>
         /// <param name="inputObject">Object to serialize</param>
         /// <returns>A string that represents XML, empty otherwise</returns>
@@ -21,16 +23,18 @@
             }
         }
 
-        /// <summary>Deserializes an XML string in to an object of Type T</summary>
+        /// <summary>
+        /// Deserializes an XML string in to an object of Type T
+        /// </summary>
         /// <typeparam name="T">Any class type</typeparam>
-        /// <param name="xml">XML as string to deserialize from</param>
+        /// <param name="inputXml">XML as string to deserialize from</param>
         /// <returns>A new object of type T is successful, null if failed</returns>
-        public static T XmlDeserialize<T>(this string xml) where T : class, new()
+        public static T XmlDeserialize<T>(this string inputXml) where T : class, new()
         {
-            xml.ThrowIfArgumentIsNull("xml");
+            inputXml.ThrowIfArgumentIsNull("inputXml");
 
             var serializer = new XmlSerializer(typeof(T));
-            using (var reader = new StringReader(xml))
+            using (var reader = new StringReader(inputXml))
             {
                 try
                 {

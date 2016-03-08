@@ -56,7 +56,6 @@
     <Compile Include="Extentions\Common\GenericExtentions.cs" />
     <Compile Include="Extentions\Common\IntegerExtentions.cs" />
     <Compile Include="Extentions\Common\ListExtentions.cs" />
-    <Compile Include="Extentions\Common\LockExtentions.cs" />
     <Compile Include="Extentions\Common\ObjectExtentions.cs" />
     <Compile Include="Extentions\Common\OperatingSystemExtentions.cs" />
     <Compile Include="Extentions\Common\RandomExtentions.cs" />
@@ -65,6 +64,7 @@
     <Compile Include="Extentions\Common\StringExtentions.cs" />
     <Compile Include="Extentions\Common\TypeExtentions.cs" />
     <Compile Include="Extentions\Common\XmlExtentions.cs" />
+    <Compile Include="Extentions\Transliteration\TransliterationExtentions.cs" />
     <Compile Include="Helpers\DirectoryHelpers.cs" />
     <Compile Include="Helpers\FileHelpers.cs" />
     <Compile Include="Models\CharType.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="Wrappers\LongWarppers.cs" />
     <Compile Include="Wrappers\StringWrappers.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

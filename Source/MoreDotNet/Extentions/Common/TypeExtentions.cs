@@ -7,31 +7,35 @@
         /// <summary>
         /// Determine of specified type is nullable
         /// </summary>
-        public static bool IsNullable(this Type type)
+        /// <param name="input">The <see cref="Type"/> instance on which the extension method is called.</param>
+        /// <returns>True if the <paramref name="input"/> is nullable.</returns>
+        public static bool IsNullable(this Type input)
         {
-            type.ThrowIfArgumentIsNull("type");
+            input.ThrowIfArgumentIsNull("type");
 
-            return !type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>));
+            return !input.IsValueType || (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Nullable<>));
         }
 
         /// <summary>
-        /// Return underlying type if type is Nullable otherwise return the type
+        /// Return underlying type if type is nullable otherwise return the type
         /// </summary>
-        public static Type GetCoreType(this Type type)
+        /// <param name="input">The <see cref="Type"/> instance on which the extension method is called.</param>
+        /// <returns>The underlying type of the nullable type or if the type is not nullable - the same type.</returns>
+        public static Type GetCoreType(this Type input)
         {
-            type.ThrowIfArgumentIsNull("type");
+            input.ThrowIfArgumentIsNull("type");
 
-            if (type != null && IsNullable(type))
+            if (input != null && IsNullable(input))
             {
-                if (!type.IsValueType)
+                if (!input.IsValueType)
                 {
-                    return type;
+                    return input;
                 }
 
-                return Nullable.GetUnderlyingType(type);
+                return Nullable.GetUnderlyingType(input);
             }
 
-            return type;
+            return input;
         }
     }
 }

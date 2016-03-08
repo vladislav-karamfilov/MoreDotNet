@@ -16,30 +16,25 @@
         // probability of being numeric: 10 / 36 = 0.2777777777777778
         private const double AlphanumericProbabilityNumericCased = 10.0 / 36.0;
 
-        public static T OneOf<T>(this Random randomGenerator, params T[] items)
+        public static T OneOf<T>(this Random random, params T[] items)
         {
-            return OneOf(randomGenerator, items);
+            return OneOf(random, items);
         }
 
-        public static T OneOf<T>(this Random randomGenerator, IList<T> items)
+        public static T OneOf<T>(this Random random, IList<T> items)
         {
-            return items[randomGenerator.Next(items.Count)];
+            return items[random.Next(items.Count)];
         }
 
-        public static T OneOf<T>(this Random randomGenerator, IEnumerable<T> items)
+        public static T OneOf<T>(this Random random, IEnumerable<T> items)
         {
-            int index = randomGenerator.Next(0, items.Count());
+            int index = random.Next(0, items.Count());
             return items.ElementAt(index);
         }
 
-        public static bool NextBool(this Random random, double probability)
+        public static bool NextBool(this Random random, double probability = 0.5)
         {
             return random.NextDouble() <= probability;
-        }
-
-        public static bool NextBool(this Random random)
-        {
-            return random.NextDouble() <= 0.5;
         }
 
         public static char NextChar(this Random random, CharType mode)

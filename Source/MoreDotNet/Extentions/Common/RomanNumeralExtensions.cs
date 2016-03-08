@@ -32,21 +32,21 @@
             + "?((X[LC])|(L?XX{0,2})|L)?((I[VX])|(V?(II{0,2}))|V)?))$",
             RegexOptions.Compiled);
 
-        public static bool IsValidRomanNumeral(this string value)
+        public static bool IsValidRomanNumeral(this string input)
         {
-            return ValidRomanNumeral.IsMatch(value);
+            return ValidRomanNumeral.IsMatch(input);
         }
 
-        public static int ParseRomanNumeral(this string value)
+        public static int ParseRomanNumeral(this string input)
         {
-            value.ThrowIfArgumentIsNull("value");
-            value = value.ToUpperInvariant().Trim();
+            input.ThrowIfArgumentIsNull("value");
+            input = input.ToUpperInvariant().Trim();
 
-            var length = value.Length;
+            var length = input.Length;
 
-            if ((length == 0) || !value.IsValidRomanNumeral())
+            if ((length == 0) || !input.IsValidRomanNumeral())
             {
-                throw new ArgumentException("Empty or invalid Roman numeral string.", "value");
+                throw new ArgumentException("Empty or invalid Roman numeral string.", "input");
             }
 
             var total = 0;
@@ -54,11 +54,11 @@
 
             while (i > 0)
             {
-                var digit = RomanNumerals[value[--i].ToString()];
+                var digit = RomanNumerals[input[--i].ToString()];
 
                 if (i > 0)
                 {
-                    var previousDigit = RomanNumerals[value[i - 1].ToString()];
+                    var previousDigit = RomanNumerals[input[i - 1].ToString()];
 
                     if (previousDigit < digit)
                     {
@@ -73,14 +73,14 @@
             return total;
         }
 
-        public static string ToRomanNumeralString(this int value)
+        public static string ToRomanNumeralString(this int input)
         {
             const int MinValue = 1;
             const int MaxValue = 3999;
 
-            if ((value < MinValue) || (value > MaxValue))
+            if ((input < MinValue) || (input > MaxValue))
             {
-                throw new ArgumentOutOfRangeException("value", value, "Argument out of Roman numeral range.");
+                throw new ArgumentOutOfRangeException("input", input, "Argument out of Roman numeral range.");
             }
 
             const int MaxRomanNumeralLength = 15;
@@ -88,10 +88,10 @@
 
             foreach (var pair in RomanNumerals)
             {
-                while (value / pair.Value > 0)
+                while (input / pair.Value > 0)
                 {
                     sb.Append(pair.Key);
-                    value -= pair.Value;
+                    input -= pair.Value;
                 }
             }
 
