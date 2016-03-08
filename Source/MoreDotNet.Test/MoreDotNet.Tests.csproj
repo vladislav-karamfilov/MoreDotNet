@@ -65,6 +65,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Extentions\Common\BooleanExtentions\WhenFalseTests.cs" />
+    <Compile Include="Extentions\Common\BooleanExtentions\WhenTrueTests.cs" />
     <Compile Include="Extentions\Common\CollectionExtentions\AddRangeTests.cs" />
     <Compile Include="Extentions\Common\CollectionExtentions\IsNullOrEmptyTests.cs" />
     <Compile Include="Extentions\Common\StringExtentions\CapitalizeTests.cs" />
