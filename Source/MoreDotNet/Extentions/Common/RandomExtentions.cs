@@ -53,11 +53,22 @@
             return random.NextDouble() <= probability;
         }
 
+        /// <summary>
+        /// Gets a random alphanumeric character.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <returns>An alphanumeric character.</returns>
         public static char NextChar(this Random random)
         {
             return random.NextChar(CharType.AlphanumericAny);
         }
 
+        /// <summary>
+        /// Gets a random character depending on a <see cref="CharType"/>.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="mode">The type of random character.</param>
+        /// <returns>A random character.</returns>
         public static char NextChar(this Random random, CharType mode)
         {
             switch (mode)
@@ -81,16 +92,35 @@
             }
         }
 
-        public static DateTime NextDateTime(this Random random, DateTime minValue, DateTime maxValue)
-        {
-            return DateTime.FromOADate(random.NextDouble(minValue.ToOADate(), maxValue.ToOADate()));
-        }
-
+        /// <summary>
+        /// Gets a random <see cref="DateTime"/> value.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <returns>A <see cref="DateTime"/> value.</returns>
         public static DateTime NextDateTime(this Random random)
         {
             return random.NextDateTime(DateTime.MinValue, DateTime.MaxValue);
         }
 
+        /// <summary>
+        /// Gets a random <see cref="DateTime"/> value in a given range.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="minValue">The start of the range.</param>
+        /// <param name="maxValue">The end of the range.</param>
+        /// <returns>A random <see cref="DateTime"/> value.</returns>
+        public static DateTime NextDateTime(this Random random, DateTime minValue, DateTime maxValue)
+        {
+            return DateTime.FromOADate(random.NextDouble(minValue.ToOADate(), maxValue.ToOADate()));
+        }
+
+        /// <summary>
+        /// A random <see cref="double"/> value in a given range.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="minValue">The start of the range.</param>
+        /// <param name="maxValue">The end of the range.</param>
+        /// <returns>A random <see cref="double"/> value.</returns>
         public static double NextDouble(this Random random, double minValue, double maxValue)
         {
             if (maxValue < minValue)
@@ -105,7 +135,7 @@
             }
 
             // to avoid evaluating to Double.Infinity, we split the range into two halves:
-            double halfDifference = (maxValue * 0.5) - (minValue * 0.5);
+            var halfDifference = (maxValue * 0.5) - (minValue * 0.5);
 
             // 50/50 chance of returning a value from the first or second half of the range
             if (random.NextBool())
@@ -116,6 +146,24 @@
             return (minValue + halfDifference) + (random.NextDouble() * halfDifference);
         }
 
+        /// <summary>
+        /// Gets a random alphanumeric <see cref="string"/> value.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="numChars">The number of characters in the string.</param>
+        /// <returns>A random string.</returns>
+        public static string NextString(this Random random, int numChars)
+        {
+            return random.NextString(numChars, CharType.AlphanumericAny);
+        }
+
+        /// <summary>
+        /// Gets a random <see cref="string"/> value consisting of specific characters.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="numChars">The number of characters in the string.</param>
+        /// <param name="mode">The type of characters for the string.</param>
+        /// <returns>A random string.</returns>
         public static string NextString(this Random random, int numChars, CharType mode)
         {
             char[] chars = new char[numChars];
@@ -128,19 +176,26 @@
             return new string(chars);
         }
 
-        public static string NextString(this Random random, int numChars)
-        {
-            return random.NextString(numChars, CharType.AlphanumericAny);
-        }
-
-        public static TimeSpan NextTimeSpan(this Random random, TimeSpan minValue, TimeSpan maxValue)
-        {
-            return TimeSpan.FromMilliseconds(random.NextDouble(minValue.TotalMilliseconds, maxValue.TotalMilliseconds));
-        }
-
+        /// <summary>
+        /// Gets a random <see cref="TimeSpan"/> value.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <returns>A random <see cref="TimeSpan"/> value.</returns>
         public static TimeSpan NextTimeSpan(this Random random)
         {
             return random.NextTimeSpan(TimeSpan.MinValue, TimeSpan.MaxValue);
+        }
+
+        /// <summary>
+        /// Gets a random <see cref="TimeSpan"/> value in a given range.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="minValue">The start of the range.</param>
+        /// <param name="maxValue">The end of the range.</param>
+        /// <returns>A random <see cref="TimeSpan"/> value.</returns>
+        public static TimeSpan NextTimeSpan(this Random random, TimeSpan minValue, TimeSpan maxValue)
+        {
+            return TimeSpan.FromMilliseconds(random.NextDouble(minValue.TotalMilliseconds, maxValue.TotalMilliseconds));
         }
 
         private static char NextAlphanumericChar(this Random random, bool uppercase)
