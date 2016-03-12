@@ -50,7 +50,7 @@
         /// Gets the key using <paramref name="caseInsensitiveKey"/> from <paramref name="dictionary"/>.
         /// </summary>
         /// <typeparam name="T">The dictionary value.</typeparam>
-        /// <param name="dictionary">The dictionary.</param>
+        /// <param name="dictionary">The <see cref="IDictionary{TKey,TValue}"/> instance on which the extension method is called.</param>
         /// <param name="caseInsensitiveKey">The case insensitive key.</param>
         /// <returns>
         /// An existing key; or <see cref="string.Empty"/> if not found.
