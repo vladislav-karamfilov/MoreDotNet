@@ -9,7 +9,7 @@
         /// Converts a byte array to a string, using its byte order mark to convert it to the right encoding.
         /// Original article: http://www.west-wind.com/WebLog/posts/197245.aspx
         /// </summary>
-        /// <param name="buffer">An array of bytes to convert</param>
+        /// <param name="buffer">An array of bytes to convert.</param>
         /// <returns>The byte as a string.</returns>
         public static string GetString(this byte[] buffer)
         {
@@ -19,7 +19,7 @@
             }
 
             // ANSI as default
-            Encoding encoding = Encoding.Default;
+            Encoding encoding = Encoding.Default; 
 
             /*
                 EF BB BF            UTF-8 
