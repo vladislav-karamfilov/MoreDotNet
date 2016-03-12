@@ -10,7 +10,6 @@
         public void WhenFalse_ParseFalseValue_ShouldReturnContent()
         {
             var input = false;
-            var inputContent = "Hello Worlds!";
             var expected = "Hello Worlds!";
             var actual = input.WhenFalse(expected);
             Assert.Equal(expected, actual);
@@ -20,7 +19,6 @@
         public void WhenFalse_ParseTrueValue_ShouldReturnDefaultValueOfContent()
         {
             var input = true;
-            var inputContent = "Hello Worlds!";
             var expected = default(string);
             var actual = input.WhenFalse(expected);
             Assert.Equal(expected, actual);
