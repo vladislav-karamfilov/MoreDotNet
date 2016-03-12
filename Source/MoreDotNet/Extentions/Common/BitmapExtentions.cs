@@ -5,7 +5,12 @@
 
     public static class BitmapExtentions
     {
-        public static Bitmap GrayScale(this Bitmap bitmap)
+        /// <summary>
+        /// Converts a <see cref="Bitmap"/> to gray scale.
+        /// </summary>
+        /// <param name="bitmap">The <see cref="Bitmap"/> instance on which the extension method is called.</param>
+        /// <returns>A gray scale bitmap.</returns>
+        public static Bitmap ToGrayScale(this Bitmap bitmap)
         {
             var newBitmap = new Bitmap(bitmap.Width, bitmap.Height);
             
