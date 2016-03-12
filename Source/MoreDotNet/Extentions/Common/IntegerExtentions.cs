@@ -5,14 +5,15 @@
     public static class IntegerExtentions
     {
         /// <summary>
-        /// Replace "Enumerable.Range(n)" with "n.Range()":
+        /// Creates a range of integers.
         /// </summary>
-        /// <param name="n">End of range</param>
+        /// <param name="start">Start of range</param>
+        /// <param name="end">End of range - inclusive</param>
         /// <param name="step">The iteration step</param>
         /// <returns>0..n-1</returns>
-        public static IEnumerable<int> Range(this int n, int step = 1)
+        public static IEnumerable<int> RangeTo(this int start, int end, int step = 1)
         {
-            for (int i = 0; i < n; i += step)
+            for (int i = start; i <= end; i += step)
             {
                 yield return i;
             }

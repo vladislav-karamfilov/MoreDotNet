@@ -72,6 +72,7 @@
     <Compile Include="Extentions\Common\CollectionExtentions\IsNullOrEmptyTests.cs" />
     <Compile Include="Extentions\Common\ColorExtentions\ToHexStringTests.cs" />
     <Compile Include="Extentions\Common\ColorExtentions\ToRgbStringTests.cs" />
+    <Compile Include="Extentions\Common\IntegerExtentions\RangeToTests.cs" />
     <Compile Include="Extentions\Common\StringExtentions\CapitalizeTests.cs" />
     <Compile Include="Extentions\Common\StringExtentions\IsLikeTests.cs" />
     <Compile Include="Extentions\Common\StringExtentions\NthIndexOfTests.cs" />

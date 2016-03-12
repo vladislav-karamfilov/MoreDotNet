@@ -16,25 +16,46 @@
         // probability of being numeric: 10 / 36 = 0.2777777777777778
         private const double AlphanumericProbabilityNumericCased = 10.0 / 36.0;
 
+        /// <summary>
+        /// Chooses a random item form a sequence of items.
+        /// </summary>
+        /// <typeparam name="T">The item type of the items collection</typeparam>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="items">A sequence of items to choose from.</param>
+        /// <returns>The random item.</returns>
         public static T OneOf<T>(this Random random, params T[] items)
         {
-            return OneOf(random, items);
+            int index = random.Next(0, items.Length);
+            return items[index];
         }
 
-        public static T OneOf<T>(this Random random, IList<T> items)
-        {
-            return items[random.Next(items.Count)];
-        }
-
+        /// <summary>
+        /// Chooses a random item form a enumeration of items.
+        /// </summary>
+        /// <typeparam name="T">The item type of the items collection</typeparam>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="items">A enumeration of items to choose from.</param>
+        /// <returns>The random item.</returns>
         public static T OneOf<T>(this Random random, IEnumerable<T> items)
         {
             int index = random.Next(0, items.Count());
             return items.ElementAt(index);
         }
 
+        /// <summary>
+        /// Chooses a random boolean value depending on a given probability.
+        /// </summary>
+        /// <param name="random">The <see cref="Random"/> instance on which the extension method is called.</param>
+        /// <param name="probability">The probability for a true return.</param>
+        /// <returns>A random boolean value.</returns>
         public static bool NextBool(this Random random, double probability = 0.5)
         {
             return random.NextDouble() <= probability;
+        }
+
+        public static char NextChar(this Random random)
+        {
+            return random.NextChar(CharType.AlphanumericAny);
         }
 
         public static char NextChar(this Random random, CharType mode)
@@ -58,11 +79,6 @@
                 default:
                     return random.NextAlphanumericChar();
             }
-        }
-
-        public static char NextChar(this Random random)
-        {
-            return random.NextChar(CharType.AlphanumericAny);
         }
 
         public static DateTime NextDateTime(this Random random, DateTime minValue, DateTime maxValue)

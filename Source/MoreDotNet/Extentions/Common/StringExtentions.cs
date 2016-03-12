@@ -128,7 +128,6 @@
             return input;
         }
 
-
         /// <summary>
         /// Gets the index of the n-th occurrence of a specified string.
         /// </summary>
