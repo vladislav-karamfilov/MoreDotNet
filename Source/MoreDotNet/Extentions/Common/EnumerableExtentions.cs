@@ -15,6 +15,12 @@
             }
         }
 
+        /// <summary>
+        /// Checks if the <see cref="IEnumerable{T}"/> is null or empty.
+        /// </summary>
+        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <param name="items">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
+        /// <returns>True of the <see cref="IEnumerable{T}"/> is null or empty. Otherwise - false.</returns>
         public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> items)
         {
             return items ?? Enumerable.Empty<T>();
@@ -25,12 +31,12 @@
             return source.Shuffle(new Random());
         }
 
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random rng)
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source, Random randomGenerator)
         {
             source.ThrowIfArgumentIsNull("source");
-            rng.ThrowIfArgumentIsNull("rng");
+            randomGenerator.ThrowIfArgumentIsNull("randomGenerator");
 
-            return source.ShuffleIterator(rng);
+            return source.ShuffleIterator(randomGenerator);
         }
 
         public static string ToString<T>(this IEnumerable<T> collection, string separator)
@@ -79,7 +85,9 @@
             }
 
             // get the first object with its predicate value
-            var seed = sequence.Select(x => new { Object = x, Value = predicate(x) }).FirstOrDefault();
+            var seed = sequence
+                .Select(x => new { Object = x, Value = predicate(x) })
+                .FirstOrDefault();
 
             // compare against all others, replacing the accumulator with the greater value
             // tie goes to last object found
