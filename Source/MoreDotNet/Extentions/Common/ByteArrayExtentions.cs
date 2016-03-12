@@ -19,15 +19,15 @@
             }
 
             // ANSI as default
-            Encoding encoding = Encoding.Default; 
+            Encoding encoding = Encoding.Default;
 
             /*
-                EF BB BF            UTF-8 
-                FF FE UTF-16        little endian 
-                FE FF UTF-16        big endian 
-                FF FE 00 00	UTF-32, little endian 
-                00 00 FE FF	UTF-32, big-endian 
-             */
+                EF BB BF UTF-8 
+                FF FE UTF-16 little endian 
+                FE FF UTF-16 big endian 
+                FF FE 00 00UTF-32, little endian 
+                00 00 FE FFUTF-32, big-endian 
+            */
 
             if (buffer[0] == 0xef && buffer[1] == 0xbb && buffer[2] == 0xbf)
             {
