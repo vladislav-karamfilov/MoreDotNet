@@ -4,6 +4,7 @@
 
     using MoreDotNet.Extentions.Common;
     using MoreDotNet.Extentions.Transliteration;
+    using MoreDotNet.Extentions.Transliteration.Models;
     using MoreDotNet.Models;
     using MoreDotNet.Wrappers;
 
@@ -11,7 +12,7 @@
     {
         public static void Main(string[] args)
         {
-            var sampleVariable = "Интересен експериемент с котка.";
+            var sampleVariable = "Славея";
 
             Console.WriteLine(sampleVariable.Transliterate(TransliterationType.Bulgarian));
         }

@@ -2,10 +2,31 @@
 {
     using System.Collections.Generic;
 
+    using MoreDotNet.Extentions.Transliteration.Models;
     using MoreDotNet.Extentions.Transliteration.Providers.Contracts;
 
     public class BulgarianTranslitarationProvider : ITransliterationProvider
     {
+        public IEnumerable<SpecialProvision> GetSpecialProvisions()
+        {
+            var result = new List<SpecialProvision>
+            {
+                new SpecialProvision
+                {
+                    Condition = x => x.EndsWith("я"),
+                    Transformation = x => (x.TrimEnd('я') + "ia")
+                },
+                new SpecialProvision
+                {
+                    Condition = x => x.EndsWith("Я"),
+                    Transformation = x => (x.TrimEnd('Я') + "IA")
+                }
+            };
+
+            return result;
+        }
+
+
         public IDictionary<string, string> GetToEnglishMappings()
         {
             return new Dictionary<string, string>()

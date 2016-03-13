@@ -4,6 +4,7 @@
     using System.Text;
 
     using MoreDotNet.Extentions.Common;
+    using MoreDotNet.Extentions.Transliteration.Models;
     using MoreDotNet.Extentions.Transliteration.Providers;
     using MoreDotNet.Extentions.Transliteration.Providers.Contracts;
     using MoreDotNet.Models;
@@ -13,7 +14,8 @@
         public static string Transliterate(this string input, TransliterationType type)
         {
             var provider = GetProvider(type);
-            var result = DoTransliteration(input, provider);
+            var result = ApplySpecialProvisions(input, provider);
+            result = DoTransliteration(result, provider);
 
             return result;
         }
@@ -27,6 +29,21 @@
                 default:
                     throw new InvalidEnumArgumentException("No such provider exists");
             }
+        }
+
+        private static string ApplySpecialProvisions(string input, ITransliterationProvider provider)
+        {
+            var result = input;
+            var specialProvisions = provider.GetSpecialProvisions();
+            foreach (var specialProvision in specialProvisions)
+            {
+                if (specialProvision.Condition(result))
+                {
+                    result = specialProvision.Transformation(result);
+                }
+            }
+
+            return result;
         }
 
         private static string DoTransliteration(string input, ITransliterationProvider provider)
