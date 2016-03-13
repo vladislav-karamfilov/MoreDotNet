@@ -32,11 +32,21 @@
             + "?((X[LC])|(L?XX{0,2})|L)?((I[VX])|(V?(II{0,2}))|V)?))$",
             RegexOptions.Compiled);
 
+        /// <summary>
+        /// Check if a given string represents a valid roman numeral.
+        /// </summary>
+        /// <param name="input">The string being checked.</param>
+        /// <returns>True if a given string represents a valid roman numeral. False otherwise.</returns>
         public static bool IsValidRomanNumeral(this string input)
         {
             return ValidRomanNumeral.IsMatch(input);
         }
 
+        /// <summary>
+        /// Converts a string representing a roman numeral to a decimal integer.
+        /// </summary>
+        /// <param name="input">The string being converted.</param>
+        /// <returns>A <see cref="int"/> representing the roman numeral.</returns>
         public static int ParseRomanNumeral(this string input)
         {
             input.ThrowIfArgumentIsNull("value");
@@ -73,6 +83,11 @@
             return total;
         }
 
+        /// <summary>
+        /// Converts a decimal integer to string representing a roman numeral. 
+        /// </summary>
+        /// <param name="input">The integer being converted.</param>
+        /// <returns>A string representing a valid roman numeral.</returns>
         public static string ToRomanNumeralString(this int input)
         {
             const int MinValue = 1;
