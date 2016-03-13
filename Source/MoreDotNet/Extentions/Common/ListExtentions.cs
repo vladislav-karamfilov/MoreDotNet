@@ -7,6 +7,16 @@
 
     public static class ListExtentions
     {
+        /// <summary>
+        /// Performs a binary search over a sorted <see cref="IList{T}"/>. If the item is not found throws an <see cref="InvalidOperationException"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of items in the list.</typeparam>
+        /// <typeparam name="TKey">The type of the key we are searching for.</typeparam>
+        /// <param name="list">The <see cref="IList{T}"/> instance on which the extension method is called.</param>
+        /// <param name="keySelector">A function for selecting our key.</param>
+        /// <param name="key">The key we are searching for.</param>
+        /// <exception cref="InvalidOperationException">If the key is not found.</exception>
+        /// <returns>The element containing our key.</returns>
         public static T BinarySearch<T, TKey>(this IList<T> list, Func<T, TKey> keySelector, TKey key)
         where TKey : IComparable<TKey>
         {
@@ -44,6 +54,9 @@
         /// <summary>
         /// Convert a List{T} to a DataTable.
         /// </summary>
+        /// <typeparam name="T">The item type of the <see cref="IList{T}"/></typeparam>
+        /// <param name="list">The <see cref="IList{T}"/> instance on which the extension method is called.</param>
+        /// <returns>A <see cref="DataTable"/> with the contents of the <see cref="IList{T}"/></returns>
         public static DataTable ToDataTable<T>(this IList<T> list)
         {
             var tb = new DataTable(typeof(T).Name);
@@ -74,10 +87,9 @@
         /// <summary>
         /// Performs an insertion sort on this list.
         /// </summary>
-        /// <typeparam name="T">The type of the list supplied.</typeparam>
-        /// <param name="list">the list to sort.</param>
+        /// <typeparam name="T">The item type of the <see cref="IList{T}"/></typeparam>
+        /// <param name="list">The <see cref="IList{T}"/> instance on which the extension method is called.</param>
         /// <param name="comparison">the method for comparison of two elements.</param>
-        /// <returns></returns>
         public static void InsertionSort<T>(this IList<T> list, Comparison<T> comparison)
         {
             for (int i = 2; i < list.Count; i++)
@@ -94,9 +106,9 @@
         /// <summary>
         /// Inserts an Item into a list at the first place that the <paramref name="predicate"/> expression fails.  If it is true in all cases, then the item is appended to the end of the list.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="list"></param>
-        /// <param name="obj"></param>
+        /// <typeparam name="T">The item type of the <see cref="IList{T}"/></typeparam>
+        /// <param name="list">The <see cref="IList{T}"/> instance on which the extension method is called.</param>
+        /// <param name="obj">Object being inserted.</param>
         /// <param name="predicate">The specified function that determines when the <paramref name="obj"/> should be added. </param>
         public static void InsertWhere<T>(this IList<T> list, T obj, Func<T, bool> predicate)
         {
