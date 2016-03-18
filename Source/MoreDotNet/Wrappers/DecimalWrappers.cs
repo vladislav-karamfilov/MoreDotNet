@@ -4,6 +4,11 @@
 
     public static class DecimalWrappers
     {
+        /// <summary>
+        /// <see cref="string.IsNullOrWhiteSpace"/>
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static decimal Ceiling(this decimal input)
         {
             return decimal.Ceiling(input);

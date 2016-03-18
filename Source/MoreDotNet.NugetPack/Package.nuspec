@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>MoreDotNet.NugetPack</id>
-    <version>1.0.0</version>
-    <title>MoreDotNet.NugetPack</title>
-    <authors>Teodor92</authors>
-    <owners></owners>
+    <id>MoreDotNet</id>
+    <version>0.1.0</version>
+    <title>MoreDotNet</title>
+    <authors>Teodor Kurtev</authors>
+    <owners>Teodor Kurtev</owners>
     <description>
-      A long description of the package. This shows up in the right pane of the Add Package Dialog as well as in the Package Manager Console when listing packages using the Get-Package command.
+      A combination of helpful extension methods.
     </description>
     <releaseNotes>
     </releaseNotes>
     <summary>
-      A short description of the package. If specified, this shows up in the middle pane of the Add Package Dialog. If not specified, a truncated version of the description is used instead.
+      A combination of helpful extension methods.
     </summary>
     <language>en-US</language>
     <projectUrl>https://nuget.org/packages/MoreDotNet.NugetPack</projectUrl>
