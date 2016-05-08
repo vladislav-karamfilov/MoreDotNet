@@ -7,7 +7,7 @@ The project has two main focuses:
 
 The package is still under development and some bugs may exist.
 
-To instal use:
+To install via NuGet use:
 
 ```
 Install-Package MoreDotNet
