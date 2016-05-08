@@ -1,9 +1,9 @@
-﻿namespace MoreDotNet.Extentions.Transliteration.Providers
+﻿namespace MoreDotNet.Transliteration.Transliteration.Providers
 {
     using System.Collections.Generic;
 
-    using MoreDotNet.Extentions.Transliteration.Models;
-    using MoreDotNet.Extentions.Transliteration.Providers.Contracts;
+    using MoreDotNet.Transliteration.Transliteration.Models;
+    using MoreDotNet.Transliteration.Transliteration.Providers.Contracts;
 
     public class BulgarianTranslitarationProvider : ITransliterationProvider
     {

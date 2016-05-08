@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{667E3BB2-30C6-4CF0-AABC-702137D98B46}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{3406973C-9621-4EA4-9860-40F5D1923426}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MoreDotNet.Runner</RootNamespace>
-    <AssemblyName>MoreDotNet.Runner</AssemblyName>
+    <RootNamespace>MoreDotNet.Transliteration</RootNamespace>
+    <AssemblyName>MoreDotNet.Transliteration</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transliteration\Models\SpecialProvision.cs" />
+    <Compile Include="Transliteration\Models\TransliterationType.cs" />
+    <Compile Include="Transliteration\Providers\BulgarianTranslitarationProvider.cs" />
+    <Compile Include="Transliteration\Providers\Contracts\ITransliterationProvider.cs" />
+    <Compile Include="Transliteration\TransliterationExtentions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MoreDotNet.Transliteration\MoreDotNet.Transliteration.csproj">
-      <Project>{3406973c-9621-4ea4-9860-40f5d1923426}</Project>
-      <Name>MoreDotNet.Transliteration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MoreDotNet\MoreDotNet.csproj">
       <Project>{35bb3946-1a1b-4426-93bd-62d3adc44abe}</Project>
       <Name>MoreDotNet</Name>

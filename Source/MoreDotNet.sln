@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet", "MoreDotNet\MoreDotNet.csproj", "{35BB3946-1A1B-4426-93BD-62D3ADC44ABE}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.Runner", "MoreDotNet.Runner\MoreDotNet.Runner.csproj", "{667E3BB2-30C6-4CF0-AABC-702137D98B46}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.NugetPack", "MoreDotNet.NugetPack\MoreDotNet.NugetPack.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.Transliteration", "MoreDotNet.Transliteration\MoreDotNet.Transliteration.csproj", "{3406973C-9621-4EA4-9860-40F5D1923426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3406973C-9621-4EA4-9860-40F5D1923426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3406973C-9621-4EA4-9860-40F5D1923426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3406973C-9621-4EA4-9860-40F5D1923426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3406973C-9621-4EA4-9860-40F5D1923426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

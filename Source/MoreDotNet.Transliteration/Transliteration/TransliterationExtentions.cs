@@ -1,13 +1,12 @@
-﻿namespace MoreDotNet.Extentions.Transliteration
+﻿namespace MoreDotNet.Transliteration.Transliteration
 {
     using System.ComponentModel;
     using System.Text;
 
     using MoreDotNet.Extentions.Common;
-    using MoreDotNet.Extentions.Transliteration.Models;
-    using MoreDotNet.Extentions.Transliteration.Providers;
-    using MoreDotNet.Extentions.Transliteration.Providers.Contracts;
-    using MoreDotNet.Models;
+    using MoreDotNet.Transliteration.Transliteration.Models;
+    using MoreDotNet.Transliteration.Transliteration.Providers;
+    using MoreDotNet.Transliteration.Transliteration.Providers.Contracts;
 
     public static class TransliterationExtentions
     {

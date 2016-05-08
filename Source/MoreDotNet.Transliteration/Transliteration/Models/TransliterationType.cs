@@ -1,4 +1,4 @@
-﻿namespace MoreDotNet.Extentions.Transliteration.Models
+﻿namespace MoreDotNet.Transliteration.Transliteration.Models
 {
     public enum TransliterationType
     {

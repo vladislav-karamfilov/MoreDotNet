@@ -3,9 +3,9 @@
     using System;
 
     using MoreDotNet.Extentions.Common;
-    using MoreDotNet.Extentions.Transliteration;
-    using MoreDotNet.Extentions.Transliteration.Models;
     using MoreDotNet.Models;
+    using MoreDotNet.Transliteration.Transliteration;
+    using MoreDotNet.Transliteration.Transliteration.Models;
     using MoreDotNet.Wrappers;
 
     public class Program

@@ -1,8 +1,8 @@
-﻿namespace MoreDotNet.Extentions.Transliteration.Providers.Contracts
+﻿namespace MoreDotNet.Transliteration.Transliteration.Providers.Contracts
 {
     using System.Collections.Generic;
 
-    using MoreDotNet.Extentions.Transliteration.Models;
+    using MoreDotNet.Transliteration.Transliteration.Models;
 
     public interface ITransliterationProvider
     {
