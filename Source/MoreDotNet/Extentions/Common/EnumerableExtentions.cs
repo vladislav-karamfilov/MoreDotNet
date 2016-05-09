@@ -90,6 +90,17 @@
             return output.ToString(0, Math.Max(0, output.Length - separator.Length));
         }
 
+        /// <summary>
+        /// Checks if the <see cref="IEnumerable{T}"/> is null or empty
+        /// </summary>
+        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <param name="source">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
+        /// <returns>True if the collection is null or empty, false otherwise.</returns>
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
+        {
+            return source == null || !source.Any();
+        }
+
         private static IEnumerable<T> ShuffleIterator<T>(this IEnumerable<T> items, Random rng)
         {
             var buffer = items.ToList();
