@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet", "MoreDotNet\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.Tests", "MoreDotNet.Test\MoreDotNet.Tests.csproj", "{26E622DD-17FA-4B3A-A076-78DD5A2113D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreDotNet.Runner", "MoreDotNet.Runner\MoreDotNet.Runner.csproj", "{667E3BB2-30C6-4CF0-AABC-702137D98B46}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{26E622DD-17FA-4B3A-A076-78DD5A2113D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E622DD-17FA-4B3A-A076-78DD5A2113D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26E622DD-17FA-4B3A-A076-78DD5A2113D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{667E3BB2-30C6-4CF0-AABC-702137D98B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{667E3BB2-30C6-4CF0-AABC-702137D98B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{667E3BB2-30C6-4CF0-AABC-702137D98B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{667E3BB2-30C6-4CF0-AABC-702137D98B46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
