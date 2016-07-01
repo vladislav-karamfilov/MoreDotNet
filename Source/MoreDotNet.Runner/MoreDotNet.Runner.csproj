@@ -50,10 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MoreDotNet.Transliteration\MoreDotNet.Transliteration.csproj">
-      <Project>{3406973c-9621-4ea4-9860-40f5d1923426}</Project>
-      <Name>MoreDotNet.Transliteration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MoreDotNet\MoreDotNet.csproj">
       <Project>{35bb3946-1a1b-4426-93bd-62d3adc44abe}</Project>
       <Name>MoreDotNet</Name>
