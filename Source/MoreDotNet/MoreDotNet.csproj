@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MoreDotNet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MoreDotNet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -42,28 +44,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extentions\Common\BitmapExtentions.cs" />
-    <Compile Include="Extentions\Common\BooleanExtentions.cs" />
-    <Compile Include="Extentions\Common\ByteArrayExtentions.cs" />
-    <Compile Include="Extentions\Common\CollectionExtentions.cs" />
-    <Compile Include="Extentions\Common\ColorExtentions.cs" />
-    <Compile Include="Extentions\Common\ConvertibleExtentions.cs" />
-    <Compile Include="Extentions\Common\DataExtentions.cs" />
-    <Compile Include="Extentions\Common\DateTimeExtentions.cs" />
-    <Compile Include="Extentions\Common\DictionaryExtentions.cs" />
-    <Compile Include="Extentions\Common\EnumerableExtentions.cs" />
-    <Compile Include="Extentions\Common\EnumExtentions.cs" />
-    <Compile Include="Extentions\Common\GenericExtentions.cs" />
-    <Compile Include="Extentions\Common\IntegerExtentions.cs" />
-    <Compile Include="Extentions\Common\ListExtentions.cs" />
-    <Compile Include="Extentions\Common\ObjectExtentions.cs" />
-    <Compile Include="Extentions\Common\OperatingSystemExtentions.cs" />
-    <Compile Include="Extentions\Common\RandomExtentions.cs" />
+    <Compile Include="Extentions\Common\BitmapExtensions.cs" />
+    <Compile Include="Extentions\Common\BooleanExtensions.cs" />
+    <Compile Include="Extentions\Common\ByteArrayExtensions.cs" />
+    <Compile Include="Extentions\Common\CollectionExtensions.cs" />
+    <Compile Include="Extentions\Common\ColorExtensions.cs" />
+    <Compile Include="Extentions\Common\ConvertibleExtensions.cs" />
+    <Compile Include="Extentions\Common\DataExtensions.cs" />
+    <Compile Include="Extentions\Common\DateTimeExtensions.cs" />
+    <Compile Include="Extentions\Common\DictionaryExtensions.cs" />
+    <Compile Include="Extentions\Common\EnumerableExtensions.cs" />
+    <Compile Include="Extentions\Common\EnumExtensions.cs" />
+    <Compile Include="Extentions\Common\GenericExtensions.cs" />
+    <Compile Include="Extentions\Common\IntegerExtensions.cs" />
+    <Compile Include="Extentions\Common\ListExtensions.cs" />
+    <Compile Include="Extentions\Common\ObjectExtensions.cs" />
+    <Compile Include="Extentions\Common\OperatingSystemExtensions.cs" />
+    <Compile Include="Extentions\Common\RandomExtensions.cs" />
     <Compile Include="Extentions\Common\RomanNumeralExtensions.cs" />
-    <Compile Include="Extentions\Common\StreamExtentions.cs" />
-    <Compile Include="Extentions\Common\StringExtentions.cs" />
-    <Compile Include="Extentions\Common\TypeExtentions.cs" />
-    <Compile Include="Extentions\Common\XmlExtentions.cs" />
+    <Compile Include="Extentions\Common\StreamExtensions.cs" />
+    <Compile Include="Extentions\Common\StringExtensions.cs" />
+    <Compile Include="Extentions\Common\TypeExtensions.cs" />
+    <Compile Include="Extentions\Common\XmlExtensions.cs" />
     <Compile Include="Helpers\DirectoryHelpers.cs" />
     <Compile Include="Helpers\FileHelpers.cs" />
     <Compile Include="Models\CharType.cs" />
@@ -75,7 +77,15 @@
     <Compile Include="Wrappers\LongWarppers.cs" />
     <Compile Include="Wrappers\StringWrappers.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="MoreDotNet.ruleset" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
