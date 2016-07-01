@@ -11,7 +11,7 @@
         /// <typeparam name="T">Any class type</typeparam>
         /// <param name="inputObject">Object to serialize</param>
         /// <returns>A string that represents XML, empty otherwise</returns>
-        public static string XmlSerialize<T>(this T inputObject) 
+        public static string XmlSerialize<T>(this T inputObject)
             where T : class, new()
         {
             inputObject.ThrowIfArgumentIsNull("inputObject");
@@ -30,7 +30,8 @@
         /// <typeparam name="T">Any class type</typeparam>
         /// <param name="inputXml">XML as string to deserialize from</param>
         /// <returns>A new object of type T is successful, null if failed</returns>
-        public static T XmlDeserialize<T>(this string inputXml) where T : class, new()
+        public static T XmlDeserialize<T>(this string inputXml)
+            where T : class, new()
         {
             inputXml.ThrowIfArgumentIsNull("inputXml");
 

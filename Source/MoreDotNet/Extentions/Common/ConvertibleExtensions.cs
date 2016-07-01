@@ -101,7 +101,8 @@
         /// <typeparam name="T">Type to be converted to.</typeparam>
         /// <param name="obj">Object to be converted.</param>
         /// <returns>The converted object or null.</returns>
-        public static T ToOrNull<T>(this IConvertible obj) where T : class
+        public static T ToOrNull<T>(this IConvertible obj)
+            where T : class
         {
             try
             {
@@ -120,7 +121,8 @@
         /// <param name="obj">Object to be converted.</param>
         /// <param name="newObj">Object to which the result is assigned.</param>
         /// <returns>True if conversion is successful or false otherwise.</returns>
-        public static bool ToOrNull<T>(this IConvertible obj, out T newObj) where T : class
+        public static bool ToOrNull<T>(this IConvertible obj, out T newObj)
+            where T : class
         {
             try
             {

@@ -11,7 +11,8 @@
         /// <typeparam name="T">The type to check for.</typeparam>
         /// <param name="item">The object being checked.</param>
         /// <returns>True if the object is a <see cref="T"/> type. False otherwise.</returns>
-        public static bool Is<T>(this object item) where T : class
+        public static bool Is<T>(this object item)
+            where T : class
         {
             return item is T;
         }
@@ -22,7 +23,8 @@
         /// <typeparam name="T">The type to check for.</typeparam>
         /// <param name="item">The object being checked.</param>
         /// <returns>True if the object is not a <see cref="T"/> type. False otherwise.</returns>
-        public static bool IsNot<T>(this object item) where T : class
+        public static bool IsNot<T>(this object item)
+            where T : class
         {
             return !item.Is<T>();
         }
@@ -33,7 +35,8 @@
         /// <typeparam name="T">Type to be cast to.</typeparam>
         /// <param name="item">The object being cast.</param>
         /// <returns>The casted object or null.</returns>
-        public static T As<T>(this object item) where T : class
+        public static T As<T>(this object item)
+            where T : class
         {
             return item as T;
         }

@@ -13,7 +13,8 @@
         /// <param name="lowerBound">Range start.</param>
         /// <param name="upperBound">Range end.</param>
         /// <returns>True if the element is in the given range. False otherwise.</returns>
-        public static bool IsBetween<T>(this T actual, T lowerBound, T upperBound) where T : IComparable<T>
+        public static bool IsBetween<T>(this T actual, T lowerBound, T upperBound)
+            where T : IComparable<T>
         {
             return actual.CompareTo(lowerBound) >= 0 && actual.CompareTo(upperBound) < 0;
         }
@@ -24,7 +25,8 @@
         /// <typeparam name="T">The type of the input object.</typeparam>
         /// <param name="obj">The input object.</param>
         /// <param name="parameterName">The name of the parameter for the exception throw.</param>
-        public static void ThrowIfArgumentIsNull<T>(this T obj, string parameterName) where T : class
+        public static void ThrowIfArgumentIsNull<T>(this T obj, string parameterName)
+            where T : class
         {
             if (obj == null)
             {

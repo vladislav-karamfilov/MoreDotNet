@@ -114,7 +114,7 @@
         {
             for (int i = 0; i < list.Count; i++)
             {
-                // When the function first fails it inserts the obj parameter. 
+                // When the function first fails it inserts the obj parameter.
                 // For example, in a list myList of ordered Int32's {1,2,3,4,5,10,12}
                 // Calling myList.InsertWhere( 8, x => 8 > x) inserts 8 once the list item becomes greater then or equal to it.
                 if (!predicate(list[i]))
@@ -170,6 +170,7 @@
                 {
                     instance[writeIndex] = item;
                 }
+
                 ++writeIndex;
             }
 

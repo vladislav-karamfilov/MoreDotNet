@@ -6,7 +6,7 @@
     public static class DictionaryExtensions
     {
         /// <summary>
-        /// If a key exists in a dictionary, return its value, 
+        /// If a key exists in a dictionary, return its value,
         /// otherwise return the default value for that type.
         /// </summary>
         /// <typeparam name="TKey">The key type of the <see cref="IDictionary{TKey,TValue}"/></typeparam>

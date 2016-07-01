@@ -84,7 +84,7 @@
         }
 
         /// <summary>
-        /// Converts a decimal integer to string representing a roman numeral. 
+        /// Converts a decimal integer to string representing a roman numeral.
         /// </summary>
         /// <param name="input">The integer being converted.</param>
         /// <returns>A string representing a valid roman numeral.</returns>
