@@ -5,6 +5,9 @@
     using System.Text;
     using System.Text.RegularExpressions;
 
+    /// <summary>
+    /// Roman numerals extensions.
+    /// </summary>
     public static class RomanNumeralExtensions
     {
         private const int NumberOfRomanNumeralMaps = 13;

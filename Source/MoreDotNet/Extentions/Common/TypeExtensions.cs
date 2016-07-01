@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// <see cref="Type"/> extensions.
+    /// </summary>
     public static class TypeExtensions
     {
         /// <summary>

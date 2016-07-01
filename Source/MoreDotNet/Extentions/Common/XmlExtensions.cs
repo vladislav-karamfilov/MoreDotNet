@@ -3,6 +3,9 @@
     using System.IO;
     using System.Xml.Serialization;
 
+    /// <summary>
+    /// XML extensions.
+    /// </summary>
     public static class XmlExtensions
     {
         /// <summary>

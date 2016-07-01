@@ -7,6 +7,9 @@
 
     using MoreDotNet.Wrappers;
 
+    /// <summary>
+    /// <see cref="string"/> extensions.
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>

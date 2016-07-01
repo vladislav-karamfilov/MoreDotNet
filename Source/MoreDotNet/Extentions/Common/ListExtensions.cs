@@ -5,6 +5,9 @@
     using System.Data;
     using System.Reflection;
 
+    /// <summary>
+    /// <see cref="IList{T}"/> extensions.
+    /// </summary>
     public static class ListExtensions
     {
         /// <summary>

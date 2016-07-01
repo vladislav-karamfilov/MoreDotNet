@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// <see cref="IConvertible"/> extensions.
+    /// </summary>
     public static class ConvertibleExtensions
     {
         /// <summary>

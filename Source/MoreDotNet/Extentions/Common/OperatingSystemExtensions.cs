@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// <see cref="OperatingSystem"/> extensions.
+    /// </summary>
     public static class OperatingSystemExtensions
     {
         /// <summary>

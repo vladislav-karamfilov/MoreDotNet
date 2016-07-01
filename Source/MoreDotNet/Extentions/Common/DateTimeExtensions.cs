@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// <see cref="DateTime"/> extensions.
+    /// </summary>
     public static class DateTimeExtensions
     {
         /// <summary>

@@ -3,6 +3,9 @@
     using System;
     using System.Drawing;
 
+    /// <summary>
+    /// <see cref="Color"/> extensions.
+    /// </summary>
     public static class ColorExtensions
     {
         /// <summary>

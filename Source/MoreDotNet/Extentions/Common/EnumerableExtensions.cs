@@ -5,6 +5,9 @@
     using System.Linq;
     using System.Text;
 
+    /// <summary>
+    /// <see cref="IEnumerable{T}"/> extensions.
+    /// </summary>
     public static class EnumerableExtensions
     {
         /// <summary>
@@ -24,7 +27,7 @@
         /// <summary>
         /// Returns and empty <see cref="IEnumerable{T}"/> collection if <paramref name="items"/> is null.
         /// </summary>
-        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <typeparam name="T">The item type of the items enumeration.</typeparam>
         /// <param name="items">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
         /// <returns>The <paramref name="items"/> collection or an empty <see cref="IEnumerable{T}"/> collection.</returns>
         public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> items)
@@ -35,7 +38,7 @@
         /// <summary>
         /// Shuffles the elements of a <see cref="IEnumerable{T}"/> collection.
         /// </summary>
-        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <typeparam name="T">The item type of the items enumeration.</typeparam>
         /// <param name="items">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
         /// <returns>A new collection with the snuffled elements from <paramref name="items"/>.</returns>
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> items)
@@ -46,7 +49,7 @@
         /// <summary>
         /// Shuffles the elements of a <see cref="IEnumerable{T}"/> collection using a random generator.
         /// </summary>
-        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <typeparam name="T">The item type of the items enumeration.</typeparam>
         /// <param name="items">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
         /// <param name="randomGenerator">А <see cref="Random"/> instance, used to shuffle the elements.</param>
         /// <returns>A new collection with the snuffled elements from <paramref name="items"/>.</returns>
@@ -61,7 +64,7 @@
         /// <summary>
         /// Generates a string from the elements of an <see cref="IEnumerable{T}"/> using a given separator.
         /// </summary>
-        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <typeparam name="T">The item type of the items enumeration.</typeparam>
         /// <param name="items">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
         /// <param name="separator">The string separation used when generation the string.</param>
         /// <returns>A string from the elements of an <see cref="IEnumerable{T}"/> using a given separator.</returns>
@@ -73,11 +76,11 @@
         /// <summary>
         /// Generates a string from the transformed elements of an <see cref="IEnumerable{T}"/> using a given separator.
         /// </summary>
-        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <typeparam name="T">The item type of the items enumeration.</typeparam>
         /// <param name="items">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
         /// <param name="stringElement">The function used to transform the elements of the <see cref="IEnumerable{T}"/>.</param>
         /// <param name="separator">The string separation used when generation the string.</param>
-        /// <returns></returns>
+        /// <returns>A string from the transformed elements of an <see cref="IEnumerable{T}"/> using a given separator.</returns>
         public static string ToString<T>(this IEnumerable<T> items, Func<T, string> stringElement, string separator)
         {
             var output = new StringBuilder();
@@ -93,7 +96,7 @@
         /// <summary>
         /// Checks if the <see cref="IEnumerable{T}"/> is null or empty
         /// </summary>
-        /// <typeparam name="T">The item type of the <param name="items"></param> enumeration.</typeparam>
+        /// <typeparam name="T">The item type of the items enumeration.</typeparam>
         /// <param name="source">The <see cref="IEnumerable{T}"/> instance on which the extension method is called.</param>
         /// <returns>True if the collection is null or empty, false otherwise.</returns>
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)

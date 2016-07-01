@@ -3,6 +3,9 @@
     using System;
     using System.Linq.Expressions;
 
+    /// <summary>
+    /// Generic types extensions.
+    /// </summary>
     public static class GenericExtensions
     {
         /// <summary>

@@ -6,6 +6,9 @@
 
     using MoreDotNet.Models;
 
+    /// <summary>
+    /// <see cref="Random"/> extensions.
+    /// </summary>
     public static class RandomExtensions
     {
         // 10 digits vs. 52 alphabetic characters (upper & lower);

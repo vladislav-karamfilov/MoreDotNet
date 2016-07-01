@@ -2,6 +2,9 @@
 {
     using System.Collections.Generic;
 
+    /// <summary>
+    /// <see cref="int"/> extensions.
+    /// </summary>
     public static class IntegerExtensions
     {
         /// <summary>

@@ -3,6 +3,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// <see cref="ICollection{T}"/> extensions.
+    /// </summary>
     public static class CollectionExtensions
     {
         /// <summary>

@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// <see cref="IDictionary{TKey,TValue}"/> extensions.
+    /// </summary>
     public static class DictionaryExtensions
     {
         /// <summary>

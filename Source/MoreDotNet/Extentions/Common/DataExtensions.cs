@@ -2,12 +2,15 @@
 {
     using System.Data;
 
+    /// <summary>
+    /// Data related extensions.
+    /// </summary>
     public static class DataExtensions
     {
         /// <summary>
         /// Safely gets a value from a <see cref="IDataRecord"/> item.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Type of the requested item.</typeparam>
         /// <param name="dataRecord">The <see cref="IDataRecord"/> instance on which the extension method is called.</param>
         /// <param name="ordinal">The ordinal of the value we want to acquire.</param>
         /// <returns>The value corresponding to the given ordinal.</returns>
