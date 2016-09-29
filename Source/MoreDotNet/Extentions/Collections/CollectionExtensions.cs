@@ -1,7 +1,9 @@
-﻿namespace MoreDotNet.Extentions.Common
+﻿namespace MoreDotNet.Extentions.Collections
 {
     using System.Collections.Generic;
     using System.Linq;
+
+    using MoreDotNet.Extentions.Common;
 
     /// <summary>
     /// <see cref="ICollection{T}"/> extensions.

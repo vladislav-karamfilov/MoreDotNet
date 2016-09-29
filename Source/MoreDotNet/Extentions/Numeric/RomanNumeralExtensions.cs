@@ -1,9 +1,11 @@
-﻿namespace MoreDotNet.Extentions.Common
+﻿namespace MoreDotNet.Extentions.Numeric
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
     using System.Text.RegularExpressions;
+
+    using MoreDotNet.Extentions.Common;
 
     /// <summary>
     /// Roman numerals extensions.

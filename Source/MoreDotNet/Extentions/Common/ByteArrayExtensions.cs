@@ -19,7 +19,7 @@
             }
 
             // ANSI as default
-            Encoding encoding = Encoding.Default;
+            var encoding = Encoding.Default;
 
             /*
                 EF BB BF UTF-8

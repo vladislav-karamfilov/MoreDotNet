@@ -1,9 +1,11 @@
-﻿namespace MoreDotNet.Extentions.Common
+﻿namespace MoreDotNet.Extentions.Collections
 {
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Reflection;
+
+    using MoreDotNet.Extentions.Common;
 
     /// <summary>
     /// <see cref="IList{T}"/> extensions.

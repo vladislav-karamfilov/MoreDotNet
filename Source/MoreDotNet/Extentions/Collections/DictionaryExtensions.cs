@@ -1,4 +1,4 @@
-﻿namespace MoreDotNet.Extentions.Common
+﻿namespace MoreDotNet.Extentions.Collections
 {
     using System;
     using System.Collections.Generic;

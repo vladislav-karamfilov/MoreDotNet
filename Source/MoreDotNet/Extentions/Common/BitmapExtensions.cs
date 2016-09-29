@@ -17,7 +17,7 @@
         {
             var newBitmap = new Bitmap(bitmap.Width, bitmap.Height);
 
-            using (Graphics graphic = Graphics.FromImage(newBitmap))
+            using (var graphic = Graphics.FromImage(newBitmap))
             {
                 // the gray-scale ColorMatrix
                 ColorMatrix colorMatrix =
