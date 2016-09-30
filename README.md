@@ -6,9 +6,22 @@
 
 ## Summary
 
-The project focuses on providing handy extension methods for common DotNet types like string, int, object, Color, Bitmap etc.
+The project focuses on providing handy extension methods for:
+* Collections
+* Common DotNet types like string, int, object, Color, Bitmap etc.
+* Wrappers for transforming common static methods to instance methods
+Example:
+```
+string.IsNullOrWhiteSpace(testStringVar)
+```
+Is transformed to:
+```
+testStringVar.IsNullOrWhiteSpace()
+```
 
-The package is still under development and some bugs may exist.
+## Installation
+
+NOTE: The package is still under development and some bugs may exist!
 
 To install via NuGet use:
 
