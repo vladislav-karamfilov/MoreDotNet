@@ -4,6 +4,9 @@
 
 [![NuGet version](https://badge.fury.io/nu/MoreDotNet.svg)](https://badge.fury.io/nu/MoreDotNet)
 
+
+## Summary
+
 The project focuses on providing handy extension methods for common DotNet types like string, int, object, Color, Bitmap etc.
 
 The package is still under development and some bugs may exist.
