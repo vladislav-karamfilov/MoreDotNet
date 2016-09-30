@@ -1,9 +1,8 @@
-﻿namespace MoreDotNet.Tests.Extentions.Common.CollectionExtentions
+﻿namespace MoreDotNet.Tests.Extentions.Collections.CollectionExtentions
 {
     using System.Collections.Generic;
 
     using MoreDotNet.Extentions.Collections;
-    using MoreDotNet.Extentions.Common;
 
     using Xunit;
 

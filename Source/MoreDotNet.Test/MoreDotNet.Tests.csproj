@@ -68,10 +68,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Extentions\Collections\DictionaryExtensions\GetOrDefaultTests.cs" />
     <Compile Include="Extentions\Common\BooleanExtentions\WhenFalseTests.cs" />
     <Compile Include="Extentions\Common\BooleanExtentions\WhenTrueTests.cs" />
-    <Compile Include="Extentions\Common\CollectionExtentions\AddRangeTests.cs" />
-    <Compile Include="Extentions\Common\CollectionExtentions\IsNullOrEmptyTests.cs" />
+    <Compile Include="Extentions\Collections\CollectionExtentions\AddRangeTests.cs" />
+    <Compile Include="Extentions\Collections\CollectionExtentions\IsNullOrEmptyTests.cs" />
     <Compile Include="Extentions\Common\ColorExtentions\ToHexStringTests.cs" />
     <Compile Include="Extentions\Common\ColorExtentions\ToRgbStringTests.cs" />
     <Compile Include="Extentions\Common\IntegerExtentions\RangeToTests.cs" />
