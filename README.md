@@ -11,11 +11,11 @@ The project focuses on providing handy extension methods for:
 * Common DotNet types like string, int, object, Color, Bitmap etc.
 * Wrappers for transforming common static methods to instance methods
 Example:
-```
+```cs
 string.IsNullOrWhiteSpace(testStringVar)
 ```
 Is transformed to:
-```
+```cs
 testStringVar.IsNullOrWhiteSpace()
 ```
 
