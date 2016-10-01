@@ -28,7 +28,7 @@
         {
             input.ThrowIfArgumentIsNull("type");
 
-            if (input != null && IsNullable(input))
+            if (IsNullable(input))
             {
                 if (!input.IsValueType)
                 {
