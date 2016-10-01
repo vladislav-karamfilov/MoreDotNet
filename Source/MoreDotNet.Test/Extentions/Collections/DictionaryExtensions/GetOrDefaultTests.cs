@@ -8,7 +8,7 @@
 
     public class GetOrDefaultTests
     {
-        private IDictionary<string, int> testDictionary;
+        private readonly IDictionary<string, int> testDictionary;
 
         public GetOrDefaultTests()
         {

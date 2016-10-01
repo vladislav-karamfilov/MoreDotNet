@@ -76,6 +76,8 @@
         {
             switch (mode)
             {
+                case CharType.AnyUnicode:
+                    return random.NextUnicodeChar();
                 case CharType.AlphabeticAny:
                     return random.NextAlphabeticChar();
                 case CharType.AlphabeticLower:
@@ -243,6 +245,11 @@
         private static char NextNumericChar(this Random random)
         {
             return (char)random.Next(48, 58);
+        }
+
+        private static char NextUnicodeChar(this Random random)
+        {
+            return (char)random.Next(0, 65536);
         }
     }
 }

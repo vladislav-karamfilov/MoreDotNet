@@ -4,11 +4,6 @@
 
     public static class DecimalWrappers
     {
-        /// <summary>
-        /// <see cref="string.IsNullOrWhiteSpace"/>
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
         public static decimal Ceiling(this decimal input)
         {
             return decimal.Ceiling(input);
@@ -84,12 +79,13 @@
             return decimal.Round(input);
         }
 
-        public static decimal Round(this decimal input, int decimals)
-        {
-            return decimal.Round(input, decimals);
-        }
+        ////// Unuseable
+        ////public static decimal Round(this decimal input, int decimals)
+        ////{
+        ////    return decimal.Round(input, decimals);
+        ////}
 
-        public static decimal Round(this decimal input, int decimals, MidpointRounding mode)
+        public static decimal Round(this decimal input, MidpointRounding mode, int decimals)
         {
             return decimal.Round(input, decimals, mode);
         }
