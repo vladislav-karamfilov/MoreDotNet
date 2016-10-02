@@ -5,7 +5,7 @@
     using System.Globalization;
     using System.Linq;
 
-    using MoreDotNet.Extentions.Common;
+    using MoreDotNet.Extensions.Common;
     using MoreDotNet.Models;
     using MoreDotNet.Wrappers;
 
