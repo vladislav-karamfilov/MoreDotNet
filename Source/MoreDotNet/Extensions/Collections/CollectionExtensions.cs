@@ -56,16 +56,5 @@
                 items.Add(value);
             }
         }
-
-        /// <summary>
-        /// Checks if a collections is null or empty.
-        /// </summary>
-        /// <typeparam name="T">The item type of the ICollection.</typeparam>
-        /// <param name="items">The <see cref="ICollection{T}"/> instance on which the extension method is called.</param>
-        /// <returns>True if the collection is null or empty</returns>
-        public static bool IsNullOrEmpty<T>(this ICollection<T> items)
-        {
-            return items == null || !items.Any();
-        }
     }
 }
