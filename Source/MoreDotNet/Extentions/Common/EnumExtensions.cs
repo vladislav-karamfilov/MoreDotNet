@@ -11,6 +11,7 @@
     {
         // TODO: Review For duplication
         public static string GetDisplayName<T>(this T enumerationValue)
+            where T : struct
         {
             return GetDisplayName(enumerationValue, typeof(DisplayAttribute));
         }

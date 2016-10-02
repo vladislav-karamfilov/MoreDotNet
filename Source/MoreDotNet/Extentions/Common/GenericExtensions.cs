@@ -23,21 +23,6 @@
         }
 
         /// <summary>
-        /// Check if the input object is null. If it is - throws an exception.
-        /// </summary>
-        /// <typeparam name="T">The type of the input object.</typeparam>
-        /// <param name="obj">The input object.</param>
-        /// <param name="parameterName">The name of the parameter for the exception throw.</param>
-        public static void ThrowIfArgumentIsNull<T>(this T obj, string parameterName)
-            where T : class
-        {
-            if (obj == null)
-            {
-                throw new ArgumentNullException(parameterName, parameterName + " not allowed to be null");
-            }
-        }
-
-        /// <summary>
         /// Gets the name an object member as a <see cref="string"/>.
         /// </summary>
         /// <typeparam name="T">The object type.</typeparam>
@@ -49,6 +34,11 @@
             this T anyObject,
             Expression<Func<T, TResult>> expression)
         {
+            if (expression == null)
+            {
+                throw new ArgumentNullException(nameof(expression));
+            }
+
             return ((MemberExpression)expression.Body).Member.Name;
         }
     }

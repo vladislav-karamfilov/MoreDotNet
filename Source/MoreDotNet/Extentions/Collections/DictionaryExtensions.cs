@@ -21,6 +21,11 @@
         /// </returns>
         public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
         {
+            if (dictionary == null)
+            {
+                throw new ArgumentNullException(nameof(dictionary));
+            }
+
             return dictionary.GetOrDefault(key, default(TValue));
         }
 
@@ -38,6 +43,11 @@
         /// </returns>
         public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
         {
+            if (dictionary == null)
+            {
+                throw new ArgumentNullException(nameof(dictionary));
+            }
+
             TValue outValue;
             var hasValue = dictionary.TryGetValue(key, out outValue);
 
@@ -60,12 +70,17 @@
         /// </returns>
         public static string GetKeyIgnoringCase<T>(this IDictionary<string, T> dictionary, string caseInsensitiveKey)
         {
+            if (dictionary == null)
+            {
+                throw new ArgumentNullException(nameof(dictionary));
+            }
+
             if (string.IsNullOrEmpty(caseInsensitiveKey))
             {
                 return string.Empty;
             }
 
-            foreach (string key in dictionary.Keys)
+            foreach (var key in dictionary.Keys)
             {
                 if (key.Equals(caseInsensitiveKey, StringComparison.InvariantCultureIgnoreCase))
                 {

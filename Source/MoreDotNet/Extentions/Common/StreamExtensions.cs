@@ -1,5 +1,6 @@
 ﻿namespace MoreDotNet.Extentions.Common
 {
+    using System;
     using System.IO;
 
     public static class StreamExtensions
@@ -11,6 +12,11 @@
         /// <returns>A byte array representing a <see cref="Stream"/> contents.</returns>
         public static byte[] ToByteArray(this Stream input)
         {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             var buffer = new byte[16 * 1024];
             using (var memoryStream = new MemoryStream())
             {
@@ -31,6 +37,11 @@
         /// <returns>A <see cref="Stream"/> representing the contents of a byte array.</returns>
         public static Stream ToStream(this byte[] input)
         {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             var fileStream = new MemoryStream(input) { Position = 0 };
             return fileStream;
         }

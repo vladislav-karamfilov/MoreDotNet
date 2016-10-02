@@ -1,9 +1,8 @@
 ﻿namespace MoreDotNet.Extentions.Collections
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
-
-    using MoreDotNet.Extentions.Common;
 
     /// <summary>
     /// <see cref="ICollection{T}"/> extensions.
@@ -18,7 +17,15 @@
         /// <param name="values">The items we are adding to the ICollection.</param>
         public static void AddRange<T>(this ICollection<T> items, params T[] values)
         {
-            values.ThrowIfArgumentIsNull("values");
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
 
             foreach (var value in values)
             {
@@ -34,7 +41,15 @@
         /// <param name="values">The items we are adding to the ICollection.</param>
         public static void AddRange<T>(this ICollection<T> items, IEnumerable<T> values)
         {
-            values.ThrowIfArgumentIsNull("values");
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
 
             foreach (var value in values)
             {

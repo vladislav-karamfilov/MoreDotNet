@@ -1,5 +1,6 @@
 ﻿namespace MoreDotNet.Extentions.Common
 {
+    using System;
     using System.Drawing;
     using System.Drawing.Imaging;
 
@@ -15,21 +16,25 @@
         /// <returns>A gray scale bitmap.</returns>
         public static Bitmap ToGrayScale(this Bitmap bitmap)
         {
+            if (bitmap == null)
+            {
+                throw new ArgumentNullException(nameof(bitmap));
+            }
+
             var newBitmap = new Bitmap(bitmap.Width, bitmap.Height);
 
             using (var graphic = Graphics.FromImage(newBitmap))
             {
                 // the gray-scale ColorMatrix
-                ColorMatrix colorMatrix =
-                    new ColorMatrix(
-                        new[]
-                            {
-                            new[] { .3f, .3f, .3f, 0, 0 },
-                            new[] { .59f, .59f, .59f, 0, 0 },
-                            new[] { .11f, .11f, .11f, 0, 0 },
-                            new[] { 0f, 0, 0, 1, 0 },
-                            new[] { 0f, 0, 0, 0, 1 }
-                            });
+                var colorMatrix = new ColorMatrix(
+                    new[]
+                    {
+                        new[] { .3f, .3f, .3f, 0, 0 },
+                        new[] { .59f, .59f, .59f, 0, 0 },
+                        new[] { .11f, .11f, .11f, 0, 0 },
+                        new[] { 0f, 0, 0, 1, 0 },
+                        new[] { 0f, 0, 0, 0, 1 }
+                    });
 
                 var attributes = new ImageAttributes();
                 attributes.SetColorMatrix(colorMatrix);

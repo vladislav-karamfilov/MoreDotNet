@@ -2,7 +2,7 @@
 {
     using System.Globalization;
 
-    public static class CharWarppers
+    public static class CharWrappers
     {
         public static char ToLower(this char input)
         {

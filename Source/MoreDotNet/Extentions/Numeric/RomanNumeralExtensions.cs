@@ -14,7 +14,7 @@
     {
         private const int NumberOfRomanNumeralMaps = 13;
 
-        private static readonly Dictionary<string, int> RomanNumerals =
+        private static readonly IDictionary<string, int> RomanNumerals =
             new Dictionary<string, int>(NumberOfRomanNumeralMaps)
             {
                 { "M", 1000 },
@@ -54,14 +54,18 @@
         /// <returns>A <see cref="int"/> representing the roman numeral.</returns>
         public static int ParseRomanNumeral(this string input)
         {
-            input.ThrowIfArgumentIsNull("value");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             input = input.ToUpperInvariant().Trim();
 
             var length = input.Length;
 
             if ((length == 0) || !input.IsValidRomanNumeral())
             {
-                throw new ArgumentException("Empty or invalid Roman numeral string.", "input");
+                throw new ArgumentException("Empty or invalid Roman numeral string.", nameof(input));
             }
 
             var total = 0;

@@ -14,7 +14,10 @@
         /// <returns>True if the <paramref name="input"/> is nullable.</returns>
         public static bool IsNullable(this Type input)
         {
-            input.ThrowIfArgumentIsNull("type");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
 
             return !input.IsValueType || (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Nullable<>));
         }
@@ -26,7 +29,10 @@
         /// <returns>The underlying type of the nullable type or if the type is not nullable - the same type.</returns>
         public static Type GetCoreType(this Type input)
         {
-            input.ThrowIfArgumentIsNull("type");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
 
             if (IsNullable(input))
             {

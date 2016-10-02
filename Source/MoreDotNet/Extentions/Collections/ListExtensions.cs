@@ -23,8 +23,17 @@
         /// <exception cref="InvalidOperationException">If the key is not found.</exception>
         /// <returns>The element containing our key.</returns>
         public static T BinarySearch<T, TKey>(this IList<T> list, Func<T, TKey> keySelector, TKey key)
-        where TKey : IComparable<TKey>
+            where TKey : IComparable<TKey>
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+            if (keySelector == null)
+            {
+                throw new ArgumentNullException(nameof(keySelector));
+            }
+
             int min = 0;
             int max = list.Count;
             while (min < max)
@@ -47,8 +56,7 @@
                 }
             }
 
-            if (min == max &&
-                keySelector(list[min]).CompareTo(key) == 0)
+            if (min == max && keySelector(list[min]).CompareTo(key) == 0)
             {
                 return list[min];
             }
@@ -64,6 +72,11 @@
         /// <returns>A <see cref="DataTable"/> with the contents of the <see cref="IList{T}"/></returns>
         public static DataTable ToDataTable<T>(this IList<T> list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
             var tb = new DataTable(typeof(T).Name);
 
             PropertyInfo[] props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -97,6 +110,16 @@
         /// <param name="comparison">the method for comparison of two elements.</param>
         public static void InsertionSort<T>(this IList<T> list, Comparison<T> comparison)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
+            if (comparison == null)
+            {
+                throw new ArgumentNullException(nameof(comparison));
+            }
+
             for (int i = 2; i < list.Count; i++)
             {
                 for (int j = i; j > 1 && comparison(list[j], list[j - 1]) < 0; j--)
@@ -109,7 +132,7 @@
         }
 
         /// <summary>
-        /// Inserts an Item into a list at the first place that the <paramref name="predicate"/> expression fails.  If it is true in all cases, then the item is appended to the end of the list.
+        /// Inserts an Item into a list at the first place that the <paramref name="predicate"/> expression fails. If it is true in all cases, then the item is appended to the end of the list.
         /// </summary>
         /// <typeparam name="T">The item type of the <see cref="IList{T}"/></typeparam>
         /// <param name="list">The <see cref="IList{T}"/> instance on which the extension method is called.</param>
@@ -117,6 +140,16 @@
         /// <param name="predicate">The specified function that determines when the <paramref name="obj"/> should be added. </param>
         public static void InsertWhere<T>(this IList<T> list, T obj, Func<T, bool> predicate)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+
             for (int i = 0; i < list.Count; i++)
             {
                 // When the function first fails it inserts the obj parameter.
