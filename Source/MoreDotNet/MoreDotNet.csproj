@@ -70,7 +70,7 @@
     <Compile Include="Helpers\FileHelpers.cs" />
     <Compile Include="Models\CharType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wrappers\CharWarppers.cs" />
+    <Compile Include="Wrappers\CharWrappers.cs" />
     <Compile Include="Wrappers\DecimalWrappers.cs" />
     <Compile Include="Wrappers\DoubleWrappers.cs" />
     <Compile Include="Wrappers\FloatWrappers.cs" />

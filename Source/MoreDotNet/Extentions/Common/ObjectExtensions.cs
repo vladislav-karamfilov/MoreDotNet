@@ -1,5 +1,6 @@
 ﻿namespace MoreDotNet.Extentions.Common
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -29,6 +30,11 @@
         public static bool IsNot<T>(this object item)
             where T : class
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+
             return !item.Is<T>();
         }
 
@@ -51,6 +57,11 @@
         /// <returns>A <see cref="IDictionary{TKey,TValue}"/> containing the properties names as keys and their contents as values.</returns>
         public static IDictionary<string, object> ToDictionary(this object o)
         {
+            if (o == null)
+            {
+                throw new ArgumentNullException(nameof(o));
+            }
+
             return o
                 .GetType()
                 .GetProperties()

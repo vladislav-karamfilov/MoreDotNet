@@ -16,6 +16,11 @@
         /// <returns>A <see cref="TResult"/> value.</returns>
         public static TResult WhenTrue<TResult>(this bool value, Func<TResult> expression)
         {
+            if (expression == null)
+            {
+                throw new ArgumentNullException(nameof(expression));
+            }
+
             return value ? expression() : default(TResult);
         }
 
@@ -40,6 +45,11 @@
         /// <returns>A <see cref="TResult"/> value.</returns>
         public static TResult WhenFalse<TResult>(this bool value, Func<TResult> expression)
         {
+            if (expression == null)
+            {
+                throw new ArgumentNullException(nameof(expression));
+            }
+
             return !value ? expression() : default(TResult);
         }
 

@@ -1,5 +1,6 @@
 ﻿namespace MoreDotNet.Extentions.Common
 {
+    using System;
     using System.Data;
 
     /// <summary>
@@ -16,6 +17,11 @@
         /// <returns>The value corresponding to the given ordinal.</returns>
         public static T GetNullable<T>(this IDataRecord dataRecord, int ordinal)
         {
+            if (dataRecord == null)
+            {
+                throw new ArgumentNullException(nameof(dataRecord));
+            }
+
             return dataRecord.IsDBNull(ordinal) ? default(T) : (T)dataRecord.GetValue(ordinal);
         }
     }

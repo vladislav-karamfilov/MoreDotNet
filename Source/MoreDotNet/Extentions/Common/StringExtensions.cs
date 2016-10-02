@@ -38,7 +38,10 @@
         /// <returns>The separated words.</returns>
         public static string CaseToWords(this string input)
         {
-            input.ThrowIfArgumentIsNull("input");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
 
             // if the input is all upper, just return it
             if (!Regex.IsMatch(input, "[a-z]"))
@@ -100,7 +103,7 @@
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException(string.Format("Invalid pattern: {0}", wildcardPattern), ex);
+                throw new ArgumentException($"Invalid pattern: {wildcardPattern}", ex);
             }
 
             return result;
@@ -116,8 +119,15 @@
         /// <returns>The trimmed string.</returns>
         public static string ToMaximumLengthString(this string input, int maximumLength, string postFixText = "...")
         {
-            input.ThrowIfArgumentIsNull("input");
-            postFixText.ThrowIfArgumentIsNull("postFixText");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            if (postFixText == null)
+            {
+                throw new ArgumentNullException(nameof(postFixText));
+            }
 
             if (input.Length > maximumLength)
             {
@@ -142,14 +152,21 @@
         /// <returns>The index of the n-th occurrence of the <paramref name="match"/> string.</returns>
         public static int NthIndexOf(this string input, string match, int occurrence)
         {
-            const int NotFoundValue = -1;
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
 
-            input.ThrowIfArgumentIsNull("input");
-            match.ThrowIfArgumentIsNull("match");
+            if (match == null)
+            {
+                throw new ArgumentNullException(nameof(match));
+            }
+
+            const int NotFoundValue = -1;
 
             if (occurrence < 1)
             {
-                throw new ArgumentException("occurrence equal to 1 or larger.", "occurrence");
+                throw new ArgumentException("occurrence equal to 1 or larger.", nameof(occurrence));
             }
 
             var i = 1;
@@ -178,7 +195,11 @@
         /// <returns>The string without its last character.</returns>
         public static string RemoveLastCharacter(this string input)
         {
-            input.ThrowIfArgumentIsNull("input");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             return input.Substring(0, input.Length - 1);
         }
 
@@ -190,7 +211,11 @@
         /// <returns>The string without its last <paramref name="number"/> characters</returns>
         public static string RemoveLast(this string input, int number)
         {
-            input.ThrowIfArgumentIsNull("input");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             return input.Substring(0, input.Length - number);
         }
 
@@ -201,7 +226,11 @@
         /// <returns>The string without its first character.</returns>
         public static string RemoveFirstCharacter(this string input)
         {
-            input.ThrowIfArgumentIsNull("input");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             return input.Substring(1);
         }
 
@@ -213,7 +242,11 @@
         /// <returns>The string without its first <paramref name="number"/> characters</returns>
         public static string RemoveFirst(this string input, int number)
         {
-            input.ThrowIfArgumentIsNull("input");
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             return input.Substring(number);
         }
 

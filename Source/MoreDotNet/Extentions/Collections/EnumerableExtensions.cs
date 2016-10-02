@@ -20,6 +20,11 @@
         /// <param name="mapFunction">The action to be executed.</param>
         public static void ForEach<T>(this IEnumerable<T> items, Action<T> mapFunction)
         {
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
             foreach (var item in items)
             {
                 mapFunction(item);
@@ -45,6 +50,11 @@
         /// <returns>A new collection with the snuffled elements from <paramref name="items"/>.</returns>
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> items)
         {
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
             return items.Shuffle(new Random());
         }
 
@@ -57,8 +67,15 @@
         /// <returns>A new collection with the snuffled elements from <paramref name="items"/>.</returns>
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> items, Random randomGenerator)
         {
-            items.ThrowIfArgumentIsNull("source");
-            randomGenerator.ThrowIfArgumentIsNull("randomGenerator");
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            if (randomGenerator == null)
+            {
+                throw new ArgumentNullException(nameof(randomGenerator));
+            }
 
             return items.ShuffleIterator(randomGenerator);
         }
@@ -72,6 +89,11 @@
         /// <returns>A string from the elements of an <see cref="IEnumerable{T}"/> using a given separator.</returns>
         public static string ToString<T>(this IEnumerable<T> items, string separator)
         {
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
             return ToString(items, t => t.ToString(), separator);
         }
 
@@ -85,6 +107,16 @@
         /// <returns>A string from the transformed elements of an <see cref="IEnumerable{T}"/> using a given separator.</returns>
         public static string ToString<T>(this IEnumerable<T> items, Func<T, string> stringElement, string separator)
         {
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            if (stringElement == null)
+            {
+                throw new ArgumentNullException(nameof(stringElement));
+            }
+
             var output = new StringBuilder();
             foreach (var item in items)
             {

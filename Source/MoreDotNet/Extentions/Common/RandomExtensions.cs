@@ -28,6 +28,16 @@
         /// <returns>The random item.</returns>
         public static T OneOf<T>(this Random random, params T[] items)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
             int index = random.Next(0, items.Length);
             return items[index];
         }
@@ -41,6 +51,16 @@
         /// <returns>The random item.</returns>
         public static T OneOf<T>(this Random random, IEnumerable<T> items)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
+            if (items == null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
             int index = random.Next(0, items.Count());
             return items.ElementAt(index);
         }
@@ -53,6 +73,11 @@
         /// <returns>A random boolean value.</returns>
         public static bool NextBool(this Random random, double probability = 0.5)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return random.NextDouble() <= probability;
         }
 
@@ -63,6 +88,11 @@
         /// <returns>An alphanumeric character.</returns>
         public static char NextChar(this Random random)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return random.NextChar(CharType.AlphanumericAny);
         }
 
@@ -74,6 +104,11 @@
         /// <returns>A random character.</returns>
         public static char NextChar(this Random random, CharType mode)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             switch (mode)
             {
                 case CharType.AnyUnicode:
@@ -104,6 +139,11 @@
         /// <returns>A <see cref="DateTime"/> value.</returns>
         public static DateTime NextDateTime(this Random random)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return random.NextDateTime(DateTime.MinValue, DateTime.MaxValue);
         }
 
@@ -116,6 +156,11 @@
         /// <returns>A random <see cref="DateTime"/> value.</returns>
         public static DateTime NextDateTime(this Random random, DateTime minValue, DateTime maxValue)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return DateTime.FromOADate(random.NextDouble(minValue.ToOADate(), maxValue.ToOADate()));
         }
 
@@ -128,6 +173,11 @@
         /// <returns>A random <see cref="double"/> value.</returns>
         public static double NextDouble(this Random random, double minValue, double maxValue)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             if (maxValue < minValue)
             {
                 throw new ArgumentException("Minimum value must be less than maximum value.");
@@ -159,6 +209,11 @@
         /// <returns>A random string.</returns>
         public static string NextString(this Random random, int numChars)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return random.NextString(numChars, CharType.AlphanumericAny);
         }
 
@@ -171,6 +226,11 @@
         /// <returns>A random string.</returns>
         public static string NextString(this Random random, int numChars, CharType mode)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             char[] chars = new char[numChars];
 
             for (int i = 0; i < numChars; ++i)
@@ -188,6 +248,11 @@
         /// <returns>A random <see cref="TimeSpan"/> value.</returns>
         public static TimeSpan NextTimeSpan(this Random random)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return random.NextTimeSpan(TimeSpan.MinValue, TimeSpan.MaxValue);
         }
 
@@ -200,11 +265,21 @@
         /// <returns>A random <see cref="TimeSpan"/> value.</returns>
         public static TimeSpan NextTimeSpan(this Random random, TimeSpan minValue, TimeSpan maxValue)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return TimeSpan.FromMilliseconds(random.NextDouble(minValue.TotalMilliseconds, maxValue.TotalMilliseconds));
         }
 
         private static char NextAlphanumericChar(this Random random, bool uppercase)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             bool numeric = random.NextBool(AlphanumericProbabilityNumericCased);
 
             if (numeric)
@@ -217,6 +292,11 @@
 
         private static char NextAlphanumericChar(this Random random)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             bool numeric = random.NextBool(AlphanumericProbabilityNumericAny);
 
             if (numeric)
@@ -229,6 +309,11 @@
 
         private static char NextAlphabeticChar(this Random random, bool uppercase)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             if (uppercase)
             {
                 return (char)random.Next(65, 91);
@@ -239,16 +324,31 @@
 
         private static char NextAlphabeticChar(this Random random)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return random.NextAlphabeticChar(random.NextBool());
         }
 
         private static char NextNumericChar(this Random random)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return (char)random.Next(48, 58);
         }
 
         private static char NextUnicodeChar(this Random random)
         {
+            if (random == null)
+            {
+                throw new ArgumentNullException(nameof(random));
+            }
+
             return (char)random.Next(0, 65536);
         }
     }

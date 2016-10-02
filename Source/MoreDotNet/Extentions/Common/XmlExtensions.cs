@@ -1,5 +1,6 @@
 ﻿namespace MoreDotNet.Extentions.Common
 {
+    using System;
     using System.IO;
     using System.Xml.Serialization;
 
@@ -17,7 +18,10 @@
         public static string XmlSerialize<T>(this T inputObject)
             where T : class, new()
         {
-            inputObject.ThrowIfArgumentIsNull("inputObject");
+            if (inputObject == null)
+            {
+                throw new ArgumentNullException(nameof(inputObject));
+            }
 
             var serializer = new XmlSerializer(typeof(T));
             using (var writer = new StringWriter())
@@ -36,7 +40,10 @@
         public static T XmlDeserialize<T>(this string inputXml)
             where T : class, new()
         {
-            inputXml.ThrowIfArgumentIsNull("inputXml");
+            if (inputXml == null)
+            {
+                throw new ArgumentNullException(nameof(inputXml));
+            }
 
             var serializer = new XmlSerializer(typeof(T));
             using (var reader = new StringReader(inputXml))
