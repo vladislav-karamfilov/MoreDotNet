@@ -102,7 +102,7 @@
 
             if ((input < MinValue) || (input > MaxValue))
             {
-                throw new ArgumentOutOfRangeException("input", input, "Argument out of Roman numeral range.");
+                throw new ArgumentOutOfRangeException(nameof(input), input, "Argument out of Roman numeral range.");
             }
 
             const int MaxRomanNumeralLength = 15;

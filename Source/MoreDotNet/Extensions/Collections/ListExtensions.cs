@@ -29,6 +29,7 @@
             {
                 throw new ArgumentNullException(nameof(list));
             }
+
             if (keySelector == null)
             {
                 throw new ArgumentNullException(nameof(keySelector));
