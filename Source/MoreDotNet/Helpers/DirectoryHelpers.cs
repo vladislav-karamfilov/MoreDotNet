@@ -2,8 +2,7 @@
 {
     using System.IO;
 
-    using MoreDotNet.Extentions.Collections;
-    using MoreDotNet.Extentions.Common;
+    using MoreDotNet.Extensions.Collections;
 
     public static class DirectoryHelpers
     {
