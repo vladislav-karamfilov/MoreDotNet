@@ -23,6 +23,11 @@
                 throw new ArgumentNullException(nameof(items));
             }
 
+            if (mapFunction == null)
+            {
+                throw new ArgumentNullException(nameof(mapFunction));
+            }
+
             foreach (var item in items)
             {
                 mapFunction(item);
@@ -90,6 +95,11 @@
             if (items == null)
             {
                 throw new ArgumentNullException(nameof(items));
+            }
+
+            if (separator == null)
+            {
+                throw new ArgumentNullException(nameof(separator));
             }
 
             return ToString(items, t => t.ToString(), separator);
