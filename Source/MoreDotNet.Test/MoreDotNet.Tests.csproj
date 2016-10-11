@@ -90,6 +90,8 @@
     <Compile Include="Extensions\Common\StringExtensions\ToTitleCaseTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\CaseToWordsTests.cs" />
     <Compile Include="Extensions\Common\TypeExtensions\TypeExtensionsTests.cs" />
+    <Compile Include="Helpers\DirectoryHelpers\DirectoryHelpersTests.cs" />
+    <Compile Include="Helpers\DirectoryHelpers\SafeDeleteDirectoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\CharWrappersTests.cs" />
     <Compile Include="Wrappers\DecimalWrappersTests.cs" />
