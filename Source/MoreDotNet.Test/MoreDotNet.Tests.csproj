@@ -71,6 +71,11 @@
   <ItemGroup>
     <Compile Include="Extensions\Collections\DictionaryExtensions\GetOrDefaultTests.cs" />
     <Compile Include="Extensions\Collections\DictionaryExtensions\GetKeyIgnoringCaseTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\EmptyIfNullTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\ForEachTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\IsNullOrEmptyTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\ShuffleTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\ToStringTests.cs" />
     <Compile Include="Extensions\Common\BooleanExtensions\WhenFalseTests.cs" />
     <Compile Include="Extensions\Common\BooleanExtensions\WhenTrueTests.cs" />
     <Compile Include="Extensions\Collections\CollectionExtensions\AddRangeTests.cs" />
