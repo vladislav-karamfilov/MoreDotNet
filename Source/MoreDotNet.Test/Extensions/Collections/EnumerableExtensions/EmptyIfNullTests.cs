@@ -6,7 +6,7 @@
     public class EmptyIfNullTests
     {
         [Fact]
-        public void EmtyIfNull_ShouldReturnEqualCollection()
+        public void EmptyIfNull_NonEmptyEnumerableGiven_ShouldReturnEqualCollection()
         {
             int[] input = new[] { 1, 2, 3 };
             var actual = input.EmptyIfNull();
@@ -14,7 +14,7 @@
         }
 
         [Fact]
-        public void EmptyIfNull_ShouldReturnEmptyIfNull()
+        public void EmptyIfNull_NullEnumerableGiven_ShouldReturnEmpty()
         {
             int[] input = null;
             var actual = input.EmptyIfNull();

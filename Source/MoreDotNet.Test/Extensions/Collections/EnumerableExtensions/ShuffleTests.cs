@@ -7,7 +7,7 @@
     public class ShuffleTests
     {
         [Fact]
-        public void Shuffle_ShouldShuffle()
+        public void Shuffle_NonEmtpyEnumerableGiven_ShouldShuffle()
         {
             int[] input = Enumerable.Range(1, 100).ToArray();
             var actual = input.Shuffle();

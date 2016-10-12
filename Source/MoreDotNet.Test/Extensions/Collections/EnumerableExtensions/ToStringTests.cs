@@ -7,7 +7,7 @@
     public class ToStringTests
     {
         [Fact]
-        public void ToString_ShouldReturnStringsWithSeperator()
+        public void ToString_NonEmptyEnumerableGiven_ShouldReturnStringsWithSeperator()
         {
             string[] input = new string[] { "one", "two", "three" };
 
@@ -17,7 +17,7 @@
         }
 
         [Fact]
-        public void ToString_ShouldReturnStringsWithStringElement()
+        public void ToString_StringElementGiven_ShouldReturnStringsWithStringElement()
         {
             string[] input = new string[] { "one", "two", "three" };
 
@@ -27,11 +27,10 @@
         }
 
         [Fact]
-        public void ToString_ShouldThrowArgumentNullExceptionWithItemNull()
+        public void ToString_NullStringArrayGiven_ShouldThrowArgumentNullException()
         {
             string[] input = null;
-            Assert.Throws(
-                typeof(ArgumentNullException),
+            Assert.Throws<ArgumentNullException>(
                 () =>
                 {
                     string seperator = ",";
@@ -40,11 +39,10 @@
         }
 
         [Fact]
-        public void ToString_ShouldThrowArgumentNullExceptionWithSeperatorNull()
+        public void ToString_NullSeperatorGiven_ShouldThrowArgumentNullException()
         {
             string[] input = new string[] { "one", "two", "three" };
-            Assert.Throws(
-                typeof(ArgumentNullException),
+            Assert.Throws<ArgumentNullException>(
                 () =>
                 {
                     string seperator = null;
@@ -53,11 +51,10 @@
         }
 
         [Fact]
-        public void ToString_ShouldThrowArgumentNullExceptionWithStringElementNull()
+        public void ToString_StringElementNullGiven_ShouldThrowArgumentNullException()
         {
             string[] input = new string[] { "one", "two", "three" };
-            Assert.Throws(
-                typeof(ArgumentNullException),
+            Assert.Throws<ArgumentNullException>(
                 () =>
                 {
                     string seperator = ",";

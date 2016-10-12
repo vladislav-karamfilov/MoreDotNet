@@ -8,7 +8,7 @@
     public class ForEachTests
     {
         [Fact]
-        public void ForEach_ShouldAddToResultSet()
+        public void ForEach_NonEmptyEnumerableGiven_ShouldCallMapFunction()
         {
             List<int> actual = new List<int>();
             int[] input = new[] { 1 };
@@ -17,19 +17,17 @@
         }
 
         [Fact]
-        public void ForEach_ShouldThrowOnNullItems()
+        public void ForEach_NullEnumerableGiven_ShouldThrowArgumentNullException()
         {
-            Assert.Throws(
-                typeof(ArgumentNullException),
+            Assert.Throws<ArgumentNullException>(
                 () => EnumerableExtensions.ForEach<int>(null, null));
         }
 
         [Fact]
-        public void ForEach_ShouldThrowOnNullAction()
+        public void ForEach_NullMapFunctionGiven_ShouldThrowArgumentNullException()
         {
             int[] input = new[] { 1 };
-            Assert.Throws(
-                typeof(ArgumentNullException),
+            Assert.Throws<ArgumentNullException>(
                 () => EnumerableExtensions.ForEach(input, null));
         }
     }
