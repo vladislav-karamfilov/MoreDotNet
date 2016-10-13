@@ -4,12 +4,13 @@
     using MoreDotNet.Helpers;
     using Xunit;
 
+    // TODO: Improve test by mocking the Directory object
     public class DirectoryHelpersTests
     {
         [Fact]
         public void CreateTempDirectory_ShouldCreateTempDirectory()
         {
-            string path = DirectoryHelpers.CreateTempDirectory();
+            var path = DirectoryHelpers.CreateTempDirectory();
             Assert.True(Directory.Exists(path));
         }
     }

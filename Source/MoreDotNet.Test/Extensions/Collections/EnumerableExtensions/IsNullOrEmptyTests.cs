@@ -8,7 +8,7 @@
         [Fact]
         public void IsNullOrEmpty_NonEmptyEnumerableGiven_ShouldReturnFalse()
         {
-            int[] input = new[] { 1, 2, 3 };
+            var input = new[] { 1, 2, 3 };
             var actual = input.IsNullOrEmpty();
             Assert.False(actual);
         }
@@ -16,7 +16,7 @@
         [Fact]
         public void IsNullOrEmpty_EmptyEnumerableGiven_ShouldReturnTrue()
         {
-            int[] input = new int[0];
+            var input = new int[0];
             var actual = input.IsNullOrEmpty();
             Assert.True(actual);
         }

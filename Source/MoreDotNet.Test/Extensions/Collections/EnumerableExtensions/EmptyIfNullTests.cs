@@ -8,7 +8,7 @@
         [Fact]
         public void EmptyIfNull_NonEmptyEnumerableGiven_ShouldReturnEqualCollection()
         {
-            int[] input = new[] { 1, 2, 3 };
+            var input = new[] { 1, 2, 3 };
             var actual = input.EmptyIfNull();
             Assert.Equal(input, actual);
         }

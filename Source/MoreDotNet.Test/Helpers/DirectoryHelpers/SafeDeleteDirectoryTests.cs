@@ -9,7 +9,7 @@
         [Fact]
         public void SafeDeleteDirectory_ShouldSafeDeleteExistingDirectory()
         {
-            string path = DirectoryHelpers.CreateTempDirectory();
+            var path = DirectoryHelpers.CreateTempDirectory();
             Assert.True(Directory.Exists(path));
             DirectoryHelpers.SafeDeleteDirectory(path);
             Assert.False(Directory.Exists(path));
@@ -18,8 +18,8 @@
         [Fact]
         public void SafeDeleteDirectory_ShouldNotThrowOnNonExistingDirectory()
         {
-            string path = DirectoryHelpers.CreateTempDirectory();
-            string nonExistingPath = $"{path}000";
+            var path = DirectoryHelpers.CreateTempDirectory();
+            var nonExistingPath = $"{path}000";
             Assert.False(Directory.Exists(nonExistingPath));
             DirectoryHelpers.SafeDeleteDirectory(nonExistingPath);
         }

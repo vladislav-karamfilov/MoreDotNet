@@ -9,9 +9,9 @@
         [Fact]
         public void ToString_NonEmptyEnumerableGiven_ShouldReturnStringsWithSeperator()
         {
-            string[] input = new string[] { "one", "two", "three" };
+            var input = new[] { "one", "two", "three" };
 
-            string seperator = ",";
+            var seperator = ",";
             var actual = input.ToString(seperator);
             Assert.Equal("one,two,three", actual);
         }
@@ -19,9 +19,9 @@
         [Fact]
         public void ToString_StringElementGiven_ShouldReturnStringsWithStringElement()
         {
-            string[] input = new string[] { "one", "two", "three" };
+            const string seperator = ",";
+            var input = new[] { "one", "two", "three" };
 
-            string seperator = ",";
             var actual = input.ToString((_) => _.ToUpperInvariant(), seperator);
             Assert.Equal("ONE,TWO,THREE", actual);
         }
@@ -33,7 +33,7 @@
             Assert.Throws<ArgumentNullException>(
                 () =>
                 {
-                    string seperator = ",";
+                    var seperator = ",";
                     var result = input.ToString(seperator);
                 });
         }
@@ -41,7 +41,7 @@
         [Fact]
         public void ToString_NullSeperatorGiven_ShouldThrowArgumentNullException()
         {
-            string[] input = new string[] { "one", "two", "three" };
+            var input = new[] { "one", "two", "three" };
             Assert.Throws<ArgumentNullException>(
                 () =>
                 {
@@ -53,11 +53,11 @@
         [Fact]
         public void ToString_StringElementNullGiven_ShouldThrowArgumentNullException()
         {
-            string[] input = new string[] { "one", "two", "three" };
+            var input = new[] { "one", "two", "three" };
             Assert.Throws<ArgumentNullException>(
                 () =>
                 {
-                    string seperator = ",";
+                    var seperator = ",";
                     var actual = input.ToString(null, seperator);
                 });
         }
