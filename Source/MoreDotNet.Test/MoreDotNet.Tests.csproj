@@ -71,6 +71,11 @@
   <ItemGroup>
     <Compile Include="Extensions\Collections\DictionaryExtensions\GetOrDefaultTests.cs" />
     <Compile Include="Extensions\Collections\DictionaryExtensions\GetKeyIgnoringCaseTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\EmptyIfNullTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\ForEachTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\IsNullOrEmptyTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\ShuffleTests.cs" />
+    <Compile Include="Extensions\Collections\EnumerableExtensions\ToStringTests.cs" />
     <Compile Include="Extensions\Common\BooleanExtensions\WhenFalseTests.cs" />
     <Compile Include="Extensions\Common\BooleanExtensions\WhenTrueTests.cs" />
     <Compile Include="Extensions\Collections\CollectionExtensions\AddRangeTests.cs" />
@@ -90,6 +95,8 @@
     <Compile Include="Extensions\Common\StringExtensions\ToTitleCaseTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\CaseToWordsTests.cs" />
     <Compile Include="Extensions\Common\TypeExtensions\TypeExtensionsTests.cs" />
+    <Compile Include="Helpers\DirectoryHelpers\DirectoryHelpersTests.cs" />
+    <Compile Include="Helpers\DirectoryHelpers\SafeDeleteDirectoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\CharWrappersTests.cs" />
     <Compile Include="Wrappers\DecimalWrappersTests.cs" />
