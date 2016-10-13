@@ -1,4 +1,6 @@
-﻿namespace MoreDotNet.Tests.Extensions.Collections.EnumerableExtensions
+﻿using System.Collections.Generic;
+
+namespace MoreDotNet.Tests.Extensions.Collections.EnumerableExtensions
 {
     using System;
     using MoreDotNet.Extensions.Collections;
@@ -6,6 +8,20 @@
 
     public class ToStringTests
     {
+        [Fact]
+        public void ToString_NullEnumerableGiven_ShouldThrowException()
+        {
+            IEnumerable<string> nullEnumerable = null;
+            Assert.Throws<ArgumentNullException>(() => nullEnumerable.ToString(","));
+        }
+
+        [Fact]
+        public void ToString_NullEnumerableAndCorrectTransformationFunctionGiven_ShouldThrowException()
+        {
+            IEnumerable<string> nullEnumerable = null;
+            Assert.Throws<ArgumentNullException>(() => nullEnumerable.ToString(x => string.Empty, ","));
+        }
+
         [Fact]
         public void ToString_NonEmptyEnumerableGiven_ShouldReturnStringsWithSeperator()
         {
