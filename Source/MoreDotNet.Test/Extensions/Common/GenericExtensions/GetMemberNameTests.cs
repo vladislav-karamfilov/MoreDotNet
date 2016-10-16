@@ -49,6 +49,13 @@
         }
 
         [Fact]
+        public void WhenPassedNotMemberAccessExpression_ShouldThrowException()
+        {
+            var testClass = new TestClass();
+            Assert.Throws<ArgumentException>(() => testClass.GetMemberName(obj => 42));
+        }
+
+        [Fact]
         public void WhenPassedNullExpression_ShouldThrowException()
         {
             var testClass = new TestClass();

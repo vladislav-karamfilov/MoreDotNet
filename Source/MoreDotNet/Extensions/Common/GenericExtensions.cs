@@ -39,6 +39,11 @@
                 throw new ArgumentNullException(nameof(expression));
             }
 
+            if (expression.Body.NodeType != ExpressionType.MemberAccess)
+            {
+                throw new ArgumentException($"{nameof(expression)} type should be a {ExpressionType.MemberAccess} but got {expression.Body.NodeType}.");
+            }
+
             return ((MemberExpression)expression.Body).Member.Name;
         }
     }
