@@ -2,6 +2,10 @@
 {
     using System;
 
+    using System.IO;
+
+    using System.Xml;
+
     using MoreDotNet.Extensions.Common;
 
     using Xunit;
@@ -20,8 +24,18 @@
         public void XmlSerialize_GivenNonNullArgument_ShouldReturnSerialized()
         {
             object testObject = new object();
+            string modelSerialized = testObject.XmlSerialize();
 
-            Assert.NotNull(testObject.XmlSerialize());
+            Assert.NotNull(modelSerialized);
+            Assert.NotEqual(modelSerialized.Length, 0);
+
+            using (var stringReader = new StringReader(modelSerialized))
+            {
+                using (var xmlReader = XmlReader.Create(stringReader))
+                {
+                    Assert.True(xmlReader.Read());
+                }
+            }
         }
 
         [Fact]
@@ -35,10 +49,13 @@
         [Fact]
         public void XmlDeserialize_GivenNonNullArgument_ShouldReturnDeserialized()
         {
-            object testObject = new object();
-            string testSerializedObject = testObject.XmlSerialize();
+            XmlSerializableModel model = new XmlSerializableModel("Hello World");
+            string modelSerialized = model.XmlSerialize();
 
-            Assert.NotNull(testSerializedObject.XmlDeserialize<object>());
+            XmlSerializableModel modelDeserialized = modelSerialized.XmlDeserialize<XmlSerializableModel>();
+
+            Assert.NotNull(modelDeserialized);
+            Assert.Equal(modelDeserialized, model);
         }
     }
 }
