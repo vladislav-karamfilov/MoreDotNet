@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
       <Private>True</Private>
@@ -95,6 +96,8 @@
     <Compile Include="Extensions\Common\StringExtensions\ToTitleCaseTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\CaseToWordsTests.cs" />
     <Compile Include="Extensions\Common\TypeExtensions\TypeExtensionsTests.cs" />
+    <Compile Include="Extensions\Common\XmlExtensions\XmlExtensionsTests.cs" />
+    <Compile Include="Extensions\Common\XmlExtensions\XmlSerializableModel.cs" />
     <Compile Include="Helpers\DirectoryHelpers\DirectoryHelpersTests.cs" />
     <Compile Include="Helpers\DirectoryHelpers\SafeDeleteDirectoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
