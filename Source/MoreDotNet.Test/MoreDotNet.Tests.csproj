@@ -97,7 +97,7 @@
     <Compile Include="Extensions\Common\StringExtensions\CaseToWordsTests.cs" />
     <Compile Include="Extensions\Common\TypeExtensions\TypeExtensionsTests.cs" />
     <Compile Include="Extensions\Common\XmlExtensions\XmlExtensionsTests.cs" />
-    <Compile Include="Extensions\Common\XmlExtensions\XmlSerializableModel.cs" />
+    <Compile Include="Models\XmlSerializableModel.cs" />
     <Compile Include="Helpers\DirectoryHelpers\DirectoryHelpersTests.cs" />
     <Compile Include="Helpers\DirectoryHelpers\SafeDeleteDirectoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

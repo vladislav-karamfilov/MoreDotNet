@@ -7,6 +7,7 @@
     using System.Xml;
 
     using MoreDotNet.Extensions.Common;
+    using MoreDotNet.Tests.Models;
 
     using Xunit;
 
@@ -23,8 +24,8 @@
         [Fact]
         public void XmlSerialize_GivenNonNullArgument_ShouldReturnSerialized()
         {
-            object testObject = new object();
-            string modelSerialized = testObject.XmlSerialize();
+            var testObject = new object();
+            var modelSerialized = testObject.XmlSerialize();
 
             Assert.NotNull(modelSerialized);
             Assert.NotEqual(modelSerialized.Length, 0);
@@ -49,10 +50,10 @@
         [Fact]
         public void XmlDeserialize_GivenNonNullArgument_ShouldReturnDeserialized()
         {
-            XmlSerializableModel model = new XmlSerializableModel("Hello World");
-            string modelSerialized = model.XmlSerialize();
+            var model = new XmlSerializableModel("Hello World");
+            var modelSerialized = model.XmlSerialize();
 
-            XmlSerializableModel modelDeserialized = modelSerialized.XmlDeserialize<XmlSerializableModel>();
+            var modelDeserialized = modelSerialized.XmlDeserialize<XmlSerializableModel>();
 
             Assert.NotNull(modelDeserialized);
             Assert.Equal(modelDeserialized, model);

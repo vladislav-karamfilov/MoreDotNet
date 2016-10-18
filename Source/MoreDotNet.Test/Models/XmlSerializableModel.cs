@@ -1,4 +1,4 @@
-﻿namespace MoreDotNet.Tests.Extensions.Common.XmlExtensions
+﻿namespace MoreDotNet.Tests.Models
 {
     using System.Xml.Serialization;
 
@@ -17,19 +17,14 @@
 
         public string Value { get; set; }
 
-        public void SetValue(string value)
-        {
-            this.Value = value;
-        }
-
         public override bool Equals(object obj)
         {
-            return Value == (obj as XmlSerializableModel).Value;
+            return this.Value == (obj as XmlSerializableModel).Value;
         }
 
         public override int GetHashCode()
         {
-            return Value.GetHashCode();
+            return this.Value.GetHashCode();
         }
     }
 }
