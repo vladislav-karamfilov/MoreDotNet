@@ -58,5 +58,16 @@
             Assert.NotNull(modelDeserialized);
             Assert.Equal(modelDeserialized, model);
         }
+
+        [Fact]
+        public void XmlDeserialize_GivenIncorrectDeserializationType_ShoudlReturnNul()
+        {
+            var model = new XmlSerializableModel("Hello World");
+            var modelSerialized = model.XmlSerialize();
+
+            var modelDeserialized = modelSerialized.XmlDeserialize<FakeSerializationClass>();
+
+            Assert.Null(modelDeserialized);
+        }
     }
 }
