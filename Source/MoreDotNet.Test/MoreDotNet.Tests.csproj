@@ -84,8 +84,10 @@
     <Compile Include="Extensions\Common\ColorExtensions\ToRgbStringTests.cs" />
     <Compile Include="Extensions\Common\DataExtensions\GetNullableTests.cs" />
     <Compile Include="Extensions\Common\IntegerExtensions\RangeToTests.cs" />
-    <Compile Include="Extensions\Common\ObjectExtensions\TypeCastTests.cs" />
-    <Compile Include="Extensions\Common\ObjectExtensions\TypeCheckTests.cs" />
+    <Compile Include="Extensions\Common\ObjectExtensions\AsTests.cs" />
+    <Compile Include="Extensions\Common\ObjectExtensions\IsNotTests.cs" />
+    <Compile Include="Extensions\Common\ObjectExtensions\ToDictionaryTests.cs" />
+    <Compile Include="Extensions\Common\ObjectExtensions\IsTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\CapitalizeTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\IsLikeTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\NthIndexOfTests.cs" />

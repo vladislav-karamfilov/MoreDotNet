@@ -4,22 +4,8 @@
     using MoreDotNet.Extensions.Common;
     using Xunit;
 
-    public class TypeCheckTests
+    public class IsNotTests
     {
-        [Fact]
-        public void Is_AIsA_ShouldReturnTrue()
-        {
-            var input = new ExampleA();
-            Assert.True(input.Is<ExampleA>());
-        }
-
-        [Fact]
-        public void Is_AIsB_ShouldReturnFalse()
-        {
-            var input = new ExampleA();
-            Assert.False(input.Is<ExampleB>());
-        }
-
         [Fact]
         public void IsNot_NullItem_ShouldThrowShouldThrowArgumentNullException()
         {
@@ -28,14 +14,14 @@
         }
 
         [Fact]
-        public void Is_BIsNotA_ShouldReturnTrue()
+        public void IsNot_BIsNotA_ShouldReturnTrue()
         {
             var input = new ExampleB();
             Assert.True(input.IsNot<ExampleA>());
         }
 
         [Fact]
-        public void Is_BIsNotB_ShouldReturnFalse()
+        public void IsNot_BIsNotB_ShouldReturnFalse()
         {
             var input = new ExampleB();
             Assert.False(input.IsNot<ExampleB>());
