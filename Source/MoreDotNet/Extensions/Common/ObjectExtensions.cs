@@ -53,20 +53,20 @@
         /// <summary>
         /// Converts an object to a <see cref="IDictionary{TKey,TValue}"/> containing the properties names as keys and their contents as values.
         /// </summary>
-        /// <param name="o">The object to convert.</param>
+        /// <param name="item">The object to convert.</param>
         /// <returns>A <see cref="IDictionary{TKey,TValue}"/> containing the properties names as keys and their contents as values.</returns>
-        public static IDictionary<string, object> ToDictionary(this object o)
+        public static IDictionary<string, object> ToDictionary(this object item)
         {
-            if (o == null)
+            if (item == null)
             {
-                throw new ArgumentNullException(nameof(o));
+                throw new ArgumentNullException(nameof(item));
             }
 
-            return o
+            return item
                 .GetType()
                 .GetProperties()
                 .Where(propertyInfo => propertyInfo.GetIndexParameters().Length == 0)
-                .ToDictionary(propertyInfo => propertyInfo.Name, propertyInfo => propertyInfo.GetValue(o, null));
+                .ToDictionary(propertyInfo => propertyInfo.Name, propertyInfo => propertyInfo.GetValue(item, null));
         }
     }
 }
