@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-
-namespace MoreDotNet.Tests.Extensions.Collections.EnumerableExtensions
+﻿namespace MoreDotNet.Tests.Extensions.Collections.EnumerableExtensions
 {
     using System;
+    using System.Collections.Generic;
+
     using MoreDotNet.Extensions.Collections;
+
     using Xunit;
 
     public class ToStringTests

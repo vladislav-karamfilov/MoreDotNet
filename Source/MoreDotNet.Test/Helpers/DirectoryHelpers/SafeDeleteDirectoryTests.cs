@@ -1,7 +1,9 @@
 ﻿namespace MoreDotNet.Tests.Helpers.DirectoryHelpers
 {
     using System.IO;
+
     using MoreDotNet.Helpers;
+
     using Xunit;
 
     public class SafeDeleteDirectoryTests
