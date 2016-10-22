@@ -44,28 +44,13 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq, Version=4.5.23.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.23\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="mscorlib.Fakes">
-      <HintPath>..\MoreDotNet.Tests.Fakes\FakesAssemblies\mscorlib.Fakes.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Fakes">
-      <HintPath>..\MoreDotNet.Tests.Fakes\FakesAssemblies\System.Fakes.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Abstractions, Version=2.0.0.137, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Abstractions.2.0.0.137\lib\net40\System.IO.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.IO.Abstractions.TestingHelpers, Version=2.0.0.137, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Abstractions.TestingHelpers.2.0.0.137\lib\net40\System.IO.Abstractions.TestingHelpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
@@ -126,7 +111,7 @@
     <Compile Include="Models\FakeSerializationClass.cs" />
     <Compile Include="Extensions\Common\XmlExtensions\XmlExtensionsTests.cs" />
     <Compile Include="Models\XmlSerializableModel.cs" />
-    <Compile Include="Helpers\DirectoryHelpers\CreateTempDirectoryTests.cs" />
+    <Compile Include="Helpers\DirectoryHelpers\DirectoryHelpersTests.cs" />
     <Compile Include="Helpers\DirectoryHelpers\SafeDeleteDirectoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrappers\CharWrappersTests.cs" />
@@ -141,10 +126,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MoreDotNet.Tests.Fakes\MoreDotNet.Tests.Fakes.csproj">
-      <Project>{71270963-e392-45b4-847a-3a3c33d81de1}</Project>
-      <Name>MoreDotNet.Tests.Fakes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MoreDotNet\MoreDotNet.csproj">
       <Project>{35bb3946-1a1b-4426-93bd-62d3adc44abe}</Project>
       <Name>MoreDotNet</Name>
