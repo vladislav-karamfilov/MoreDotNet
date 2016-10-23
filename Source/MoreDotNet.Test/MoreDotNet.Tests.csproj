@@ -125,6 +125,13 @@
     <Compile Include="Extensions\Common\ObjectExtensions\IsNotTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\ToDictionaryTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\IsTests.cs" />
+    <Compile Include="Extensions\Common\RandomExtensions\NextBoolTests.cs" />
+    <Compile Include="Extensions\Common\RandomExtensions\NextCharTests.cs" />
+    <Compile Include="Extensions\Common\RandomExtensions\NextDateTime.cs" />
+    <Compile Include="Extensions\Common\RandomExtensions\NextDoubleTests.cs" />
+    <Compile Include="Extensions\Common\RandomExtensions\NextStringTests.cs" />
+    <Compile Include="Extensions\Common\RandomExtensions\NextTimeSpanTests.cs" />
+    <Compile Include="Extensions\Common\RandomExtensions\OneOfTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\CapitalizeTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\IsLikeTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\NthIndexOfTests.cs" />
