@@ -1,6 +1,7 @@
 ﻿namespace MoreDotNet.Tests.Helpers.DirectoryHelpers
 {
     using System.IO;
+    using System.IO.Abstractions.TestingHelpers;
 
     using MoreDotNet.Helpers;
 
@@ -17,20 +18,20 @@
             Smock.Run(context =>
             {
                 // Arrange
-                var directoryCreated = false;
-                context.Setup(() => Directory.Exists(It.IsAny<string>())).Returns(false);
-                context.Setup(() => Directory.CreateDirectory(It.IsAny<string>())).Callback((string filePath) =>
-                {
-                    directoryCreated = true;
-                });
+                var fileSystem = new MockFileSystem();
+                context
+                    .Setup(() => Directory.Exists(It.IsAny<string>()))
+                    .Returns<string>(dirPath => fileSystem.Directory.Exists(dirPath));
+                context
+                    .Setup(() => Directory.CreateDirectory(It.IsAny<string>()))
+                    .Callback<string>(dirPath => fileSystem.Directory.CreateDirectory(dirPath));
 
                 // Act
                 var path = DirectoryHelpers.CreateTempDirectory();
 
                 // Assert
-                Assert.True(directoryCreated);
                 Assert.NotNull(path);
-                Assert.StartsWith(Path.GetTempPath(), path);
+                Assert.True(fileSystem.Directory.Exists(path));
             });
         }
     }
