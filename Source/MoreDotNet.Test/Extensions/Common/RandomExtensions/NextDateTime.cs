@@ -18,7 +18,7 @@
         }
 
         [Fact]
-        public void NextDateTime_ShouldReturnDateTime_NewYear()
+        public void NextDateTime_ShouldReturnDateTime_OneHundredDistinctValues()
         {
             var random = new Random();
             var counter = 100;
@@ -29,6 +29,17 @@
             }
 
             Assert.Equal(counter, dates.Distinct().Count());
+        }
+
+        [Fact]
+        public void NextDateTime_ShouldReturnDateTime_BetweenMinAndMaxValue()
+        {
+            var random = new Random();
+            var mivValue = new DateTime(2016, 1, 1, 0, 0, 0);
+            var maxValue = new DateTime(2018, 1, 1, 0, 0, 0);
+            var result = random.NextDateTime(mivValue, maxValue);
+
+            Assert.True(result > mivValue && result < maxValue);
         }
     }
 }
