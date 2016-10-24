@@ -9,6 +9,7 @@
     public class NextTimeSpanTests
     {
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextTimeSpan_ShouldReturnTimeSpan()
         {
             var random = new Random();

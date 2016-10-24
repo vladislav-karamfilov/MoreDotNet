@@ -4,11 +4,13 @@
 
     using Moq;
     using MoreDotNet.Extensions.Common;
+
     using Xunit;
 
     public class NextCharTests
     {
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShouldReturnChar()
         {
             var random = new Random();
@@ -18,6 +20,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_CapitalLetter()
         {
             char mockedResult = 'A';
@@ -30,6 +33,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_Number()
         {
             char mockedResult = '1';
@@ -42,6 +46,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_AlphabeticLower()
         {
             char mockedResult = 'a';
@@ -54,6 +59,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_AlphabeticUpper()
         {
             char mockedResult = 'A';
@@ -66,6 +72,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_AlphabeticAny()
         {
             char mockedResult = 'A';
@@ -78,6 +85,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_AlphanumericAny()
         {
             char mockedResult = 'A';
@@ -90,6 +98,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_AlphanumericLower()
         {
             char mockedResult = 'a';
@@ -102,6 +111,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_AlphanumericUpper()
         {
             char mockedResult = 'A';
@@ -114,6 +124,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_Numeric()
         {
             char mockedResult = '2';
@@ -126,6 +137,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextChar_ShoudReturnChar_AnyUnicode()
         {
             char mockedResult = '2';

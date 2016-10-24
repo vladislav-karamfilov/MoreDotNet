@@ -4,11 +4,13 @@
     using System.Linq;
 
     using MoreDotNet.Extensions.Common;
+
     using Xunit;
 
     public class NextDateTime
     {
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextDateTime_ShouldReturnDateTime()
         {
             var random = new Random();
@@ -18,8 +20,10 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextDateTime_ShouldReturnDateTime_OneHundredDistinctValues()
         {
+            // TODO: Fix test
             var random = new Random();
             var counter = 100;
             var dates = new DateTime[counter];
@@ -32,6 +36,7 @@
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextDateTime_ShouldReturnDateTime_BetweenMinAndMaxValue()
         {
             var random = new Random();
@@ -39,7 +44,7 @@
             var maxValue = new DateTime(2018, 1, 1, 0, 0, 0);
             var result = random.NextDateTime(mivValue, maxValue);
 
-            Assert.True(result > mivValue && result < maxValue);
+            Assert.True(result >= mivValue && result < maxValue);
         }
     }
 }

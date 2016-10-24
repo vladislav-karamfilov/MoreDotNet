@@ -3,156 +3,153 @@
     using System;
 
     using MoreDotNet.Extensions.Common;
+
     using Xunit;
 
     public class NextStringTests
     {
+        private const int Zero = 0;
+        private const int OneHundred = 100;
+
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnStringWithLenghtZero()
         {
-            var zero = 0;
             var random = new Random();
-            var result = random.NextString(zero);
+            var result = random.NextString(Zero);
 
             Assert.IsType<string>(result);
-            Assert.Equal(zero, result.Length);
+            Assert.Equal(Zero, result.Length);
         }
 
         [Fact]
-        public void NextString_ShouldReturnString_WithLenghtFiveChars()
+        [MemberData(nameof(Random))]
+        public void NextString_ShouldReturnString_WithLenght100Chars()
         {
-            var length = 5;
-
             var random = new Random();
-            var result = random.NextString(length);
+            var result = random.NextString(OneHundred);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
+            Assert.Equal(OneHundred, result.Length);
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphabeticChars()
         {
-            var length = 100;
-
             var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.AlphabeticAny);
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.AlphabeticAny);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
                 Assert.True(char.IsLetter(result[i]));
             }
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphabeticLowerChars()
         {
-            var length = 100;
-
             var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.AlphabeticLower);
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.AlphabeticLower);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
                 Assert.True(char.IsLower(result[i]));
             }
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphabeticUpperChars()
         {
-            var length = 100;
-
             var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.AlphabeticUpper);
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.AlphabeticUpper);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
                 Assert.True(char.IsUpper(result[i]));
             }
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphanumericChars()
         {
-            var length = 100;
-
             var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.AlphanumericAny);
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.AlphanumericAny);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
                 Assert.True(char.IsLetterOrDigit(result[i]));
             }
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphanumericLowerChars()
         {
-            var length = 100;
-
             var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.AlphanumericLower);
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.AlphanumericLower);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
-                Assert.True(char.IsLetterOrDigit(result[i]) && char.IsLower(result[i]));
+                var currentChar = result[i];
+                Assert.True((currentChar >= 48 && currentChar < 58) || (currentChar >= 97 && currentChar < 123));
             }
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphanumericUpperChars()
         {
-            var length = 100;
-
             var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.AlphanumericUpper);
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.AlphanumericUpper);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
-                Assert.True(char.IsLetterOrDigit(result[i]) && char.IsUpper(result[i]));
+                var currentChar = result[i];
+                Assert.True((currentChar >= 48 && currentChar < 58) || (currentChar >= 65 && currentChar < 91));
             }
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAnyUnicodeChars()
         {
-            var length = 100;
-
-            var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.AnyUnicode);
+           var random = new Random();
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.AnyUnicode);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
                 Assert.True(result[i] >= 0 && result[i] < 65536);
             }
         }
 
         [Fact]
+        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfNumericChars()
         {
-            var length = 5;
-
             var random = new Random();
-            var result = random.NextString(length, MoreDotNet.Models.CharType.Numeric);
+            var result = random.NextString(OneHundred, MoreDotNet.Models.CharType.Numeric);
 
             Assert.IsType<string>(result);
-            Assert.Equal(length, result.Length);
-            for (int i = 0; i < length; i++)
+            Assert.Equal(OneHundred, result.Length);
+            for (int i = 0; i < OneHundred; i++)
             {
                 Assert.True(char.IsNumber(result[i]));
             }

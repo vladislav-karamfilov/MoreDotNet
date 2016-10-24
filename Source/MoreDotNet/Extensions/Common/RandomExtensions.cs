@@ -78,7 +78,9 @@
                 throw new ArgumentNullException(nameof(random));
             }
 
-            return random.NextDouble() <= probability;
+            var nextBool = random.NextDouble() <= probability;
+
+            return nextBool;
         }
 
         /// <summary>
@@ -301,10 +303,14 @@
 
             if (numeric)
             {
-                return random.NextNumericChar();
+                var number = random.NextNumericChar();
+
+                return number;
             }
 
-            return random.NextAlphabeticChar(random.NextBool());
+            var aphabeticChar = random.NextAlphabeticChar(random.NextBool());
+
+            return aphabeticChar;
         }
 
         private static char NextAlphabeticChar(this Random random, bool uppercase)
@@ -314,12 +320,17 @@
                 throw new ArgumentNullException(nameof(random));
             }
 
+            char alphabeticChar;
             if (uppercase)
             {
-                return (char)random.Next(65, 91);
+                alphabeticChar = (char)random.Next(65, 91);
+
+                return alphabeticChar;
             }
 
-            return (char)random.Next(97, 123);
+            alphabeticChar = (char)random.Next(97, 123);
+
+            return alphabeticChar;
         }
 
         private static char NextAlphabeticChar(this Random random)
