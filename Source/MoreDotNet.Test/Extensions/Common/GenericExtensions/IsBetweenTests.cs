@@ -1,6 +1,7 @@
 ﻿namespace MoreDotNet.Tests.Extensions.Common.GenericExtensions
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using Moq;
     using MoreDotNet.Extensions.Common;
     using Xunit;
@@ -23,6 +24,7 @@
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsBigger);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
+            this.lowerBoundMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
 
             var actual = this.actualMock.Object.IsBetween(this.lowerBoundMock.Object, this.upperBoundMock.Object);
             Assert.True(actual);
@@ -33,6 +35,7 @@
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsSmaller);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
+            this.lowerBoundMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
 
             var actual = this.actualMock.Object.IsBetween(this.lowerBoundMock.Object, this.upperBoundMock.Object);
             Assert.False(actual);
@@ -43,6 +46,7 @@
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsBigger);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsBigger);
+            this.lowerBoundMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
 
             var actual = this.actualMock.Object.IsBetween(this.lowerBoundMock.Object, this.upperBoundMock.Object);
             Assert.False(actual);
@@ -53,6 +57,7 @@
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsBigger);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsEqual);
+            this.lowerBoundMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
 
             var actual = this.actualMock.Object.IsBetween(this.lowerBoundMock.Object, this.upperBoundMock.Object);
             Assert.False(actual);
@@ -63,9 +68,21 @@
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsEqual);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
+            this.lowerBoundMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
 
             var actual = this.actualMock.Object.IsBetween(this.lowerBoundMock.Object, this.upperBoundMock.Object);
             Assert.True(actual);
+        }
+
+        [Fact]
+        [SuppressMessage("ReSharper", "ImplicitlyCapturedClosure", Justification = "Simple labmdas for testing.")]
+        public void WhenLowerBoundIsGreaterThanUpper_ShouldThrowException()
+        {
+            this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsEqual);
+            this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
+            this.lowerBoundMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsBigger);
+
+            Assert.Throws<ArgumentException>(() => this.actualMock.Object.IsBetween(this.lowerBoundMock.Object, this.upperBoundMock.Object));
         }
     }
 }
