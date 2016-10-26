@@ -12,7 +12,6 @@
         private const int OneHundred = 100;
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnStringWithLenghtZero()
         {
             var random = new Random();
@@ -23,7 +22,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_WithLenght100Chars()
         {
             var random = new Random();
@@ -34,7 +32,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphabeticChars()
         {
             var random = new Random();
@@ -49,7 +46,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphabeticLowerChars()
         {
             var random = new Random();
@@ -64,7 +60,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphabeticUpperChars()
         {
             var random = new Random();
@@ -79,7 +74,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphanumericChars()
         {
             var random = new Random();
@@ -94,7 +88,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphanumericLowerChars()
         {
             var random = new Random();
@@ -110,7 +103,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAlphanumericUpperChars()
         {
             var random = new Random();
@@ -126,7 +118,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfAnyUnicodeChars()
         {
            var random = new Random();
@@ -141,7 +132,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextString_ShouldReturnString_OfNumericChars()
         {
             var random = new Random();

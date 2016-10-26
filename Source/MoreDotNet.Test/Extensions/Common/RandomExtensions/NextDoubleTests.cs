@@ -10,7 +10,6 @@
     public class NextDoubleTests
     {
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextDouble_ShouldReturnDouble()
         {
             var random = new Random();
@@ -20,7 +19,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextDouble_ShouldReturnDouble_BetweenZeroAndTen()
         {
             var random = new Random();
@@ -33,7 +31,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextDouble_ShouldReturnDouble_Zero()
         {
             var randomMock = new Mock<Random>();
@@ -44,15 +41,17 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextDouble_ShouldReturnDouble_PredifinedValue()
         {
-            var expectedResult = 12.8951;
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.NextDouble()).Returns(expectedResult);
-            var result = randomMock.Object.NextDouble(0, double.MaxValue);
+            var mockedValue = 0.15;
+            var minValue = 0;
+            var maxValue = 30;
 
-            Assert.Equal(expectedResult, result);
+            var randomMock = new Mock<Random>();
+            randomMock.Setup(r => r.NextDouble()).Returns(mockedValue);
+            var result = randomMock.Object.NextDouble(minValue, maxValue);
+
+            Assert.Equal(mockedValue * maxValue, result);
         }
     }
 }

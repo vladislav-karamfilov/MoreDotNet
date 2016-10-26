@@ -120,11 +120,17 @@
     <Compile Include="Extensions\Common\ColorExtensions\ToHexStringTests.cs" />
     <Compile Include="Extensions\Common\ColorExtensions\ToRgbStringTests.cs" />
     <Compile Include="Extensions\Common\DataExtensions\GetNullableTests.cs" />
+    <Compile Include="Extensions\Common\GenericExtensions\GetMemberNameTests.cs" />
+    <Compile Include="Extensions\Common\GenericExtensions\IsBetweenTests.cs" />
+    <Compile Include="Extensions\Common\EnumExtensions\GetDescriptionTests.cs" />
+    <Compile Include="Extensions\Common\EnumExtensions\GetDisplayNameTests.cs" />
     <Compile Include="Extensions\Common\IntegerExtensions\RangeToTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\AsTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\IsNotTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\ToDictionaryTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\IsTests.cs" />
+    <Compile Include="Extensions\Common\StreamExtensions\ToByteArrayTests.cs" />
+    <Compile Include="Extensions\Common\StreamExtensions\ToStreamTests.cs" />
     <Compile Include="Extensions\Common\RandomExtensions\NextBoolTests.cs" />
     <Compile Include="Extensions\Common\RandomExtensions\NextCharTests.cs" />
     <Compile Include="Extensions\Common\RandomExtensions\NextDateTime.cs" />
@@ -143,6 +149,8 @@
     <Compile Include="Extensions\Common\StringExtensions\ToTitleCaseTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\CaseToWordsTests.cs" />
     <Compile Include="Extensions\Common\TypeExtensions\TypeExtensionsTests.cs" />
+    <Compile Include="Helpers\FileHelpers\SaveByteArrayToTempFileTests.cs" />
+    <Compile Include="Helpers\FileHelpers\SaveStringToTempFileTests.cs" />
     <Compile Include="Models\FakeSerializationClass.cs" />
     <Compile Include="Extensions\Common\XmlExtensions\XmlExtensionsTests.cs" />
     <Compile Include="Models\XmlSerializableModel.cs" />

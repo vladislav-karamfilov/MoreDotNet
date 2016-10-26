@@ -10,7 +10,6 @@
     public class NextDateTime
     {
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextDateTime_ShouldReturnDateTime()
         {
             var random = new Random();
@@ -20,7 +19,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextDateTime_ShouldReturnDateTime_OneHundredDistinctValues()
         {
             // TODO: Fix test
@@ -36,7 +34,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void NextDateTime_ShouldReturnDateTime_BetweenMinAndMaxValue()
         {
             var random = new Random();

@@ -11,7 +11,6 @@
     public class OneOfTests
     {
         [Fact]
-        [MemberData(nameof(Random))]
         public void OneOf_ShouldReturnOneOfIntArray()
         {
             var random = new Random();
@@ -22,7 +21,6 @@
         }
 
         [Fact]
-        [MemberData(nameof(Random))]
         public void OneOf_ShouldReturnOneOfIntCollection()
         {
             var random = new Random();
