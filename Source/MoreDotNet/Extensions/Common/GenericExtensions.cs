@@ -19,7 +19,12 @@
         public static bool IsBetween<T>(this T actual, T lowerBound, T upperBound)
             where T : IComparable<T>
         {
-            return actual.CompareTo(lowerBound) >= 0 && actual.CompareTo(upperBound) < 0;
+            if (lowerBound.CompareTo(upperBound) <= 0)
+            {
+                return actual.CompareTo(lowerBound) >= 0 && actual.CompareTo(upperBound) < 0;
+            }
+
+            throw new ArgumentException($"{nameof(lowerBound)} should be less than or equal to {nameof(upperBound)}");
         }
 
         /// <summary>
@@ -37,6 +42,11 @@
             if (expression == null)
             {
                 throw new ArgumentNullException(nameof(expression));
+            }
+
+            if (expression.Body.NodeType != ExpressionType.MemberAccess)
+            {
+                throw new ArgumentException($"{nameof(expression)} type should be a {ExpressionType.MemberAccess} but got {expression.Body.NodeType}.");
             }
 
             return ((MemberExpression)expression.Body).Member.Name;
