@@ -4,7 +4,7 @@ version: 0.6.{build}
 #     - nuget restore
 
 build:
-  project: MoreDotNet.sln
+  project: Soruce\MoreDotNet.sln
   verbosity: detailed
 
 environment:
