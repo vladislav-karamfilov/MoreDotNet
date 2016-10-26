@@ -129,6 +129,8 @@
     <Compile Include="Extensions\Common\ObjectExtensions\IsNotTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\ToDictionaryTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\IsTests.cs" />
+    <Compile Include="Extensions\Common\StreamExtensions\ToByteArrayTests.cs" />
+    <Compile Include="Extensions\Common\StreamExtensions\ToStreamTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\CapitalizeTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\IsLikeTests.cs" />
     <Compile Include="Extensions\Common\StringExtensions\NthIndexOfTests.cs" />
