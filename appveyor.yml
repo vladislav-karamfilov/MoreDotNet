@@ -1,7 +1,7 @@
 version: 0.6.{build}
 
-# install:
-#     - nuget restore
+install:
+    - nuget restore
 
 build:
   project: Source\MoreDotNet.sln
