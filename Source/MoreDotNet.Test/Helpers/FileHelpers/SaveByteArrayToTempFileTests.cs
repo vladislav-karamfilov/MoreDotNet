@@ -51,6 +51,5 @@
                 Assert.Equal(bytesToWrite, fileSystem.File.ReadAllBytes(path));
             });
         }
-
     }
 }
