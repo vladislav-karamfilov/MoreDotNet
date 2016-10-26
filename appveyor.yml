@@ -17,7 +17,7 @@ build:
   verbosity: minimal
 test_script:
 - ps: >-
-    .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:".\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" -targetargs:" .\MoreDotNet.Test\bin\debug\MoreDotNet.Tests.dll -noshadow" -output:coverage.xml -searchdirs:".\MoreDotNet.Test\bin\debug"
+    packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" -targetargs:"MoreDotNet.Test\bin\debug\MoreDotNet.Tests.dll -noshadow" -output:coverage.xml -searchdirs:"MoreDotNet.Test\bin\debug"
 
     $coveralls = (Resolve-Path "Source/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
 
