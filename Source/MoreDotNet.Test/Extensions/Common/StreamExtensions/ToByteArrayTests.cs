@@ -8,7 +8,7 @@
     public class ToByteArrayTests
     {
         [Fact]
-        public void ToByteArray_ThrowsOnNull()
+        public void ToByteArray_OnNullInput_ShouldThrowArgumentNullException()
         {
             Stream input = null;
             Assert.Throws<ArgumentNullException>(() => input.ToByteArray());
@@ -19,7 +19,7 @@
         [InlineData(new byte[] { 0, 1, 2, 3, 4, 5 })]
         [InlineData(new byte[] { 0, 255, 4, 123 })]
         [InlineData(new byte[] { 0, 1, 2, 3, 4, 5 })]
-        public void ToByteArray_WorksOnInputStreams(byte[] expectedByteArray)
+        public void ToByteArray_OnStream_ShouldReturnCorrectByteArray(byte[] expectedByteArray)
         {
             var stream = new MemoryStream(expectedByteArray);
             Assert.Equal(expectedByteArray, stream.ToByteArray());
@@ -35,7 +35,7 @@
         [InlineData(100000)]
         [InlineData(1000000)]
         [InlineData(10000000)]
-        public void ToByteArray_WorksOnVeryLongStreamsAsExpected(int length)
+        public void ToByteArray_OnStreamsOfReallyBigSize_ShouldReturnCorrectByteArray(int length)
         {
             var array = new byte[length];
             for (int i = 0; i < length; i++)

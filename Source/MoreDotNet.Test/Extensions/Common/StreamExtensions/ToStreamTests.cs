@@ -8,7 +8,7 @@
     public class ToStreamTests
     {
         [Fact]
-        public void ToStream_ThrowsOnNull()
+        public void ToStream_OnNullInput_ShouldThrowArgumentNullException()
         {
             byte[] input = null;
             Assert.Throws<ArgumentNullException>(() => input.ToStream());
@@ -19,7 +19,7 @@
         [InlineData(new byte[] { 0, 1, 2, 3, 4, 5 })]
         [InlineData(new byte[] { 0, 255, 4, 123 })]
         [InlineData(new byte[] { 0, 1, 2, 3, 4, 5 })]
-        public void ToStream_WorksOnByteArray(byte[] inputByteArray)
+        public void ToStream_OnByteArray_ReturnsCorrectStream(byte[] inputByteArray)
         {
             var expectedStream = new MemoryStream(inputByteArray);
             var actualStream = inputByteArray.ToStream();
