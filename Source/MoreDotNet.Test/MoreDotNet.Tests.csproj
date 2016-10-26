@@ -120,6 +120,8 @@
     <Compile Include="Extensions\Common\ColorExtensions\ToHexStringTests.cs" />
     <Compile Include="Extensions\Common\ColorExtensions\ToRgbStringTests.cs" />
     <Compile Include="Extensions\Common\DataExtensions\GetNullableTests.cs" />
+    <Compile Include="Extensions\Common\EnumExtensions\GetDescriptionTests.cs" />
+    <Compile Include="Extensions\Common\EnumExtensions\GetDisplayNameTests.cs" />
     <Compile Include="Extensions\Common\IntegerExtensions\RangeToTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\AsTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\IsNotTests.cs" />
