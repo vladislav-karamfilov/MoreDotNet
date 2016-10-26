@@ -20,7 +20,7 @@
         }
 
         [Fact]
-        public void WhenInRange_ShouldReturnTrue()
+        public void IsBetween_WhenInRange_ShouldReturnTrue()
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsBigger);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
@@ -31,7 +31,7 @@
         }
 
         [Fact]
-        public void WhenSmallerThanLowerBound_ShouldReturnFalse()
+        public void IsBetween_WhenSmallerThanLowerBound_ShouldReturnFalse()
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsSmaller);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
@@ -42,7 +42,7 @@
         }
 
         [Fact]
-        public void WhenBiggerThanUpperBound_ShouldReturnFalse()
+        public void IsBetween_WhenBiggerThanUpperBound_ShouldReturnFalse()
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsBigger);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsBigger);
@@ -53,7 +53,7 @@
         }
 
         [Fact]
-        public void WhenExactlyUpperBound_ShouldReturnFalse()
+        public void IsBetween_WhenExactlyUpperBound_ShouldReturnFalse()
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsBigger);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsEqual);
@@ -64,7 +64,7 @@
         }
 
         [Fact]
-        public void WhenExactlyLowerBound_ShouldReturnTrue()
+        public void IsBetween_WhenExactlyLowerBound_ShouldReturnTrue()
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsEqual);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
@@ -76,7 +76,7 @@
 
         [Fact]
         [SuppressMessage("ReSharper", "ImplicitlyCapturedClosure", Justification = "Simple labmdas for testing.")]
-        public void WhenLowerBoundIsGreaterThanUpper_ShouldThrowException()
+        public void IsBetween_WhenLowerBoundIsGreaterThanUpper_ShouldThrowException()
         {
             this.actualMock.Setup(x => x.CompareTo(this.lowerBoundMock.Object)).Returns(IsEqual);
             this.actualMock.Setup(x => x.CompareTo(this.upperBoundMock.Object)).Returns(IsSmaller);
