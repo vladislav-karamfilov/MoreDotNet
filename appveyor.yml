@@ -1,17 +1,24 @@
 version: 0.6.{build}
-
-install:
-    - cmd: cd Source
-    - nuget restore
-
-build:
-  project: Source\MoreDotNet.sln
-  verbosity: detailed
-
-test_script: 
-# generate report for XUnit testing framework:
-    -cmd: Source\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"Source\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" -targetargs:"Source\MoreDotNet.Test\bin\debug\MoreDotNet.Tests.dll -parallel none -noshadow" -output:coverage.xml -searchdirs:".\Source\MoreDotNet.Test\bin\debug"; Source\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover coverage.xml
-
+skip_tags: true
+configuration: Release
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 environment:
-    repo_token:  
+  COVERALLS_REPO_TOKEN:
        secure: h0CL0d02rQ0lXPrpXJ4XeJfgpcvHAbjyry+FK1x+atkOeSjUOCUJVKwIUBjPSK6s
+before_build:
+  - nuget restore ".\Source\MoreDotNet.sln"
+build:
+  project: .\Source\MoreDotNet.sln
+  verbosity: minimal
+test_script:
+- ps: >-
+    .\Source\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:".\Source\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" -targetargs:" .\Source\MoreDotNet.Test\bin\$env:CONFIGURATION\MoreDotNet.Tests.dll -noshadow" -output:coverage.xml -searchdirs:".\Source\MoreDotNet.Test\bin\debug"
+
+    $coveralls = (Resolve-Path "Source/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
+
+    & $coveralls --opencover -i coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
