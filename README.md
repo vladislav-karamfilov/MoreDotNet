@@ -193,6 +193,7 @@ SaveByteArrayToTempFile()
 ```
 
 #### Wrappers for transforming common static methods to instance methods:
+---
 
 Example:
 ```cs
