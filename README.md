@@ -9,9 +9,9 @@
 
 ## Summary
 
-The project provides several functionalites.
+This project is a collection of handy extension methods for the .NET Framework. The functionality of this package can be separated in the following groups:
 
-#### Extention methods for common .NET types:
+#### Extension methods for common .NET types:
 ---
 
 * ICollection:
