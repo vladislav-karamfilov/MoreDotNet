@@ -6,10 +6,194 @@
 
 ## Summary
 
-The project focuses on providing handy extension methods for:
-* Collections
-* Common DotNet types like string, int, object, Color, Bitmap etc.
-* Wrappers for transforming common static methods to instance methods
+The project provides several functionalites.
+
+### Extention methods for common .NET types:
+---
+
+* ICollection:
+
+```cs 
+AddRange() 
+```
+
+* IDictionary:
+
+```cs 
+GetOrDefault()
+GetKeyIgnoringCase()
+```
+
+* IEnumerable:
+```cs 
+ForEach()
+EmptyIfNull()
+Shuffle()
+ToString()
+IsNullOrEmpty()
+```
+
+* IList:
+```cs 
+BinarySearch()
+ToDataTable()
+InsertionSort()
+InsertWhere()
+RemoveAll()
+```
+
+* Bitmap:
+```cs 
+ToGrayScale()
+```
+
+* bool:
+```cs 
+WhenTrue()
+WhenFalse()
+```
+
+* ByteArray:
+```cs 
+GetString()
+```
+
+* Color:
+```cs 
+ToHexString()
+ToRgbString()
+ToGray()
+ToReadableForegroundColor()
+```
+
+* IConvertible:
+```cs 
+To()
+ToOrDefault()
+ToOrOther()
+ToOrNull()
+```
+
+* IDataRecord:
+```cs 
+GetNullable()
+```
+
+* DateTime:
+```cs 
+FirstDayOfMonth()
+LastDayOfMonth()
+NextDate()
+Midnight()
+Noon()
+WithTime()
+IsFuture()
+IsPast()
+IsWorkDay()
+IsWeekend()
+NextWorkday()
+```
+
+* Enum:
+```cs 
+GetDisplayName()
+GetDescription()
+```
+
+* Generics
+```cs 
+IsBetween()
+GetMemberName()
+```
+
+* int:
+```cs 
+RangeTo()
+```
+
+* object:
+```cs 
+Is()
+IsNot()
+As()
+ToDictionary()
+```
+
+* OperatingSystem:
+```cs 
+IsWinXpOrHigher()
+IsWinVistaOrHigher()
+IsWin7OrHigher()
+IsWin8OrHigher()
+```
+
+* Random:
+```cs 
+OneOf()
+NextBool()
+NextChar()
+NextDateTime()
+NextDouble()
+NextString()
+NextTimeSpan()
+```
+
+* Stream:
+```cs 
+ToByteArray()
+ToStream()
+```
+
+* string:
+```cs 
+ToTitleCase()
+CaseToWords()
+Capitalize()
+IsLike()
+ToMaximumLengthString()
+NthIndexOf()
+RemoveLastCharacter()
+RemoveLast()
+RemoveFirstCharacter()
+RemoveFirst()
+```
+
+* Type:
+```cs 
+IsNullable()
+GetCoreType()
+```
+
+* Xml:
+```cs 
+XmlSerialize()
+XmlDeserialize()
+```
+
+* RomanNumeral:
+```cs 
+IsValidRomanNumeral()
+ParseRomanNumeral()
+ToRomanNumeralString()
+```
+
+### Static helpers:
+---
+
+* Directory:
+```cs 
+CreateTempDirectory()
+SafeDeleteDirectory()
+```
+
+* File:
+```cs 
+SaveStringToTempFile()
+SaveByteArrayToTempFile()
+```
+
+### Wrappers for transforming common static methods to instance methods:
+
 Example:
 ```cs
 string.IsNullOrWhiteSpace(testStringVar)
