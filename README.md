@@ -23,8 +23,24 @@ testStringVar.IsNullOrWhiteSpace()
 
 NOTE: The package is still under development and some bugs may exist!
 
-To install via NuGet use:
+You can install this library using NuGet into your project:
 
 ```
 Install-Package MoreDotNet
 ```
+
+## License
+
+Code by Teodor Kurtev. Copyright 2016 Teodor Kurtev.
+
+This package has MIT license. Refer to the LICENSE for detailed information.
+
+## License
+
+Code by Teodor Kurtev. Copyright 2016 Teodor Kurtev.
+
+This package has MIT license. Refer to the [LICENSE](https://github.com/Teodor92/MoreDotNet/blob/master/LICENSE) for detailed information.
+
+## Any questions, comments or additions?
+
+If you have a feature request or bug report, leave an issue on the [issues page](https://github.com/Teodor92/MoreDotNet/issues) or send a [pull request](https://github.com/Teodor92/MoreDotNet/pulls). For general questions and comments, use the [StackOverflow](http://stackoverflow.com/) forum.
