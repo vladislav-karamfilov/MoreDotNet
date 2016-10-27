@@ -15,13 +15,13 @@ before_build:
 build:
   project: .\Source\MoreDotNet.sln
   verbosity: minimal
-test_script:
-- ps: >-
-    .\Source\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user 
-    -target:".\Source\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" "-targetargs:""Source\MoreDotNet.Test\bin\$env:CONFIGURATION\MoreDotNet.Tests.dll"" -noshadow -appveyor" 
-    -filter:"+[*]*" 
-    -output:opencoverCoverage.xml
+# test_script:
+# - ps: >-
+#     .\Source\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user 
+#     -target:".\Source\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe" "-targetargs:""Source\MoreDotNet.Test\bin\$env:CONFIGURATION\MoreDotNet.Tests.dll"" -noshadow -appveyor" 
+#     -filter:"+[*]*" 
+#     -output:opencoverCoverage.xml
 
-    $coveralls = (Resolve-Path "Source/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
+#     $coveralls = (Resolve-Path "Source/packages/coveralls.net.*/tools/csmacnz.coveralls.exe").ToString()
 
-    & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
+#     & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
