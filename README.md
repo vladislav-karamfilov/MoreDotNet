@@ -8,7 +8,7 @@
 
 The project provides several functionalites.
 
-### Extention methods for common .NET types:
+#### Extention methods for common .NET types:
 ---
 
 * ICollection:
@@ -177,7 +177,7 @@ ParseRomanNumeral()
 ToRomanNumeralString()
 ```
 
-### Static helpers:
+#### Static helpers:
 ---
 
 * Directory:
@@ -192,7 +192,7 @@ SaveStringToTempFile()
 SaveByteArrayToTempFile()
 ```
 
-### Wrappers for transforming common static methods to instance methods:
+#### Wrappers for transforming common static methods to instance methods:
 
 Example:
 ```cs
