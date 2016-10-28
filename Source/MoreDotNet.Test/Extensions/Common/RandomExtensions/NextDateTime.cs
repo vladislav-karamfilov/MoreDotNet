@@ -1,4 +1,4 @@
-﻿namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
+namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
 {
     using System;
     using System.Linq;
@@ -9,6 +9,18 @@
 
     public class NextDateTime
     {
+        private const int Counter = 1000;
+
+        [Fact]
+        public void NextDateTime_ShouldThrow_ArgumentNullException()
+        {
+            Random random = null;
+
+            Assert.Throws<ArgumentNullException>(() => random.NextDateTime());
+        }
+
+		// TODO: minValue => null / maxValue => null ; 
+
         [Fact]
         public void NextDateTime_ShouldReturnDateTime()
         {
@@ -23,14 +35,13 @@
         {
             // TODO: Fix test
             var random = new Random();
-            var counter = 100;
-            var dates = new DateTime[counter];
-            for (int i = 0; i < counter; i++)
+            var dates = new DateTime[Counter];
+            for (int i = 0; i < Counter; i++)
             {
                 dates[i] = random.NextDateTime();
             }
 
-            Assert.Equal(counter, dates.Distinct().Count());
+            Assert.Equal(Counter, dates.Distinct().Count());
         }
 
         [Fact]
@@ -39,9 +50,12 @@
             var random = new Random();
             var mivValue = new DateTime(2016, 1, 1, 0, 0, 0);
             var maxValue = new DateTime(2018, 1, 1, 0, 0, 0);
-            var result = random.NextDateTime(mivValue, maxValue);
+            for (int i = 0; i < Counter; i++)
+            {
+                var result = random.NextDateTime(mivValue, maxValue);
 
-            Assert.True(result >= mivValue && result < maxValue);
+                Assert.True(result >= mivValue && result < maxValue);
+            }
         }
     }
 }
