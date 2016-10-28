@@ -1,16 +1,33 @@
-﻿namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
+namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
 {
     using System;
 
     using Moq;
     using MoreDotNet.Extensions.Common;
-
+    using MoreDotNet.Models;
     using Xunit;
 
     public class NextCharTests
     {
         [Fact]
-        public void NextChar_ShouldReturnChar()
+        public void NextChar_ShouldThrow_ArgumentNullException()
+        {
+            Random random = null;
+
+            Assert.Throws<ArgumentNullException>(() => random.NextChar());
+        }
+
+        [Fact]
+        public void NextChar_ShouldReturn_AlphanumericChar()
+        {
+            Random random = new Random();
+            var result = random.NextChar((CharType)(-1));
+
+            Assert.True(char.IsLetterOrDigit(result));
+        }
+
+        [Fact]
+        public void NextChar_ShouldReturn_AlphanumericCharAny()
         {
             var random = new Random();
             var result = random.NextChar();
@@ -18,123 +35,46 @@
             Assert.IsType<char>(result);
         }
 
-        [Fact]
-        public void NextChar_ShoudReturnChar_CapitalLetter()
+        [Theory]
+        [InlineData('A', 0.168)]
+        [InlineData('1', 0.15)]
+        public void NextChar_ShoudReturnChar_CapitalLetter(char expectedResult, double returns)
         {
-            char mockedResult = 'A';
             var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.168);
-            char result = randomMock.Object.NextChar();
+            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(expectedResult);
+            randomMock.Setup(r => r.NextDouble()).Returns(returns);
+            char actualResult = randomMock.Object.NextChar();
 
-            Assert.Equal((int)mockedResult, (int)result);
+            Assert.Equal(expectedResult, actualResult);
         }
 
-        [Fact]
-        public void NextChar_ShoudReturnChar_Number()
+        [Theory]
+        [InlineData('2', CharType.AnyUnicode)]
+        public void NextChar_ShoudReturnChar_AnyUnicode(char expectedResult, CharType charType)
         {
-            char mockedResult = '1';
             var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.15);
-            char result = randomMock.Object.NextChar();
+            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(expectedResult);
+            char actualResult = randomMock.Object.NextChar(charType);
 
-            Assert.Equal((int)mockedResult, (int)result);
+            Assert.Equal(expectedResult, actualResult);
         }
 
-        [Fact]
-        public void NextChar_ShoudReturnChar_AlphabeticLower()
+        [Theory]
+        [InlineData('a', 0.51, CharType.AlphabeticLower)]
+        [InlineData('A', 0.49, CharType.AlphabeticUpper)]
+        [InlineData('A', 0.49, CharType.AlphabeticAny)]
+        [InlineData('a', 0.51, CharType.AlphanumericLower)]
+        [InlineData('A', 0.49, CharType.AlphanumericUpper)]
+        [InlineData('A', 0.49, CharType.AlphanumericAny)]
+        [InlineData('2', 0.1, CharType.Numeric)]
+        public void NextChar_ShoudReturn_ValidChar(char expectedResult, double returns, CharType charType)
         {
-            char mockedResult = 'a';
             var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.51);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.AlphabeticLower);
+            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(expectedResult);
+            randomMock.Setup(r => r.NextDouble()).Returns(returns);
+            char actualResult = randomMock.Object.NextChar(charType);
 
-            Assert.Equal((int)mockedResult, (int)result);
-        }
-
-        [Fact]
-        public void NextChar_ShoudReturnChar_AlphabeticUpper()
-        {
-            char mockedResult = 'A';
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.49);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.AlphabeticUpper);
-
-            Assert.Equal((int)mockedResult, (int)result);
-        }
-
-        [Fact]
-        public void NextChar_ShoudReturnChar_AlphabeticAny()
-        {
-            char mockedResult = 'A';
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.49);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.AlphabeticAny);
-
-            Assert.Equal((int)mockedResult, (int)result);
-        }
-
-        [Fact]
-        public void NextChar_ShoudReturnChar_AlphanumericAny()
-        {
-            char mockedResult = 'A';
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.49);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.AlphanumericAny);
-
-            Assert.Equal((int)mockedResult, (int)result);
-        }
-
-        [Fact]
-        public void NextChar_ShoudReturnChar_AlphanumericLower()
-        {
-            char mockedResult = 'a';
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.51);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.AlphanumericLower);
-
-            Assert.Equal((int)mockedResult, (int)result);
-        }
-
-        [Fact]
-        public void NextChar_ShoudReturnChar_AlphanumericUpper()
-        {
-            char mockedResult = 'A';
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.49);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.AlphanumericUpper);
-
-            Assert.Equal((int)mockedResult, (int)result);
-        }
-
-        [Fact]
-        public void NextChar_ShoudReturnChar_Numeric()
-        {
-            char mockedResult = '2';
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            randomMock.Setup(r => r.NextDouble()).Returns(0.1);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.Numeric);
-
-            Assert.Equal((int)mockedResult, (int)result);
-        }
-
-        [Fact]
-        public void NextChar_ShoudReturnChar_AnyUnicode()
-        {
-            char mockedResult = '2';
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns((int)mockedResult);
-            char result = randomMock.Object.NextChar(MoreDotNet.Models.CharType.AnyUnicode);
-
-            Assert.Equal((int)mockedResult, (int)result);
+            Assert.Equal(expectedResult, actualResult);
         }
     }
 }
