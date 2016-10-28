@@ -1,4 +1,4 @@
-﻿namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
+namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
 {
     using System;
 
@@ -8,6 +8,14 @@
 
     public class NextBoolTests
     {
+        [Fact]
+        public void NextBool_ShouldReturnArgumentException()
+        {
+            Random random = null;
+
+            Assert.Throws<NullReferenceException>(() => random.Next());
+        }
+
         [Fact]
         public void NextBool_ShouldReturnTrue()
         {
@@ -21,28 +29,17 @@
         public void NextBool_ShouldReturnTrue_MoreThanOrEqualTo50Times()
         {
             var random = new Random();
-            int counter = 0;
-            int count = 10;
+            int returnedTrueAsResult = 0;
+            int count = 1000;
             for (int i = 0; i < count; i++)
             {
-                int currentCount = 100;
-                int currentCounter = 0;
-                var nextBools = new bool[currentCount];
-                for (int j = 0; j < currentCount; j++)
+                if (random.NextBool())
                 {
-                    if (random.NextBool(0.5))
-                    {
-                        currentCounter++;
-                    }
-                }
-
-                if (currentCount >= 50)
-                {
-                    counter++;
+                    returnedTrueAsResult++;
                 }
             }
 
-            Assert.True(counter >= count / 2);
+            Assert.True(returnedTrueAsResult >= count / 2);
         }
 
         [Fact]
