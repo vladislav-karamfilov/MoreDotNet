@@ -9,7 +9,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
     public class NextBoolTests
     {
         [Fact]
-        public void NextBool_ShouldReturnArgumentException()
+        public void NextBool_ShouldHThrow_NullReferenceException()
         {
             Random random = null;
 
@@ -17,7 +17,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         }
 
         [Fact]
-        public void NextBool_ShouldReturnTrue()
+        public void NextBool_ShouldReturn_True()
         {
             var random = new Random();
             var result = random.NextBool(1);
@@ -43,7 +43,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         }
 
         [Fact]
-        public void NextBool_ShouldReturnFalse()
+        public void NextBool_ShouldReturn_False()
         {
             var random = new Random();
             var result = random.NextBool(0);
