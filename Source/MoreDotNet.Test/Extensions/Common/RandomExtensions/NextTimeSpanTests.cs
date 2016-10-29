@@ -9,12 +9,11 @@
     public class NextTimeSpanTests
     {
         [Fact]
-        public void NextTimeSpan_ShouldReturnTimeSpan()
+        public void NextTimeSpan_ShouldThow_ArgumentNullException()
         {
-            var random = new Random();
-            var result = random.NextTimeSpan();
+            Random random = null;
 
-            Assert.IsType<TimeSpan>(result);
+            Assert.Throws<ArgumentNullException>(() => random.NextTimeSpan());
         }
     }
 }
