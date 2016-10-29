@@ -26,15 +26,6 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
             Assert.True(char.IsLetterOrDigit(result));
         }
 
-        [Fact]
-        public void NextChar_ShouldReturn_AlphanumericCharAny()
-        {
-            var random = new Random();
-            var result = random.NextChar();
-
-            Assert.IsType<char>(result);
-        }
-
         [Theory]
         [InlineData('A', 0.168)]
         [InlineData('1', 0.15)]
