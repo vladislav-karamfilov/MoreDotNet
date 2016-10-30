@@ -10,7 +10,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
     public class NextCharTests
     {
         [Fact]
-        public void NextChar_ShouldThrow_ArgumentNullException()
+        public void NextChar_RandomIsNull_ShouldThrowArgumentNullException()
         {
             Random random = null;
 
@@ -18,7 +18,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         }
 
         [Fact]
-        public void NextChar_ShouldReturn_AlphanumericChar()
+        public void NextChar_InvalidCharType_ShouldReturnAlphanumericChar()
         {
             Random random = new Random();
             var result = random.NextChar((CharType)(-1));
@@ -29,7 +29,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         [Theory]
         [InlineData('A', 0.168)]
         [InlineData('1', 0.15)]
-        public void NextChar_ShoudReturnChar_CapitalLetter(char expectedResult, double returns)
+        public void NextChar_ValidArguments_ShoudReturnAlphanumeriAny(char expectedResult, double returns)
         {
             var randomMock = new Mock<Random>();
             randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(expectedResult);
@@ -39,15 +39,16 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
             Assert.Equal(expectedResult, actualResult);
         }
 
-        [Theory]
-        [InlineData('2', CharType.AnyUnicode)]
-        public void NextChar_ShoudReturnChar_AnyUnicode(char expectedResult, CharType charType)
+        [Fact]
+        public void NextChar_ValidArguments_ShoudReturnAnyUnicodeChar()
         {
-            var randomMock = new Mock<Random>();
-            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(expectedResult);
-            char actualResult = randomMock.Object.NextChar(charType);
+            var expectedChar = '2';
 
-            Assert.Equal(expectedResult, actualResult);
+            var randomMock = new Mock<Random>();
+            randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(expectedChar);
+            char actualResult = randomMock.Object.NextChar(CharType.AnyUnicode);
+
+            Assert.Equal(expectedChar, actualResult);
         }
 
         [Theory]
@@ -58,7 +59,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         [InlineData('A', 0.49, CharType.AlphanumericUpper)]
         [InlineData('A', 0.49, CharType.AlphanumericAny)]
         [InlineData('2', 0.1, CharType.Numeric)]
-        public void NextChar_ShoudReturn_ValidChar(char expectedResult, double returns, CharType charType)
+        public void NextChar_ValidArguments_ShoudReturnExpectedCharType(char expectedResult, double returns, CharType charType)
         {
             var randomMock = new Mock<Random>();
             randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(expectedResult);
