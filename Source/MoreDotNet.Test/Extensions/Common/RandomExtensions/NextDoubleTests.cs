@@ -9,24 +9,24 @@
 
     public class NextDoubleTests
     {
-        private const int Counter = 1000;
+        private const int NumberOfTests = 1000;
         private const double DoubleResult = 0.15;
         private const double MinValue = -50;
         private const double MaxValue = 150;
 
         [Fact]
-        public void NextDouble_RandomIsNull_ShouldThrow_NullReferenceException()
+        public void NextDouble_RandomIsNull_ShouldThrow_ArgumentNullException()
         {
             Random random = null;
 
-            Assert.Throws<NullReferenceException>(() => random.NextDouble());
+            Assert.Throws<ArgumentNullException>(() => random.NextDouble(MinValue, MaxValue));
         }
 
         [Fact]
-        public void NextDouble_ShouldReturnDouble_BetweenMinAndMaxValue()
+        public void NextDouble_ValidArguments_ShouldReturnResultsBetweenMinAndMaxValue()
         {
             var random = new Random();
-            for (int i = 0; i < Counter; i++)
+            for (int i = 0; i < NumberOfTests; i++)
             {
                 var result = random.NextDouble(MinValue, MaxValue);
 
@@ -39,7 +39,7 @@
         {
             var random = new Random();
 
-            Assert.Throws<ArgumentException>(() => random.NextDouble(minValue: MaxValue, maxValue: MinValue));
+            Assert.Throws<ArgumentException>(() => random.NextDouble(MaxValue, MinValue));
         }
 
         [Fact]
@@ -56,7 +56,7 @@
         [Theory]
         [InlineData(double.MinValue, double.MaxValue)]
         [InlineData(MinValue, MaxValue)]
-        public void NextDouble_ShoulReturn_ValidResults(double min, double max)
+        public void NextDouble_ValidArguments_ShoulReturnValidResults(double min, double max)
         {
             var random = new Random();
             var result = random.NextDouble(min, max);
@@ -78,12 +78,11 @@
             Assert.Equal(double.NaN, result);
         }
 
-        [Theory]
-        [InlineData(MinValue, double.PositiveInfinity)]
-        public void NextDouble_PositiveInfinity_ShoulReturn_PositiveInfinity(double min, double max)
+        [Fact]
+        public void NextDouble_PositiveInfinityAsMaxValue_ShoulReturnPositiveInfinity()
         {
             var random = new Random();
-            var result = random.NextDouble(min, max);
+            var result = random.NextDouble(MinValue, double.PositiveInfinity);
 
             Assert.Equal(double.PositiveInfinity, result);
         }
