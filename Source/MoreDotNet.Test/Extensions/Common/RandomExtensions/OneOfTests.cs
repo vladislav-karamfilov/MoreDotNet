@@ -9,7 +9,7 @@
 
     public class OneOfTests
     {
-        private int[] numbersArray = new[] { 1, 2, 3, 4, 5, 6 };
+        private int[] numbersArray = { 1, 2, 3, 4, 5, 6 };
 
         [Fact]
         public void OneOf_RandomNull_ShouldHThrow_ArgumentNullException()
