@@ -10,8 +10,8 @@
     public class NextTimeSpanTests
     {
         private const int Counter = 1000;
-        private TimeSpan minTimeSpan = new TimeSpan(0, 0, 0, 0, 1);
-        private TimeSpan maxTimeSpan = new TimeSpan(1000, 59, 59, 59);
+        private readonly TimeSpan minTimeSpan = new TimeSpan(0, 0, 0, 0, 1);
+        private readonly TimeSpan maxTimeSpan = new TimeSpan(1000, 59, 59, 59);
 
         [Fact]
         public void NextTimeSpan_NullInit_ShouldThow_ArgumentNullException()

@@ -4,9 +4,8 @@
     using System.Linq;
 
     using MoreDotNet.Extensions.Common;
-    using MoreDotNet.Wrappers;
     using MoreDotNet.Models;
-
+    using MoreDotNet.Wrappers;
     using Xunit;
 
     public class NextStringTests
@@ -90,8 +89,8 @@
 
             Assert.True(check);
         }
-        
-        [Fact(Skip = "Need further investigation")]
+
+        [Fact(Skip = "//TODO: Needs further investigation")]
         public void NextString_LenghtMaxAllowedValue_ShouldThrowOutOfMemoryException()
         {
             var random = new Random();
