@@ -314,12 +314,17 @@
                 throw new ArgumentNullException(nameof(random));
             }
 
+            char alphabeticChar;
             if (uppercase)
             {
-                return (char)random.Next(65, 91);
+                alphabeticChar = (char)random.Next(65, 91);
+
+                return alphabeticChar;
             }
 
-            return (char)random.Next(97, 123);
+            alphabeticChar = (char)random.Next(97, 123);
+
+            return alphabeticChar;
         }
 
         private static char NextAlphabeticChar(this Random random)
