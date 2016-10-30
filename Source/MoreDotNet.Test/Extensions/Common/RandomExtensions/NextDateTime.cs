@@ -30,7 +30,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         }
 
         [Fact]
-        public void NextDateTime_ShouldReturnDateTime_99PercentOfTimes()
+        public void NextDateTime_ShouldReturnDateTime_DistinctValues99PercentOfTimes()
         {
             var random = new Random();
             var dates = new HashSet<DateTime>();
