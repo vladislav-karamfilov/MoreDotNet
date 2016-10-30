@@ -9,9 +9,9 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
 
     public class NextDateTime
     {
-        private const int Counter = 1000;
-        private DateTime minDate = new DateTime(1999, 10, 31);
-        private DateTime maxDate = new DateTime(2019, 10, 31);
+        private const int NumberOfTests = 1000;
+        private readonly DateTime minDate = new DateTime(1999, 10, 31);
+        private readonly DateTime maxDate = new DateTime(2019, 10, 31);
 
         [Fact]
         public void NextDateTime_RandomIsNull_ShouldThrow_ArgumentNullException()
@@ -22,31 +22,31 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         }
 
         [Fact]
-        public void NextDateTime_MinValueIsGreaterThanMaxValue_ShouldThrow_ArgumentException()
+        public void NextDateTime_MinValueIsGreaterThanMaxValue_ShouldThrowArgumentException()
         {
-            Random random = new Random();
+            var random = new Random();
 
             Assert.Throws<ArgumentException>(() => random.NextDateTime(this.maxDate, this.minDate));
         }
 
         [Fact]
-        public void NextDateTime_ShouldReturnDateTime_DistinctValues99PercentOfTimes()
+        public void NextDateTime_ValidArguments_ShouldReturnDistinctValues99PercentOfTimes()
         {
             var random = new Random();
             var dates = new HashSet<DateTime>();
-            for (int i = 0; i < Counter; i++)
+            for (int i = 0; i < NumberOfTests; i++)
             {
                 dates.Add(random.NextDateTime());
             }
 
-            Assert.True(dates.Count() >= (Counter * 99 / 100));
+            Assert.True(dates.Count() >= (NumberOfTests * 99 / 100));
         }
 
         [Fact]
-        public void NextDateTime_ShouldReturnDateTime_BetweenMinAndMaxValue()
+        public void NextDateTime_ValidArguments_ShouldReturnResultBetweenMinAndMaxValue()
         {
             var random = new Random();
-            for (int i = 0; i < Counter; i++)
+            for (int i = 0; i < NumberOfTests; i++)
             {
                 var result = random.NextDateTime(this.minDate, this.maxDate);
 
