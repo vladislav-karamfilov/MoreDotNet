@@ -52,6 +52,6 @@
 
                 Assert.True(result >= this.minTimeSpan && result < this.maxTimeSpan);
             }
-        }        
+        }
     }
 }

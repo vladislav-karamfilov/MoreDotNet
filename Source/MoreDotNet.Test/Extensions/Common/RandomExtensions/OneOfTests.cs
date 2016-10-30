@@ -10,24 +10,31 @@
 
     public class OneOfTests
     {
-        [Fact]
-        public void OneOf_ShouldReturnOneOfIntArray()
-        {
-            var random = new Random();
-            var numbers = new[] { 1, 2, 3, 4, 5, 6 };
-            var number = random.OneOf<int>(numbers);
+        private int[] numbersArr = new[] { 1, 2, 3, 4, 5, 6 };
 
-            Assert.True(numbers.Contains(number));
+        [Fact]
+        public void OneOf_RandomNull_ShouldHThrow_NullReferenceException()
+        {
+            Random random = null;
+
+            Assert.Throws<NullReferenceException>(() => random.OneOf<int>(this.numbersArr));
         }
 
         [Fact]
-        public void OneOf_ShouldReturnOneOfIntCollection()
+        public void OneOf_NullCollection_ShouldHThrow_NullReferenceException()
+        {
+            Random random = new Random();
+
+            Assert.Throws<NullReferenceException>(() => random.OneOf<int>(null));
+        }
+
+        [Fact]
+        public void OneOf_ShouldReturn_OneOfIntArray()
         {
             var random = new Random();
-            var numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
-            var number = random.OneOf<int>(numbers);
+            var number = random.OneOf<int>(this.numbersArr);
 
-            Assert.True(numbers.Contains(number));
+            Assert.True(this.numbersArr.Contains(number));
         }
     }
 }
