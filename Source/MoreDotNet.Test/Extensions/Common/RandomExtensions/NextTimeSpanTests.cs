@@ -9,7 +9,7 @@
 
     public class NextTimeSpanTests
     {
-        private const int Counter = 1000;
+        private const int NumberOfTests = 1000;
         private readonly TimeSpan minTimeSpan = new TimeSpan(0, 0, 0, 0, 1);
         private readonly TimeSpan maxTimeSpan = new TimeSpan(1000, 59, 59, 59);
 
@@ -34,19 +34,19 @@
         {
             var random = new Random();
             var dates = new HashSet<TimeSpan>();
-            for (int i = 0; i < Counter; i++)
+            for (int i = 0; i < NumberOfTests; i++)
             {
                 dates.Add(random.NextTimeSpan());
             }
 
-            Assert.True(dates.Count() >= (Counter * 99 / 100));
+            Assert.True(dates.Count() >= (NumberOfTests * 99 / 100));
         }
 
         [Fact]
         public void NextTimeSpan_ShouldReturn_TimeSpan()
         {
             var random = new Random();
-            for (int i = 0; i < Counter; i++)
+            for (int i = 0; i < NumberOfTests; i++)
             {
                 var result = random.NextTimeSpan(this.minTimeSpan, this.maxTimeSpan);
 
