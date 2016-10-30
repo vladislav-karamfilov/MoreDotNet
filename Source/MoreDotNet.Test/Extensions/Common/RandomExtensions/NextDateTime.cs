@@ -11,7 +11,7 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
     {
         private const int Counter = 1000;
         private DateTime minDate = new DateTime(1999, 10, 31);
-        private DateTime maxDate = new DateTime(1999, 10, 31);
+        private DateTime maxDate = new DateTime(2019, 10, 31);
 
         [Fact]
         public void NextDateTime_RandomIsNull_ShouldThrow_ArgumentNullException()

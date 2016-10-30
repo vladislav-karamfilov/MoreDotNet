@@ -8,6 +8,8 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
 
     public class NextBoolTests
     {
+        private const int Counter = 10;
+
         [Fact]
         public void NextBool_ShouldHThrow_NullReferenceException()
         {
@@ -26,20 +28,25 @@ namespace MoreDotNet.Tests.Extensions.Common.RandomExtensions
         }
 
         [Fact]
-        public void NextBool_ShouldReturnTrue_MoreThanOrEqualTo50Times()
+        public void NextBool_ShouldReturn_TrueOrFalse_AtLeastOnce()
         {
             var random = new Random();
             int returnedTrueAsResult = 0;
-            int count = 1000;
-            for (int i = 0; i < count; i++)
+            int returnedFalseAsResult = 0;
+            for (int i = 0; i < Counter; i++)
             {
                 if (random.NextBool())
                 {
                     returnedTrueAsResult++;
                 }
+                else
+                {
+                    returnedFalseAsResult++;
+                }
             }
 
-            Assert.True(returnedTrueAsResult >= count / 2);
+            Assert.True(returnedTrueAsResult > 0);
+            Assert.True(returnedFalseAsResult > 0);
         }
 
         [Fact]

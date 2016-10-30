@@ -78,9 +78,7 @@
                 throw new ArgumentNullException(nameof(random));
             }
 
-            var nextBool = random.NextDouble() <= probability;
-
-            return nextBool;
+            return random.NextDouble() <= probability;
         }
 
         /// <summary>
@@ -303,14 +301,10 @@
 
             if (numeric)
             {
-                var number = random.NextNumericChar();
-
-                return number;
+                return random.NextNumericChar();
             }
 
-            var aphabeticChar = random.NextAlphabeticChar(random.NextBool());
-
-            return aphabeticChar;
+            return random.NextAlphabeticChar(random.NextBool());
         }
 
         private static char NextAlphabeticChar(this Random random, bool uppercase)

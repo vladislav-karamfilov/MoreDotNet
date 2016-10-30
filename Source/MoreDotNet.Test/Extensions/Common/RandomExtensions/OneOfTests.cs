@@ -13,19 +13,19 @@
         private int[] numbersArr = new[] { 1, 2, 3, 4, 5, 6 };
 
         [Fact]
-        public void OneOf_RandomNull_ShouldHThrow_NullReferenceException()
+        public void OneOf_RandomNull_ShouldHThrow_ArgumentNullException()
         {
             Random random = null;
 
-            Assert.Throws<NullReferenceException>(() => random.OneOf<int>(this.numbersArr));
+            Assert.Throws<ArgumentNullException>(() => random.OneOf<int>(this.numbersArr));
         }
 
         [Fact]
-        public void OneOf_NullCollection_ShouldHThrow_NullReferenceException()
+        public void OneOf_NullCollection_ShouldHThrow_ArgumentNullException()
         {
             Random random = new Random();
 
-            Assert.Throws<NullReferenceException>(() => random.OneOf<int>(null));
+            Assert.Throws<ArgumentNullException>(() => random.OneOf<int>(null));
         }
 
         [Fact]
