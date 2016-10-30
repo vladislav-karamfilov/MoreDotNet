@@ -5,16 +5,17 @@
 
     using MoreDotNet.Extensions.Common;
     using MoreDotNet.Wrappers;
+    using MoreDotNet.Models;
+
     using Xunit;
 
     public class NextStringTests
     {
-        private const int Zero = 0;
         private const int StringLength = 100;
         private const int StringLengthLarge = 1000;
 
         [Fact]
-        public void NextString_RandomIsNull_ShouldThrow_ArgumentNullException()
+        public void NextString_RandomIsNull_ShouldThrowArgumentNullException()
         {
             Random random = null;
 
@@ -22,7 +23,7 @@
         }
 
         [Fact]
-        public void NextString_ShouldReturn_ExpectedLenght()
+        public void NextString_ValidArgument_ShouldReturnExpectedLenght()
         {
             var random = new Random();
             var result = random.NextString(StringLength);
@@ -31,90 +32,78 @@
         }
 
         [Fact]
-        public void NextString_ShouldReturnString_OfAlphabeticChars()
+        public void NextString_ValidArguments_ShouldReturnStringOfAlphabeticChars()
         {
             var random = new Random();
-            var result = random.NextString(StringLength, MoreDotNet.Models.CharType.AlphabeticAny);
+            var result = random.NextString(StringLength, CharType.AlphabeticAny);
             var check = result.Select(x => x.IsLetter()).All(x => x);
 
             Assert.True(check);
         }
 
         [Fact]
-        public void NextString_ShouldReturnString_OfAlphabeticLowerChars()
+        public void NextString_ValidArguments_ShouldReturnStringOfAlphabeticLowerChars()
         {
             var random = new Random();
-            var result = random.NextString(StringLength, MoreDotNet.Models.CharType.AlphabeticLower);
+            var result = random.NextString(StringLength, CharType.AlphabeticLower);
             var check = result.Select(x => x.IsLower()).All(x => x);
 
             Assert.True(check);
         }
 
         [Fact]
-        public void NextString_ShouldReturnString_OfAlphabeticUpperChars()
+        public void NextString_ValidArguments_ShouldReturnStringOfAlphabeticUpperChars()
         {
             var random = new Random();
-            var result = random.NextString(StringLength, MoreDotNet.Models.CharType.AlphabeticUpper);
+            var result = random.NextString(StringLength, CharType.AlphabeticUpper);
             var check = result.Select(x => x.IsUpper()).All(x => x);
 
             Assert.True(check);
         }
 
         [Fact]
-        public void NextString_ShouldReturnString_OfAlphanumericChars()
+        public void NextString_ValidArguments_ShouldReturnStringOfAlphanumericChars()
         {
             var random = new Random();
-            var result = random.NextString(StringLength, MoreDotNet.Models.CharType.AlphanumericAny);
+            var result = random.NextString(StringLength, CharType.AlphanumericAny);
             var check = result.Select(x => x.IsLetterOrDigit()).All(x => x);
 
             Assert.True(check);
         }
 
         [Fact]
-        public void NextString_ShouldReturnString_OfAlphanumericLowerChars()
+        public void NextString_ValidArguments_ShouldReturnStringOfAlphanumericLowerChars()
         {
             var random = new Random();
-            var result = random.NextString(StringLength, MoreDotNet.Models.CharType.AlphanumericLower);
-            var check = result.Select(x => this.IsAlphanumericLowerChar(x)).All(x => x);
+            var result = random.NextString(StringLength, CharType.AlphanumericLower);
+            var check = result.Select(this.IsAlphanumericLowerChar).All(x => x);
 
             Assert.True(check);
         }
 
         [Fact]
-        public void NextString_ShouldReturnString_OfAlphanumericUpperChars()
+        public void NextString_ValidArguments_ShouldReturnStringOfAlphanumericUpperChars()
         {
             var random = new Random();
-            var result = random.NextString(StringLength, MoreDotNet.Models.CharType.AlphanumericUpper);
-            var check = result.Select(x => this.IsAlphanumericUpperChar(x)).All(x => x);
+            var result = random.NextString(StringLength, CharType.AlphanumericUpper);
+            var check = result.Select(this.IsAlphanumericUpperChar).All(x => x);
 
             Assert.True(check);
         }
-
-        [Fact]
-        public void NextString_ShouldReturnString_OfAnyUnicodeChars()
+        
+        [Fact(Skip = "Need further investigation")]
+        public void NextString_LenghtMaxAllowedValue_ShouldThrowOutOfMemoryException()
         {
             var random = new Random();
-            var result = random.NextString(StringLengthLarge, MoreDotNet.Models.CharType.AnyUnicode);
-            var check = result.Select(x => x.GetType() == typeof(char)).All(x => x);
 
-            Assert.True(check);
+            Assert.Throws<OutOfMemoryException>(() => random.NextString(int.MaxValue, CharType.AnyUnicode));
         }
 
         [Fact]
-        public void NextString_ShouldThrow_OutOfMemoryException()
+        public void NextString_ValidArguments_ShouldReturnStringOfNumericChars()
         {
             var random = new Random();
-            Assert.Throws<OutOfMemoryException>(() => random.NextString(int.MaxValue, MoreDotNet.Models.CharType.AnyUnicode));
-            //var check = result.Select(x => x.GetType() == typeof(char)).All(x => x);
-
-            //Assert.True(check);
-        }
-
-        [Fact]
-        public void NextString_ShouldReturnString_OfNumericChars()
-        {
-            var random = new Random();
-            var result = random.NextString(StringLength, MoreDotNet.Models.CharType.Numeric);
+            var result = random.NextString(StringLength, CharType.Numeric);
             var check = result.Select(x => x.IsNumber()).All(x => x);
 
             Assert.True(check);
