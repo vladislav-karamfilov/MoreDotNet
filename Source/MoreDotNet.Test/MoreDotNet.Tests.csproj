@@ -113,6 +113,7 @@
     <Compile Include="Extensions\Collections\EnumerableExtensions\IsNullOrEmptyTests.cs" />
     <Compile Include="Extensions\Collections\EnumerableExtensions\ShuffleTests.cs" />
     <Compile Include="Extensions\Collections\EnumerableExtensions\ToStringTests.cs" />
+    <Compile Include="Extensions\Collections\ListExtensions\BinarySearchTests.cs" />
     <Compile Include="Extensions\Common\BooleanExtensions\WhenFalseTests.cs" />
     <Compile Include="Extensions\Common\BooleanExtensions\WhenTrueTests.cs" />
     <Compile Include="Extensions\Collections\CollectionExtensions\AddRangeTests.cs" />
@@ -183,6 +184,7 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
