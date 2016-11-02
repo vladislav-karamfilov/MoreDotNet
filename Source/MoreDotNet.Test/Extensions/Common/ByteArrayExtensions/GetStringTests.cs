@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
@@ -29,8 +31,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_UTF8_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", Encoding.UTF8);
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(Encoding.UTF8, "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -39,8 +40,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_Unicode_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", Encoding.Unicode);
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(Encoding.Unicode, "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -49,8 +49,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_BigEndianUnicode_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", Encoding.BigEndianUnicode);
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(Encoding.BigEndianUnicode, "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -59,8 +58,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_UTF32_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", Encoding.UTF32);
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(Encoding.UTF32, "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -69,8 +67,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_UTF32BigEndian_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", new UTF32Encoding(true, true));
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(new UTF32Encoding(true, true), "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -79,8 +76,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_UTF7_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", Encoding.UTF7);
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(Encoding.UTF7, "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -89,8 +85,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_ANSI_Specified_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", Encoding.Default);
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(Encoding.Default, "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -99,8 +94,7 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_NoEncodingSpecified_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net");
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = new byte[] { 77, 111, 114, 101, 32, 68, 111, 116, 32, 78, 101, 116 };
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
@@ -109,11 +103,12 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
         [Fact]
         public void GetString_ASCII_ShouldReturnProperString()
         {
-            File.WriteAllText("temp.txt", "More Dot Net", Encoding.ASCII);
-            var buffer = File.ReadAllBytes("temp.txt");
+            var buffer = GetBytesWithPreamble(Encoding.ASCII, "More Dot Net");
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
         }
+
+        private static byte[] GetBytesWithPreamble(Encoding encoding, string data) => encoding.GetPreamble().Concat(encoding.GetBytes(data)).ToArray();
     }
 }
