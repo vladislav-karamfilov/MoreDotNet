@@ -18,7 +18,8 @@
 
         [Theory]
         [InlineData(5, 1, PlatformID.Win32NT)]
-        [InlineData(15, 11, PlatformID.Win32NT)]
+        [InlineData(5, 2, PlatformID.Win32NT)]
+        [InlineData(6, 0, PlatformID.Win32NT)]
         public void IsWinXpOrHigher_CorrectWinXpSetup_ShouldReturnTrue(int major, int minor, PlatformID platformId)
         {
             var version = new Version(major, minor);
@@ -29,7 +30,7 @@
 
         [Theory]
         [InlineData(5, 0, PlatformID.Win32NT)]
-        [InlineData(4, 1, PlatformID.Win32NT)]
+        [InlineData(4, 9, PlatformID.Win32NT)]
         [InlineData(5, 1, PlatformID.Win32Windows)]
         public void IsWinXpOrHigher_IncorrectWinXpSetup_ShouldReturnFalse(int major, int minor, PlatformID platformId)
         {

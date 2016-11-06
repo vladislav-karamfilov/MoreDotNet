@@ -18,7 +18,7 @@
 
         [Theory]
         [InlineData(6, 2, PlatformID.Win32NT)]
-        [InlineData(16, 11, PlatformID.Win32NT)]
+        [InlineData(6, 3, PlatformID.Win32NT)]
         public void IsWin8OrHigher_CorrectWin8Setup_ShouldReturnTrue(int major, int minor, PlatformID platformId)
         {
             var version = new Version(major, minor);
