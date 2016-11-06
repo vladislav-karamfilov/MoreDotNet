@@ -133,6 +133,10 @@
     <Compile Include="Extensions\Common\ObjectExtensions\IsNotTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\ToDictionaryTests.cs" />
     <Compile Include="Extensions\Common\ObjectExtensions\IsTests.cs" />
+    <Compile Include="Extensions\Common\OperatingSystemExtensions\IsWin7OrHigherTests.cs" />
+    <Compile Include="Extensions\Common\OperatingSystemExtensions\IsWin8OrHigherTests.cs" />
+    <Compile Include="Extensions\Common\OperatingSystemExtensions\IsWinVistaOrHigherTests.cs" />
+    <Compile Include="Extensions\Common\OperatingSystemExtensions\IsWinXpOrHigherTests.cs" />
     <Compile Include="Extensions\Common\StreamExtensions\ToByteArrayTests.cs" />
     <Compile Include="Extensions\Common\StreamExtensions\ToStreamTests.cs" />
     <Compile Include="Extensions\Common\RandomExtensions\NextBoolTests.cs" />
