@@ -1,7 +1,9 @@
 ﻿namespace MoreDotNet.Tests.Extensions.Common.OperatingSystemExtensions
 {
     using System;
+
     using MoreDotNet.Extensions.Common;
+
     using Xunit;
 
     public class IsWin7OrHigherTests

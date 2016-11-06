@@ -3,24 +3,11 @@
     using System;
 
     using MoreDotNet.Extensions.Common;
+
     using Xunit;
 
     public class IsWin8OrHigherTests
     {
-        [Fact]
-        public void IsWin8OrHigher_VersionIsNull_ShouldThrowArgumentNullException()
-        {
-            Assert.Throws<ArgumentNullException>(() => new OperatingSystem(PlatformID.Win32NT, null));
-        }
-
-        [Theory]
-        [InlineData(-10, 5)]
-        [InlineData(10, -5)]
-        public void IsWin8OrHigher_IncorrectWin8Setup_ThrowsArugmentOutOfRange(int major, int minor)
-        {
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Version(major, minor));
-        }
-
         [Fact]
         public void IsWin8OrHigher_OperatingSystemIsNull_ShouldThrowArgumentNullException()
         {

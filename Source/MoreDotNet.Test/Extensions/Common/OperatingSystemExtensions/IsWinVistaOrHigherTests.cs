@@ -3,6 +3,7 @@
     using System;
 
     using MoreDotNet.Extensions.Common;
+
     using Xunit;
 
     public class IsWinVistaOrHigherTests
