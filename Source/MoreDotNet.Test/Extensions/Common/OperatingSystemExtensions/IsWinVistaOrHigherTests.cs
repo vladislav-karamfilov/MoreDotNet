@@ -19,6 +19,7 @@
         [Theory]
         [InlineData(6, 0, PlatformID.Win32NT)]
         [InlineData(6, 1, PlatformID.Win32NT)]
+        [InlineData(10, 0, PlatformID.Win32NT)]
         public void IsWinVistaOrHigher_CorrectWinVistaSetup_ShouldReturnTrue(int major, int minor, PlatformID platformId)
         {
             var version = new Version(major, minor);
@@ -28,8 +29,9 @@
         }
 
         [Theory]
-        [InlineData(5, 1, PlatformID.Win32NT)]
-        [InlineData(6, 0, PlatformID.Win32S)]
+        [InlineData(5, 2, PlatformID.Win32NT)]
+        [InlineData(4, 0, PlatformID.Win32NT)]
+        [InlineData(3, 5, PlatformID.Win32NT)]
         public void IsWinVistaOrHigher_IncorrectWinVistaSetup_ShouldReturnFalse(int major, int minor, PlatformID platformId)
         {
             var version = new Version(major, minor);
