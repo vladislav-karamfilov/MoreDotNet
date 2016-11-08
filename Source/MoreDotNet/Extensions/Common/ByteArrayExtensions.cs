@@ -33,17 +33,23 @@
             {
                 encoding = Encoding.UTF8;
             }
-            else if (buffer[0] == 0xfe && buffer[1] == 0xff)
+
+            // In addition to preamble check the length to help UTF-16 with leading zeros be recognized properly as UTF-32 is always 4 bytes fixed width and UTF-16 could be 2 or 4
+            else if (buffer[0] == 0xff && buffer[1] == 0xfe && buffer[2] == 0 && buffer[3] == 0 && buffer.Length % 4 == 0)
+            {
+                encoding = Encoding.UTF32;
+            }
+            else if (buffer[0] == 0 && buffer[1] == 0 && buffer[2] == 0xfe && buffer[3] == 0xff)
+            {
+                encoding = new UTF32Encoding(true, true);
+            }
+            else if (buffer[0] == 0xff && buffer[1] == 0xfe)
             {
                 encoding = Encoding.Unicode;
             }
             else if (buffer[0] == 0xfe && buffer[1] == 0xff)
             {
                 encoding = Encoding.BigEndianUnicode; // utf-16be
-            }
-            else if (buffer[0] == 0 && buffer[1] == 0 && buffer[2] == 0xfe && buffer[3] == 0xff)
-            {
-                encoding = Encoding.UTF32;
             }
             else if (buffer[0] == 0x2b && buffer[1] == 0x2f && buffer[2] == 0x76)
             {

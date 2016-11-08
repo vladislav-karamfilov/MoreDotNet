@@ -118,6 +118,7 @@
     <Compile Include="Extensions\Common\BooleanExtensions\WhenTrueTests.cs" />
     <Compile Include="Extensions\Collections\CollectionExtensions\AddRangeTests.cs" />
     <Compile Include="Extensions\Collections\CollectionExtensions\IsNullOrEmptyTests.cs" />
+    <Compile Include="Extensions\Common\ByteArrayExtensions\GetStringTests.cs" />
     <Compile Include="Extensions\Common\ColorExtensions\ToHexStringTests.cs" />
     <Compile Include="Extensions\Common\ColorExtensions\ToRgbStringTests.cs" />
     <Compile Include="Extensions\Common\ConvertibleExtensions\ToOrDefaultTests.cs" />
