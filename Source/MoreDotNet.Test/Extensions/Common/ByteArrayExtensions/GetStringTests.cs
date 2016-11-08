@@ -1,10 +1,7 @@
-﻿using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-
-namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
+﻿namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
 {
+    using System.Linq;
+    using System.Text;
     using MoreDotNet.Extensions.Common;
     using Xunit;
 
@@ -98,6 +95,15 @@ namespace MoreDotNet.Tests.Extensions.Common.ByteArrayExtensions
             var result = buffer.GetString();
 
             Assert.Equal(result, "More Dot Net");
+        }
+
+        [Fact]
+        public void GetString_UTF16WithLeadingZeros_ShouldReturnProperString()
+        {
+            var buffer = new byte[] { 0xff, 0xfe, 0, 0, 77, 0, 111, 0, 97, 0, 114, 0, 101, 0, 32, 0, 68, 0, 111, 0, 116, 0, 32, 0, 78, 0, 101, 0, 116, 0 };
+            var result = buffer.GetString();
+
+            Assert.Equal(result, "\0Moare Dot Net");
         }
 
         [Fact]
