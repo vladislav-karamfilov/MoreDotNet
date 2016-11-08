@@ -34,7 +34,7 @@
                 encoding = Encoding.UTF8;
             }
 
-            // In addition to preamble check the length to help UTF16 with leading zeros be recognized properly as UTF32 is 4 bytes fixed with and UTF 16 is 2
+            // In addition to preamble check the length to help UTF-16 with leading zeros be recognized properly as UTF-32 is always 4 bytes fixed width and UTF-16 could be 2 or 4
             else if (buffer[0] == 0xff && buffer[1] == 0xfe && buffer[2] == 0 && buffer[3] == 0 && buffer.Length % 4 == 0)
             {
                 encoding = Encoding.UTF32;
