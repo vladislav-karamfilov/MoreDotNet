@@ -231,4 +231,4 @@ This package has MIT license. Refer to the [LICENSE](https://github.com/Teodor92
 
 ## Any questions, comments or additions?
 
-If you have a feature request or bug report, leave an issue on the [issues page](https://github.com/Teodor92/MoreDotNet/issues) or send a [pull request](https://github.com/Teodor92/MoreDotNet/pulls). For general questions and comments, use the [StackOverflow](http://stackoverflow.com/) forum.
+If you have a feature request or bug report, leave an issue on the [issues page](https://github.com/Teodor92/MoreDotNet/issues) or send a [pull request](https://github.com/Teodor92/MoreDotNet/pulls). For general questions or comments, use the [StackOverflow](http://stackoverflow.com/) forum.
