@@ -11,9 +11,9 @@ environment:
   COVERALLS_REPO_TOKEN:
        secure: h0CL0d02rQ0lXPrpXJ4XeJfgpcvHAbjyry+FK1x+atkOeSjUOCUJVKwIUBjPSK6s
 before_build:
-  - nuget restore ".\Source\MoreDotNet.sln"
+  - nuget restore ".\MoreDotNet.sln"
 build:
-  project: .\Source\MoreDotNet.sln
+  project: .\MoreDotNet.sln
   verbosity: minimal
 # test_script:
 # - ps: >-
